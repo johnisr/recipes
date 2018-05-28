@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 
-const User = mongoose.model('users');
+const User = mongoose.model('User');
+const Recipe = mongoose.model('Recipe');
 
 // Make a new user_id in mongodb and return it
 const createUser = () => new User({}).save();
 
-const deleteUser = id => {
-  User.findByIdAndRemove(id, () => {});
+const deleteUser = async id => {
+  await Promise.all([
+    User.findByIdAndRemove(id).exec(),
+    Recipe.deleteMany({ _user: { _id: id } }).exec(),
+  ]);
 };
 
 module.exports = {

@@ -22,6 +22,13 @@ ShallowWrapper {
       "children": <div
         className="nav-wrapper"
 >
+        <Link
+                className="left brand-logo"
+                replace={false}
+                to="/"
+        >
+                Home
+        </Link>
         <ul
                 className="right"
         >
@@ -41,96 +48,15 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <ul
-          className="right"
+        "children": Array [
+          <Link
+            className="left brand-logo"
+            replace={false}
+            to="/"
 >
-          <li>
-                    <a
-                              href="/auth/google"
-                    >
-                              Login With Google
-                    </a>
-          </li>
-</ul>,
-        "className": "nav-wrapper",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <li>
-            <a
-                        href="/auth/google"
-            >
-                        Login With Google
-            </a>
-</li>,
-          "className": "right",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <a
-              href="/auth/google"
->
-              Login With Google
-</a>,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Login With Google",
-              "href": "/auth/google",
-            },
-            "ref": null,
-            "rendered": "Login With Google",
-            "type": "a",
-          },
-          "type": "li",
-        },
-        "type": "ul",
-      },
-      "type": "div",
-    },
-    "type": "nav",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="nav-wrapper"
->
+            Home
+</Link>,
           <ul
-                    className="right"
-          >
-                    <li>
-                              <a
-                                        href="/auth/google"
-                              >
-                                        Login With Google
-                              </a>
-                    </li>
-          </ul>
-</div>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <ul
             className="right"
 >
             <li>
@@ -141,10 +67,26 @@ ShallowWrapper {
                         </a>
             </li>
 </ul>,
-          "className": "nav-wrapper",
+        ],
+        "className": "nav-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Home",
+            "className": "left brand-logo",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Home",
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": Object {
+        Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
@@ -187,6 +129,128 @@ ShallowWrapper {
           },
           "type": "ul",
         },
+      ],
+      "type": "div",
+    },
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="nav-wrapper"
+>
+          <Link
+                    className="left brand-logo"
+                    replace={false}
+                    to="/"
+          >
+                    Home
+          </Link>
+          <ul
+                    className="right"
+          >
+                    <li>
+                              <a
+                                        href="/auth/google"
+                              >
+                                        Login With Google
+                              </a>
+                    </li>
+          </ul>
+</div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Link
+              className="left brand-logo"
+              replace={false}
+              to="/"
+>
+              Home
+</Link>,
+            <ul
+              className="right"
+>
+              <li>
+                            <a
+                                          href="/auth/google"
+                            >
+                                          Login With Google
+                            </a>
+              </li>
+</ul>,
+          ],
+          "className": "nav-wrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Home",
+              "className": "left brand-logo",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <li>
+                <a
+                                href="/auth/google"
+                >
+                                Login With Google
+                </a>
+</li>,
+              "className": "right",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <a
+                  href="/auth/google"
+>
+                  Login With Google
+</a>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Login With Google",
+                  "href": "/auth/google",
+                },
+                "ref": null,
+                "rendered": "Login With Google",
+                "type": "a",
+              },
+              "type": "li",
+            },
+            "type": "ul",
+          },
+        ],
         "type": "div",
       },
       "type": "nav",
@@ -224,6 +288,13 @@ ShallowWrapper {
       "children": <div
         className="nav-wrapper"
 >
+        <Link
+                className="left brand-logo"
+                replace={false}
+                to="/dashboard"
+        >
+                Home
+        </Link>
         <ul
                 className="right"
         >
@@ -243,100 +314,15 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <ul
-          className="right"
+        "children": Array [
+          <Link
+            className="left brand-logo"
+            replace={false}
+            to="/dashboard"
 >
-          <li>
-                    <a
-                              href="/auth/logout"
-                    >
-                              Logout
-                    </a>
-          </li>
-</ul>,
-        "className": "nav-wrapper",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <li>
-              <a
-                            href="/auth/logout"
-              >
-                            Logout
-              </a>
-</li>,
-          ],
-          "className": "right",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "host",
-            "props": Object {
-              "children": <a
-                href="/auth/logout"
->
-                Logout
-</a>,
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Logout",
-                "href": "/auth/logout",
-              },
-              "ref": null,
-              "rendered": "Logout",
-              "type": "a",
-            },
-            "type": "li",
-          },
-        ],
-        "type": "ul",
-      },
-      "type": "div",
-    },
-    "type": "nav",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="nav-wrapper"
->
+            Home
+</Link>,
           <ul
-                    className="right"
-          >
-                    <li>
-                              <a
-                                        href="/auth/logout"
-                              >
-                                        Logout
-                              </a>
-                    </li>
-          </ul>
-</div>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <ul
             className="right"
 >
             <li>
@@ -347,10 +333,26 @@ ShallowWrapper {
                         </a>
             </li>
 </ul>,
-          "className": "nav-wrapper",
+        ],
+        "className": "nav-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Home",
+            "className": "left brand-logo",
+            "replace": false,
+            "to": "/dashboard",
+          },
+          "ref": null,
+          "rendered": "Home",
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": Object {
+        Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
@@ -397,6 +399,132 @@ ShallowWrapper {
           ],
           "type": "ul",
         },
+      ],
+      "type": "div",
+    },
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="nav-wrapper"
+>
+          <Link
+                    className="left brand-logo"
+                    replace={false}
+                    to="/dashboard"
+          >
+                    Home
+          </Link>
+          <ul
+                    className="right"
+          >
+                    <li>
+                              <a
+                                        href="/auth/logout"
+                              >
+                                        Logout
+                              </a>
+                    </li>
+          </ul>
+</div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Link
+              className="left brand-logo"
+              replace={false}
+              to="/dashboard"
+>
+              Home
+</Link>,
+            <ul
+              className="right"
+>
+              <li>
+                            <a
+                                          href="/auth/logout"
+                            >
+                                          Logout
+                            </a>
+              </li>
+</ul>,
+          ],
+          "className": "nav-wrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Home",
+              "className": "left brand-logo",
+              "replace": false,
+              "to": "/dashboard",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li>
+                  <a
+                                    href="/auth/logout"
+                  >
+                                    Logout
+                  </a>
+</li>,
+              ],
+              "className": "right",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <a
+                    href="/auth/logout"
+>
+                    Logout
+</a>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Logout",
+                    "href": "/auth/logout",
+                  },
+                  "ref": null,
+                  "rendered": "Logout",
+                  "type": "a",
+                },
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+        ],
         "type": "div",
       },
       "type": "nav",
@@ -434,6 +562,13 @@ ShallowWrapper {
       "children": <div
         className="nav-wrapper"
 >
+        <Link
+                className="left brand-logo"
+                replace={false}
+                to="/"
+        >
+                Home
+        </Link>
         <ul
                 className="right"
         />
@@ -445,24 +580,49 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <ul
-          className="right"
+        "children": Array [
+          <Link
+            className="left brand-logo"
+            replace={false}
+            to="/"
+>
+            Home
+</Link>,
+          <ul
+            className="right"
 />,
+        ],
         "className": "nav-wrapper",
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": null,
-          "className": "right",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Home",
+            "className": "left brand-logo",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Home",
+          "type": [Function],
         },
-        "ref": null,
-        "rendered": null,
-        "type": "ul",
-      },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": null,
+            "className": "right",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "ul",
+        },
+      ],
       "type": "div",
     },
     "type": "nav",
@@ -476,6 +636,13 @@ ShallowWrapper {
         "children": <div
           className="nav-wrapper"
 >
+          <Link
+                    className="left brand-logo"
+                    replace={false}
+                    to="/"
+          >
+                    Home
+          </Link>
           <ul
                     className="right"
           />
@@ -487,24 +654,49 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <ul
-            className="right"
+          "children": Array [
+            <Link
+              className="left brand-logo"
+              replace={false}
+              to="/"
+>
+              Home
+</Link>,
+            <ul
+              className="right"
 />,
+          ],
           "className": "nav-wrapper",
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": null,
-            "className": "right",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Home",
+              "className": "left brand-logo",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": null,
-          "type": "ul",
-        },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": null,
+              "className": "right",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "ul",
+          },
+        ],
         "type": "div",
       },
       "type": "nav",

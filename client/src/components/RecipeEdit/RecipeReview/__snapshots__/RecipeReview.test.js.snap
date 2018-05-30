@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <RecipeReview
+    onCancel={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="yellow white-text darken-3 btn-flat"
+          onClick={[Function]}
+>
+          Back
+</button>,
+        <button
+          className="green white-text btn-flat right"
+          onClick={[Function]}
+>
+          Submit Recipe
+          <i
+                    className="material-icons right"
+          >
+                    email
+          </i>
+</button>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Back",
+          "className": "yellow white-text darken-3 btn-flat",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Back",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Submit Recipe",
+            <i
+              className="material-icons right"
+>
+              email
+</i>,
+          ],
+          "className": "green white-text btn-flat right",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Submit Recipe",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "email",
+              "className": "material-icons right",
+            },
+            "ref": null,
+            "rendered": "email",
+            "type": "i",
+          },
+        ],
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="yellow white-text darken-3 btn-flat"
+            onClick={[Function]}
+>
+            Back
+</button>,
+          <button
+            className="green white-text btn-flat right"
+            onClick={[Function]}
+>
+            Submit Recipe
+            <i
+                        className="material-icons right"
+            >
+                        email
+            </i>
+</button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Back",
+            "className": "yellow white-text darken-3 btn-flat",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Back",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Submit Recipe",
+              <i
+                className="material-icons right"
+>
+                email
+</i>,
+            ],
+            "className": "green white-text btn-flat right",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Submit Recipe",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "email",
+                "className": "material-icons right",
+              },
+              "ref": null,
+              "rendered": "email",
+              "type": "i",
+            },
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

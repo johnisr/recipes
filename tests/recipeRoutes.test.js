@@ -156,7 +156,7 @@ describe('When Logged in', () => {
           if (err) {
             return done(err);
           }
-          expect(res.body).toEqual({});
+          expect(res.body).toMatchObject(recipes[1]);
           const recipe = await Recipe.findOne({
             // eslint-disable-next-line no-underscore-dangle
             _user: { _id: user._id },

@@ -33,9 +33,10 @@ module.exports = app => {
     });
 
     try {
-      await recipe.save();
-      res.status(200).send();
+      const body = await recipe.save();
+      res.status(200).send(body.toObject());
     } catch (err) {
+      console.log(err);
       res.status(422).send({ error: 'Improper recipe format' });
     }
   });

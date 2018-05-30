@@ -1,9 +1,11 @@
+import 'materialize-css/dist/js/materialize.min';
 import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App/App';
 import reducers from './reducers/reducers';
@@ -22,7 +24,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.querySelector('#root')
 );

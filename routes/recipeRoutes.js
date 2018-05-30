@@ -36,8 +36,18 @@ module.exports = app => {
       const body = await recipe.save();
       res.status(200).send(body.toObject());
     } catch (err) {
-      console.log(err);
       res.status(422).send({ error: 'Improper recipe format' });
+    }
+  });
+
+  app.get('/api/recipes', async (req, res) => {
+    try {
+      const recipes = await Recipe.find({ isFinal: true });
+
+      res.send(recipes);
+    } catch (err) {
+      console.log(err);
+      res.status(400).send(err);
     }
   });
 };

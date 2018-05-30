@@ -7,6 +7,41 @@ const mongoose = require('mongoose');
 
 const Recipe = mongoose.model('Recipe');
 
+// instantiate database with recipes from fixture
+let recipesArray;
+beforeAll(async () => {
+  await Recipe.remove({});
+  recipesArray = recipes.map(
+    ({
+      name,
+      summary,
+      notes,
+      cookingTime,
+      preparationTime,
+      category,
+      ingredients,
+      preparation,
+      cooking,
+    }) =>
+      new Recipe({
+        _user: mongoose.Types.ObjectId(),
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+        dateCreated: Date.now(),
+        dateModified: Date.now(),
+        isFinal: true,
+      })
+  );
+  await Recipe.insertMany(recipesArray);
+});
+
 describe('When Logged out', () => {
   test('POST /api/recipes returns a 401', done => {
     request(app)
@@ -15,6 +50,18 @@ describe('When Logged out', () => {
       .expect(401)
       .expect(res => {
         expect(res.body.error).toEqual('You must log in');
+      })
+      .end(done);
+  });
+
+  test('GET /api/recipes returns a list of recipes', async done => {
+    const recipeObj = recipesArray.map(r => JSON.parse(JSON.stringify(r)));
+    request(app)
+      .get('/api/recipes')
+      .expect(200)
+      .expect(res => {
+        expect(res.body.length).toBe(4);
+        expect(res.body).toEqual(recipeObj);
       })
       .end(done);
   });

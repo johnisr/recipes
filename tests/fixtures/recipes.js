@@ -2,7 +2,7 @@
 module.exports = [
   {
     name: "40 Cloves Chicken",
-    summary: "",
+    summary: "Baked Whole Chicken with a smooth, sweet, earthly flavor",
     notes: [],
     cookingTime: 6000000,
     preparationTime: 0,
@@ -38,7 +38,7 @@ module.exports = [
   },
   {
     name: "Beef Salpicao",
-    summary: "",
+    summary: "Savory Stir Fried Garlic Beef Tenderloin",
     notes: [
       "This recipe needs to freeze beef for 3 hours and then marinate for 30 min",
     ],
@@ -93,7 +93,7 @@ module.exports = [
   },
   {
     name: "Bibimbap",
-    summary: "",
+    summary: "Mixed rice with meat and assorted vegetables",
     notes: [],
     cookingTime: 5400000,
     preparationTime: 0,
@@ -192,7 +192,7 @@ module.exports = [
   },
   {
     name: "Tikka Masala",
-    summary: "",
+    summary: "Roasted marinated chicken in a spiced curry sauce",
     notes: ["Video: https://www.youtube.com/watch?v=lnRmIKkGCIA"],
     cookingTime: 1200000,
     preparationTime: 3600000,

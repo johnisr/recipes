@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/actions';
+import { fetchUser, getRecipes } from '../../actions/actions';
 
 import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
 import Dashboard from '../Dashboard/Dashboard';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RecipeEdit from '../RecipeEdit/RecipeEdit';
+import RecipeList from '../RecipeList/RecipeList';
 
-const RecipeList = () => <div>Recipe List</div>;
 const Recipe = () => <div>Specific Recipe</div>;
 
 export class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.getRecipes();
   }
   render() {
     const { location } = this.props;
@@ -49,6 +50,7 @@ export class App extends Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
+  getRecipes: () => dispatch(getRecipes()),
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(App));

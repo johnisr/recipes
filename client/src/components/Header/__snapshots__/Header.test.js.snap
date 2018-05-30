@@ -23,7 +23,7 @@ ShallowWrapper {
         className="nav-wrapper"
 >
         <Link
-                className="left brand-logo"
+                className="brand-logo left"
                 replace={false}
                 to="/"
         >
@@ -32,6 +32,14 @@ ShallowWrapper {
         <ul
                 className="right"
         >
+                <li>
+                        <Link
+                                replace={false}
+                                to="/recipes"
+                        >
+                                Recipes
+                        </Link>
+                </li>
                 <li>
                         <a
                                 href="/auth/google"
@@ -50,7 +58,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Link
-            className="left brand-logo"
+            className="brand-logo left"
             replace={false}
             to="/"
 >
@@ -59,6 +67,14 @@ ShallowWrapper {
           <ul
             className="right"
 >
+            <li>
+                        <Link
+                                    replace={false}
+                                    to="/recipes"
+                        >
+                                    Recipes
+                        </Link>
+            </li>
             <li>
                         <a
                                     href="/auth/google"
@@ -78,7 +94,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": "Home",
-            "className": "left brand-logo",
+            "className": "brand-logo left",
             "replace": false,
             "to": "/",
           },
@@ -91,140 +107,58 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <li>
-              <a
-                            href="/auth/google"
-              >
-                            Login With Google
-              </a>
-</li>,
-            "className": "right",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <a
-                href="/auth/google"
->
-                Login With Google
-</a>,
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Login With Google",
-                "href": "/auth/google",
-              },
-              "ref": null,
-              "rendered": "Login With Google",
-              "type": "a",
-            },
-            "type": "li",
-          },
-          "type": "ul",
-        },
-      ],
-      "type": "div",
-    },
-    "type": "nav",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <div
-          className="nav-wrapper"
->
-          <Link
-                    className="left brand-logo"
-                    replace={false}
-                    to="/"
-          >
-                    Home
-          </Link>
-          <ul
-                    className="right"
-          >
-                    <li>
-                              <a
-                                        href="/auth/google"
-                              >
-                                        Login With Google
-                              </a>
-                    </li>
-          </ul>
-</div>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <Link
-              className="left brand-logo"
-              replace={false}
-              to="/"
->
-              Home
-</Link>,
-            <ul
-              className="right"
->
+            "children": Array [
               <li>
-                            <a
-                                          href="/auth/google"
-                            >
-                                          Login With Google
-                            </a>
-              </li>
-</ul>,
-          ],
-          "className": "nav-wrapper",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": "Home",
-              "className": "left brand-logo",
-              "replace": false,
-              "to": "/",
-            },
-            "ref": null,
-            "rendered": "Home",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <li>
+                <Link
+                                replace={false}
+                                to="/recipes"
+                >
+                                Recipes
+                </Link>
+</li>,
+              <li>
                 <a
                                 href="/auth/google"
                 >
                                 Login With Google
                 </a>
 </li>,
-              "className": "right",
-            },
-            "ref": null,
-            "rendered": Object {
+            ],
+            "className": "right",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
               "instance": null,
-              "key": undefined,
+              "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/recipes"
+>
+                  Recipes
+</Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Recipes",
+                  "replace": false,
+                  "to": "/recipes",
+                },
+                "ref": null,
+                "rendered": "Recipes",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "2",
               "nodeType": "host",
               "props": Object {
                 "children": <a
@@ -248,6 +182,184 @@ ShallowWrapper {
               },
               "type": "li",
             },
+          ],
+          "type": "ul",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "nav",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="nav-wrapper"
+>
+          <Link
+                    className="brand-logo left"
+                    replace={false}
+                    to="/"
+          >
+                    Home
+          </Link>
+          <ul
+                    className="right"
+          >
+                    <li>
+                              <Link
+                                        replace={false}
+                                        to="/recipes"
+                              >
+                                        Recipes
+                              </Link>
+                    </li>
+                    <li>
+                              <a
+                                        href="/auth/google"
+                              >
+                                        Login With Google
+                              </a>
+                    </li>
+          </ul>
+</div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Link
+              className="brand-logo left"
+              replace={false}
+              to="/"
+>
+              Home
+</Link>,
+            <ul
+              className="right"
+>
+              <li>
+                            <Link
+                                          replace={false}
+                                          to="/recipes"
+                            >
+                                          Recipes
+                            </Link>
+              </li>
+              <li>
+                            <a
+                                          href="/auth/google"
+                            >
+                                          Login With Google
+                            </a>
+              </li>
+</ul>,
+          ],
+          "className": "nav-wrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Home",
+              "className": "brand-logo left",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li>
+                  <Link
+                                    replace={false}
+                                    to="/recipes"
+                  >
+                                    Recipes
+                  </Link>
+</li>,
+                <li>
+                  <a
+                                    href="/auth/google"
+                  >
+                                    Login With Google
+                  </a>
+</li>,
+              ],
+              "className": "right",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    replace={false}
+                    to="/recipes"
+>
+                    Recipes
+</Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Recipes",
+                    "replace": false,
+                    "to": "/recipes",
+                  },
+                  "ref": null,
+                  "rendered": "Recipes",
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <a
+                    href="/auth/google"
+>
+                    Login With Google
+</a>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Login With Google",
+                    "href": "/auth/google",
+                  },
+                  "ref": null,
+                  "rendered": "Login With Google",
+                  "type": "a",
+                },
+                "type": "li",
+              },
+            ],
             "type": "ul",
           },
         ],
@@ -289,7 +401,7 @@ ShallowWrapper {
         className="nav-wrapper"
 >
         <Link
-                className="left brand-logo"
+                className="brand-logo left"
                 replace={false}
                 to="/dashboard"
         >
@@ -298,6 +410,14 @@ ShallowWrapper {
         <ul
                 className="right"
         >
+                <li>
+                        <Link
+                                replace={false}
+                                to="/recipes"
+                        >
+                                Recipes
+                        </Link>
+                </li>
                 <li>
                         <a
                                 href="/auth/logout"
@@ -316,7 +436,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Link
-            className="left brand-logo"
+            className="brand-logo left"
             replace={false}
             to="/dashboard"
 >
@@ -325,6 +445,14 @@ ShallowWrapper {
           <ul
             className="right"
 >
+            <li>
+                        <Link
+                                    replace={false}
+                                    to="/recipes"
+                        >
+                                    Recipes
+                        </Link>
+            </li>
             <li>
                         <a
                                     href="/auth/logout"
@@ -344,7 +472,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": "Home",
-            "className": "left brand-logo",
+            "className": "brand-logo left",
             "replace": false,
             "to": "/dashboard",
           },
@@ -358,6 +486,14 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
+              <li>
+                <Link
+                                replace={false}
+                                to="/recipes"
+                >
+                                Recipes
+                </Link>
+</li>,
               <li>
                 <a
                                 href="/auth/logout"
@@ -373,6 +509,34 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/recipes"
+>
+                  Recipes
+</Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Recipes",
+                  "replace": false,
+                  "to": "/recipes",
+                },
+                "ref": null,
+                "rendered": "Recipes",
+                "type": [Function],
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "2",
               "nodeType": "host",
               "props": Object {
                 "children": <a
@@ -414,7 +578,7 @@ ShallowWrapper {
           className="nav-wrapper"
 >
           <Link
-                    className="left brand-logo"
+                    className="brand-logo left"
                     replace={false}
                     to="/dashboard"
           >
@@ -423,6 +587,14 @@ ShallowWrapper {
           <ul
                     className="right"
           >
+                    <li>
+                              <Link
+                                        replace={false}
+                                        to="/recipes"
+                              >
+                                        Recipes
+                              </Link>
+                    </li>
                     <li>
                               <a
                                         href="/auth/logout"
@@ -441,7 +613,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Link
-              className="left brand-logo"
+              className="brand-logo left"
               replace={false}
               to="/dashboard"
 >
@@ -450,6 +622,14 @@ ShallowWrapper {
             <ul
               className="right"
 >
+              <li>
+                            <Link
+                                          replace={false}
+                                          to="/recipes"
+                            >
+                                          Recipes
+                            </Link>
+              </li>
               <li>
                             <a
                                           href="/auth/logout"
@@ -469,7 +649,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Home",
-              "className": "left brand-logo",
+              "className": "brand-logo left",
               "replace": false,
               "to": "/dashboard",
             },
@@ -483,6 +663,14 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
+                <li>
+                  <Link
+                                    replace={false}
+                                    to="/recipes"
+                  >
+                                    Recipes
+                  </Link>
+</li>,
                 <li>
                   <a
                                     href="/auth/logout"
@@ -498,6 +686,34 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    replace={false}
+                    to="/recipes"
+>
+                    Recipes
+</Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Recipes",
+                    "replace": false,
+                    "to": "/recipes",
+                  },
+                  "ref": null,
+                  "rendered": "Recipes",
+                  "type": [Function],
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "2",
                 "nodeType": "host",
                 "props": Object {
                   "children": <a
@@ -563,7 +779,7 @@ ShallowWrapper {
         className="nav-wrapper"
 >
         <Link
-                className="left brand-logo"
+                className="brand-logo left"
                 replace={false}
                 to="/"
         >
@@ -582,7 +798,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Link
-            className="left brand-logo"
+            className="brand-logo left"
             replace={false}
             to="/"
 >
@@ -602,7 +818,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": "Home",
-            "className": "left brand-logo",
+            "className": "brand-logo left",
             "replace": false,
             "to": "/",
           },
@@ -637,7 +853,7 @@ ShallowWrapper {
           className="nav-wrapper"
 >
           <Link
-                    className="left brand-logo"
+                    className="brand-logo left"
                     replace={false}
                     to="/"
           >
@@ -656,7 +872,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Link
-              className="left brand-logo"
+              className="brand-logo left"
               replace={false}
               to="/"
 >
@@ -676,7 +892,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Home",
-              "className": "left brand-logo",
+              "className": "brand-logo left",
               "replace": false,
               "to": "/",
             },

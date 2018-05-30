@@ -8,14 +8,20 @@ export class Header extends Component {
       case null:
         return null;
       case false:
-        return (
-          <li>
+        return [
+          <li key="1">
+            <Link to="/recipes">Recipes</Link>
+          </li>,
+          <li key="2">
             <a href="/auth/google">Login With Google</a>
-          </li>
-        );
+          </li>,
+        ];
       default:
         return [
           <li key="1">
+            <Link to="/recipes">Recipes</Link>
+          </li>,
+          <li key="2">
             <a href="/auth/logout">Logout</a>
           </li>,
         ];
@@ -27,7 +33,7 @@ export class Header extends Component {
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
-            className="left brand-logo"
+            className="brand-logo left"
           >
             Home
           </Link>

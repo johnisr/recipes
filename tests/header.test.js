@@ -16,7 +16,7 @@ test('When not signed in, show Login button', async () => {
 });
 
 test('Clicking login starts OAuth flow', async () => {
-  await page.click('.right a');
+  await page.click('a[href="/auth/google"');
   const url = await page.url();
   expect(url).toMatch(/^https:\/\/accounts\.google\.com/);
 });

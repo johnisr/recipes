@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { fetchUser, postRecipe } from './actions';
-import { FETCH_USER, POST_RECIPE } from './types';
+import { fetchUser, postRecipe, getRecipes } from './actions';
+import { FETCH_USER, POST_RECIPE, SET_RECIPES } from './types';
 import recipes from '../tests/fixtures/recipes';
 
 const mockStore = configureMockStore([thunk]);
@@ -62,6 +62,22 @@ describe('/api/recipes', () => {
       {
         type: POST_RECIPE,
         payload: recipe,
+      },
+    ]);
+  });
+  test('dispatches a SET_RECIPES action after dispatching getRecipes', async () => {
+    moxios.stubRequest('/api/recipes', {
+      status: 200,
+      response: recipes,
+    });
+
+    const store = mockStore({ auth: null });
+
+    await store.dispatch(getRecipes());
+    expect(store.getActions()).toEqual([
+      {
+        type: SET_RECIPES,
+        payload: recipes,
       },
     ]);
   });

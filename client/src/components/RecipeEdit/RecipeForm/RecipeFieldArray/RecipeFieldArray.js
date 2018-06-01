@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { Grid, Segment, Icon, Button } from 'semantic-ui-react';
 
 import RecipeField from '../RecipeField/RecipeField';
 
@@ -7,54 +8,75 @@ const RecipeFieldArray = props => {
   const { fields, label, sublabel, required, showAllErrors } = props;
   if (!fields.length && required) fields.push();
   return (
-    <div>
-      <div className="row">
-        <h4 className="left">{label}</h4>
-        <button
-          className="btn right"
-          type="button"
-          onClick={() => fields.push({})}
-        >
-          <i className="material-icons">add</i>
-        </button>
-      </div>
-      <ul>
-        {fields.map((section, index) => (
-          <li key={`${section + index}`}>
-            <div className="row">
-              <div className="col s10">
-                <Field
-                  label={`${label} Section Title #${index + 1}`}
-                  className="col s10"
-                  name={`${section}.title`}
-                  type="text"
-                  component={RecipeField}
-                  placeholder="Section Title"
-                  showAllErrors={showAllErrors}
-                />
-              </div>
-              <button
-                className="btn right"
-                type="button"
-                title="Remove"
-                disabled={fields.length === 1 && required}
-                onClick={() => fields.remove(index)}
-              >
-                <i className="material-icons">delete</i>
-              </button>
-            </div>
-            <Field
-              label={sublabel}
-              name={`${section}.body`}
-              type="textarea"
-              component={RecipeField}
-              placeholder="body"
-              showAllErrors={showAllErrors}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Segment.Group>
+      <Segment>
+        <Grid>
+          <Grid.Column floated="left">
+            <h3>{label}</h3>
+          </Grid.Column>
+          <Grid.Column floated="right">
+            <Button
+              floated="right"
+              type="button"
+              icon
+              positive
+              onClick={() => fields.push({})}
+            >
+              <Icon name="add" size="small" />
+            </Button>
+          </Grid.Column>
+        </Grid>
+      </Segment>
+
+      <Segment>
+        <Grid>
+          {fields.map((section, index, array) => (
+            <Grid.Column
+              key={`${section + index}`}
+              mobile={16}
+              tablet={array.length === 1 ? 16 : 8}
+              computer={array.length === 1 ? 16 : 8}
+            >
+              <Segment>
+                <Grid>
+                  <Grid.Column width={8} floated="left">
+                    <Field
+                      label="Title"
+                      name={`${section}.title`}
+                      type="text"
+                      component={RecipeField}
+                      showAllErrors={showAllErrors}
+                    />
+                  </Grid.Column>
+                  <Grid.Column floated="right">
+                    <Button
+                      icon
+                      negative
+                      floated="right"
+                      type="button"
+                      disabled={fields.length === 1 && required}
+                      onClick={() => fields.remove(index)}
+                    >
+                      <Icon name="delete" size="small" />
+                    </Button>
+                  </Grid.Column>
+                  <Grid.Column width={16}>
+                    <Field
+                      label={sublabel}
+                      name={`${section}.body`}
+                      required={required}
+                      type="textarea"
+                      component={RecipeField}
+                      showAllErrors={showAllErrors}
+                    />
+                  </Grid.Column>
+                </Grid>
+              </Segment>
+            </Grid.Column>
+          ))}
+        </Grid>
+      </Segment>
+    </Segment.Group>
   );
 };
 

@@ -22,17 +22,21 @@ ShallowWrapper {
         <div
           className="fixed-action-btn"
 >
-          <Link
-                    className="btn-floating btn-large red"
-                    replace={false}
+          <Button
+                    as={[Function]}
+                    circular={true}
+                    floated="right"
+                    icon={true}
+                    positive={true}
+                    role="button"
                     to="/recipesNew"
           >
-                    <i
-                              className="material-icons"
-                    >
-                              add
-                    </i>
-          </Link>
+                    <Icon
+                              as="i"
+                              name="add"
+                              size="large"
+                    />
+          </Button>
 </div>,
       ],
     },
@@ -44,17 +48,21 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Link
-            className="btn-floating btn-large red"
-            replace={false}
+          "children": <Button
+            as={[Function]}
+            circular={true}
+            floated="right"
+            icon={true}
+            positive={true}
+            role="button"
             to="/recipesNew"
 >
-            <i
-                        className="material-icons"
-            >
-                        add
-            </i>
-</Link>,
+            <Icon
+                        as="i"
+                        name="add"
+                        size="large"
+            />
+</Button>,
           "className": "fixed-action-btn",
         },
         "ref": null,
@@ -63,27 +71,32 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <i
-              className="material-icons"
->
-              add
-</i>,
-            "className": "btn-floating btn-large red",
-            "replace": false,
+            "as": [Function],
+            "children": <Icon
+              as="i"
+              name="add"
+              size="large"
+/>,
+            "circular": true,
+            "floated": "right",
+            "icon": true,
+            "positive": true,
+            "role": "button",
             "to": "/recipesNew",
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": "add",
-              "className": "material-icons",
+              "as": "i",
+              "name": "add",
+              "size": "large",
             },
             "ref": null,
-            "rendered": "add",
-            "type": "i",
+            "rendered": null,
+            "type": [Function],
           },
           "type": [Function],
         },
@@ -103,17 +116,21 @@ ShallowWrapper {
           <div
             className="fixed-action-btn"
 >
-            <Link
-                        className="btn-floating btn-large red"
-                        replace={false}
+            <Button
+                        as={[Function]}
+                        circular={true}
+                        floated="right"
+                        icon={true}
+                        positive={true}
+                        role="button"
                         to="/recipesNew"
             >
-                        <i
-                                    className="material-icons"
-                        >
-                                    add
-                        </i>
-            </Link>
+                        <Icon
+                                    as="i"
+                                    name="add"
+                                    size="large"
+                        />
+            </Button>
 </div>,
         ],
       },
@@ -125,17 +142,21 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Link
-              className="btn-floating btn-large red"
-              replace={false}
+            "children": <Button
+              as={[Function]}
+              circular={true}
+              floated="right"
+              icon={true}
+              positive={true}
+              role="button"
               to="/recipesNew"
 >
-              <i
-                            className="material-icons"
-              >
-                            add
-              </i>
-</Link>,
+              <Icon
+                            as="i"
+                            name="add"
+                            size="large"
+              />
+</Button>,
             "className": "fixed-action-btn",
           },
           "ref": null,
@@ -144,27 +165,32 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": <i
-                className="material-icons"
->
-                add
-</i>,
-              "className": "btn-floating btn-large red",
-              "replace": false,
+              "as": [Function],
+              "children": <Icon
+                as="i"
+                name="add"
+                size="large"
+/>,
+              "circular": true,
+              "floated": "right",
+              "icon": true,
+              "positive": true,
+              "role": "button",
               "to": "/recipesNew",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": "add",
-                "className": "material-icons",
+                "as": "i",
+                "name": "add",
+                "size": "large",
               },
               "ref": null,
-              "rendered": "add",
-              "type": "i",
+              "rendered": null,
+              "type": [Function],
             },
             "type": [Function],
           },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, Label, TextArea } from 'semantic-ui-react';
 
 const isANumber = str => str.match(/^(\s*|\d+)$/);
 
@@ -6,27 +7,26 @@ const RecipeField = props => {
   const {
     input,
     type,
-    name,
     label,
-    meta: { active, error, touched },
+    required,
+    meta: { error, touched },
     showAllErrors,
   } = props;
   let inputField;
   if (type === 'textarea') {
     inputField = (
-      <textarea
-        id={name}
-        className="materialize-textarea"
+      <TextArea
+        autoHeight
+        style={{ width: '100%' }}
+        placeholder={label}
         {...input}
-        style={{ marginBottom: '5px' }}
       />
     );
   } else if (type === 'number') {
     inputField = (
-      <input
-        type="text"
-        id={name}
-        className="materialize-textarea"
+      <Form.Input
+        fluid
+        placeholder={label}
         {...input}
         onChange={e => {
           const { value } = e.target;
@@ -34,22 +34,22 @@ const RecipeField = props => {
             input.onChange(e);
           }
         }}
-        style={{ marginBottom: '5px' }}
       />
     );
   } else {
-    inputField = <input id={name} {...input} style={{ marginBottom: '5px' }} />;
+    inputField = <Form.Input fluid placeholder={label} {...input} />;
   }
   return (
-    <div className="input-field">
+    <Form.Field required={required} inline>
+      <label>{label}</label>
+      {(touched || showAllErrors) &&
+        error && (
+          <Label basic color="red" pointing="left" size="small">
+            {error}
+          </Label>
+        )}
       {inputField}
-      <label className={active || input.value ? 'active' : ''} htmlFor={name}>
-        {label}
-      </label>
-      <div className="red-text" style={{ marginBottom: '20px' }}>
-        {(touched || showAllErrors) && error}
-      </div>
-    </div>
+    </Form.Field>
   );
 };
 

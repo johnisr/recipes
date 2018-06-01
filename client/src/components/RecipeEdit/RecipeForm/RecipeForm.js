@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { Grid, Form, Button, Message } from 'semantic-ui-react';
 
 import RecipeField from './RecipeField/RecipeField';
 import RecipeFieldTime from './RecipeFieldTime/RecipeFieldTime';
@@ -18,105 +19,134 @@ export class RecipeForm extends Component {
     }
   };
   render() {
-    const { submitting } = this.props;
+    const { submitting, valid } = this.props;
+    const { showAllErrors } = this.state;
     return (
-      <div className="row">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <Field
-            name="name"
-            component={RecipeField}
-            type="text"
-            label="Name"
-            showAllErrors={this.state.showAllErrors}
-          />
-          <Field
-            name="summary"
-            component={RecipeField}
-            type="text"
-            label="Summary"
-            showAllErrors={this.state.showAllErrors}
-          />
-          <Field
-            name="notes"
-            component={RecipeField}
-            type="textarea"
-            label="Notes Section"
-            showAllErrors={this.state.showAllErrors}
-          />
-          <div className="row">
-            <div className="col s4">
+      <Form onSubmit={e => this.onSubmit(e)}>
+        <Grid columns="equal">
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={6} computer={6}>
+              <Field
+                name="name"
+                required
+                component={RecipeField}
+                type="text"
+                label="Name"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={10} computer={10}>
+              <Field
+                name="summary"
+                component={RecipeField}
+                type="text"
+                label="Summary"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
               <FieldArray
-                classname="col s4"
+                name="ingredients"
+                required
+                component={RecipeFieldArray}
+                label="Ingredients"
+                sublabel="Ingredients"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <FieldArray
+                name="preparation"
+                component={RecipeFieldArray}
+                label="Preparation"
+                sublabel="Instructions"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <FieldArray
+                name="cooking"
+                required
+                component={RecipeFieldArray}
+                label="Cooking"
+                sublabel="Instructions"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <FieldArray
                 name="cookingTime"
                 component={RecipeFieldTime}
                 type="time"
                 label="Cooking Time"
                 showAllErrors={this.state.showAllErrors}
               />
-            </div>
-            <div className="col s4">
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
               <FieldArray
-                classname="col s4"
                 name="preparationTime"
                 component={RecipeFieldTime}
                 type="time"
                 label="Preparation Time"
                 showAllErrors={this.state.showAllErrors}
               />
-            </div>
-            <div className="col s4">
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={10} computer={10}>
               <Field
-                classname="col s4"
+                name="notes"
+                component={RecipeField}
+                type="textarea"
+                label="Notes"
+                showAllErrors={this.state.showAllErrors}
+              />
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={6} computer={6}>
+              <Field
                 name="category"
                 component={RecipeField}
                 type="textarea"
                 label="Categories"
                 showAllErrors={this.state.showAllErrors}
               />
-            </div>
-          </div>
-          <div style={{ marginBottom: '60px' }}>
-            <FieldArray
-              name="ingredients"
-              required
-              component={RecipeFieldArray}
-              label="Ingredients"
-              sublabel="Ingredients"
-              showAllErrors={this.state.showAllErrors}
-            />
-          </div>
-          <div style={{ marginBottom: '60px' }}>
-            <FieldArray
-              name="preparation"
-              component={RecipeFieldArray}
-              label="Preparation"
-              sublabel="Instructions"
-              showAllErrors={this.state.showAllErrors}
-            />
-          </div>
-          <div>
-            <FieldArray
-              name="cooking"
-              required
-              component={RecipeFieldArray}
-              label="Cooking"
-              sublabel="Instructions"
-              showAllErrors={this.state.showAllErrors}
-            />
-          </div>
-          <Link to="/dashboard" className="red btn-flat white-text">
-            Cancel
-          </Link>
-          <button
-            className="teal btn-flat right white-text"
-            disabled={submitting}
-            type="submit"
-          >
-            Next
-            <i className="material-icons right">done</i>
-          </button>
-        </form>
-      </div>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column floated="left">
+              <Button as={Link} to="/dashboard" negative>
+                Cancel
+              </Button>
+            </Grid.Column>
+            {showAllErrors &&
+              !valid && (
+                <Grid.Column>
+                  <Message content="Required fields missing" color="red" />
+                </Grid.Column>
+              )}
+
+            <Grid.Column floated="right">
+              <Button
+                floated="right"
+                primary
+                positive
+                disabled={submitting}
+                type="submit"
+              >
+                Next
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Form>
     );
   }
 }

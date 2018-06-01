@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Container } from 'semantic-ui-react';
 import { fetchUser, getRecipes } from '../../actions/actions';
 
 import Header from '../Header/Header';
@@ -9,8 +10,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RecipeEdit from '../RecipeEdit/RecipeEdit';
 import RecipeList from '../RecipeList/RecipeList';
-
-const Recipe = () => <div>Specific Recipe</div>;
+import RecipeDetail from '../RecipeDetail/RecipeDetail';
 
 export class App extends Component {
   componentDidMount() {
@@ -20,10 +20,10 @@ export class App extends Component {
   render() {
     const { location } = this.props;
     return (
-      <div className="container">
+      <Container>
         <Header />
         <Route path="/" exact component={Landing} />
-        <Route path="/recipes/:id" exact component={Recipe} />
+        <Route path="/recipes/:id" exact component={RecipeDetail} />
         <Route path="/recipes" exact component={RecipeList} />
         <PrivateRoute
           location={location}
@@ -43,7 +43,7 @@ export class App extends Component {
           exact
           component={RecipeEdit}
         />
-      </div>
+      </Container>
     );
   }
 }

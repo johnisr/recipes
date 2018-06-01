@@ -1,4 +1,5 @@
-jest.setTimeout(10000);
+// Depends on chromium performance
+jest.setTimeout(20000);
 
 require('../models/User');
 require('../models/Recipe');

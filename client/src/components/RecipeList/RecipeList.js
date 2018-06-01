@@ -1,36 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Dimmer, Loader, Card, Label, Grid } from 'semantic-ui-react';
 
 class RecipeList extends Component {
   componentDidMount() {}
   render() {
     const { recipes } = this.props;
-    console.log(recipes);
     if (!recipes) {
       return (
-        <div className="progress">
-          <div className="indeterminate" />
-        </div>
+        <Dimmer active>
+          <Loader content="Loading" size="large" />
+        </Dimmer>
       );
     }
     return (
-      <div className="row">
+      <Card.Group stackable doubling itemsPerRow={4}>
         {recipes.map(recipe => (
           // eslint-disable-next-line no-underscore-dangle
-          <div key={recipe._id} className="col s12 m6 l4">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className="card-title">{recipe.name}</span>
-                <p>{recipe.summary}</p>
-              </div>
-              <div className="card-action">
-                <Link to="/recipes">Information here</Link>
-              </div>
-            </div>
-          </div>
+          <Card key={recipe._id} as={Link} to={`/recipes/${recipe._id}`}>
+            <Card.Content>
+              <Card.Header>{recipe.name}</Card.Header>
+              <Card.Description>{recipe.summary}</Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <Card.Meta>
+                <Grid>
+                  {recipe.category.map(cat => (
+                    <Label key={cat} tag>
+                      {cat}
+                    </Label>
+                  ))}
+                </Grid>
+              </Card.Meta>
+            </Card.Content>
+          </Card>
         ))}
-      </div>
+      </Card.Group>
     );
   }
 }

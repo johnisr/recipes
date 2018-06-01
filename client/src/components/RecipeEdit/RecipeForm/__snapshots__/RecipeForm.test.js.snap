@@ -19,442 +19,378 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "class",
     "props": Object {
-      "children": <form
-        onSubmit={[Function]}
+      "as": "form",
+      "children": <Grid
+        columns="equal"
 >
-        <Field
-                component={[Function]}
-                label="Name"
-                name="name"
-                showAllErrors={false}
-                type="text"
-        />
-        <Field
-                component={[Function]}
-                label="Summary"
-                name="summary"
-                showAllErrors={false}
-                type="text"
-        />
-        <Field
-                component={[Function]}
-                label="Notes Section"
-                name="notes"
-                showAllErrors={false}
-                type="textarea"
-        />
-        <div
-                className="row"
-        >
-                <div
-                        className="col s4"
+        <GridRow>
+                <GridColumn
+                        computer={6}
+                        mobile={16}
+                        tablet={6}
+                >
+                        <Field
+                                component={[Function]}
+                                label="Name"
+                                name="name"
+                                required={true}
+                                showAllErrors={false}
+                                type="text"
+                        />
+                </GridColumn>
+                <GridColumn
+                        computer={10}
+                        mobile={16}
+                        tablet={10}
+                >
+                        <Field
+                                component={[Function]}
+                                label="Summary"
+                                name="summary"
+                                showAllErrors={false}
+                                type="text"
+                        />
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn>
+                        <FieldArray
+                                component={[Function]}
+                                label="Ingredients"
+                                name="ingredients"
+                                required={true}
+                                showAllErrors={false}
+                                sublabel="Ingredients"
+                        />
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn>
+                        <FieldArray
+                                component={[Function]}
+                                label="Preparation"
+                                name="preparation"
+                                showAllErrors={false}
+                                sublabel="Instructions"
+                        />
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn>
+                        <FieldArray
+                                component={[Function]}
+                                label="Cooking"
+                                name="cooking"
+                                required={true}
+                                showAllErrors={false}
+                                sublabel="Instructions"
+                        />
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn
+                        computer={8}
+                        mobile={16}
+                        tablet={8}
                 >
                         <FieldArray
-                                classname="col s4"
                                 component={[Function]}
                                 label="Cooking Time"
                                 name="cookingTime"
                                 showAllErrors={false}
                                 type="time"
                         />
-                </div>
-                <div
-                        className="col s4"
+                </GridColumn>
+                <GridColumn
+                        computer={8}
+                        mobile={16}
+                        tablet={8}
                 >
                         <FieldArray
-                                classname="col s4"
                                 component={[Function]}
                                 label="Preparation Time"
                                 name="preparationTime"
                                 showAllErrors={false}
                                 type="time"
                         />
-                </div>
-                <div
-                        className="col s4"
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn
+                        computer={10}
+                        mobile={16}
+                        tablet={10}
                 >
                         <Field
-                                classname="col s4"
+                                component={[Function]}
+                                label="Notes"
+                                name="notes"
+                                showAllErrors={false}
+                                type="textarea"
+                        />
+                </GridColumn>
+                <GridColumn
+                        computer={6}
+                        mobile={16}
+                        tablet={6}
+                >
+                        <Field
                                 component={[Function]}
                                 label="Categories"
                                 name="category"
                                 showAllErrors={false}
                                 type="textarea"
                         />
-                </div>
-        </div>
-        <div
-                style={
-                        Object {
-                                "marginBottom": "60px",
-                              }
-                }
-        >
-                <FieldArray
-                        component={[Function]}
-                        label="Ingredients"
-                        name="ingredients"
-                        required={true}
-                        showAllErrors={false}
-                        sublabel="Ingredients"
-                />
-        </div>
-        <div
-                style={
-                        Object {
-                                "marginBottom": "60px",
-                              }
-                }
-        >
-                <FieldArray
-                        component={[Function]}
-                        label="Preparation"
-                        name="preparation"
-                        showAllErrors={false}
-                        sublabel="Instructions"
-                />
-        </div>
-        <div>
-                <FieldArray
-                        component={[Function]}
-                        label="Cooking"
-                        name="cooking"
-                        required={true}
-                        showAllErrors={false}
-                        sublabel="Instructions"
-                />
-        </div>
-        <Link
-                className="red btn-flat white-text"
-                replace={false}
-                to="/dashboard"
-        >
-                Cancel
-        </Link>
-        <button
-                className="teal btn-flat right white-text"
-                disabled={false}
-                type="submit"
-        >
-                Next
-                <i
-                        className="material-icons right"
+                </GridColumn>
+        </GridRow>
+        <GridRow>
+                <GridColumn
+                        floated="left"
                 >
-                        done
-                </i>
-        </button>
-</form>,
-      "className": "row",
+                        <Button
+                                as={[Function]}
+                                negative={true}
+                                role="button"
+                                to="/dashboard"
+                        >
+                                Cancel
+                        </Button>
+                </GridColumn>
+                <GridColumn
+                        floated="right"
+                >
+                        <Button
+                                as="button"
+                                disabled={false}
+                                floated="right"
+                                positive={true}
+                                primary={true}
+                                role="button"
+                                type="submit"
+                        >
+                                Next
+                        </Button>
+                </GridColumn>
+        </GridRow>
+</Grid>,
+      "onSubmit": [Function],
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Field
-            component={[Function]}
-            label="Name"
-            name="name"
-            showAllErrors={false}
-            type="text"
-/>,
-          <Field
-            component={[Function]}
-            label="Summary"
-            name="summary"
-            showAllErrors={false}
-            type="text"
-/>,
-          <Field
-            component={[Function]}
-            label="Notes Section"
-            name="notes"
-            showAllErrors={false}
-            type="textarea"
-/>,
-          <div
-            className="row"
->
-            <div
-                        className="col s4"
+          <GridRow>
+            <GridColumn
+                        computer={6}
+                        mobile={16}
+                        tablet={6}
+            >
+                        <Field
+                                    component={[Function]}
+                                    label="Name"
+                                    name="name"
+                                    required={true}
+                                    showAllErrors={false}
+                                    type="text"
+                        />
+            </GridColumn>
+            <GridColumn
+                        computer={10}
+                        mobile={16}
+                        tablet={10}
+            >
+                        <Field
+                                    component={[Function]}
+                                    label="Summary"
+                                    name="summary"
+                                    showAllErrors={false}
+                                    type="text"
+                        />
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn>
+                        <FieldArray
+                                    component={[Function]}
+                                    label="Ingredients"
+                                    name="ingredients"
+                                    required={true}
+                                    showAllErrors={false}
+                                    sublabel="Ingredients"
+                        />
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn>
+                        <FieldArray
+                                    component={[Function]}
+                                    label="Preparation"
+                                    name="preparation"
+                                    showAllErrors={false}
+                                    sublabel="Instructions"
+                        />
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn>
+                        <FieldArray
+                                    component={[Function]}
+                                    label="Cooking"
+                                    name="cooking"
+                                    required={true}
+                                    showAllErrors={false}
+                                    sublabel="Instructions"
+                        />
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn
+                        computer={8}
+                        mobile={16}
+                        tablet={8}
             >
                         <FieldArray
-                                    classname="col s4"
                                     component={[Function]}
                                     label="Cooking Time"
                                     name="cookingTime"
                                     showAllErrors={false}
                                     type="time"
                         />
-            </div>
-            <div
-                        className="col s4"
+            </GridColumn>
+            <GridColumn
+                        computer={8}
+                        mobile={16}
+                        tablet={8}
             >
                         <FieldArray
-                                    classname="col s4"
                                     component={[Function]}
                                     label="Preparation Time"
                                     name="preparationTime"
                                     showAllErrors={false}
                                     type="time"
                         />
-            </div>
-            <div
-                        className="col s4"
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn
+                        computer={10}
+                        mobile={16}
+                        tablet={10}
             >
                         <Field
-                                    classname="col s4"
+                                    component={[Function]}
+                                    label="Notes"
+                                    name="notes"
+                                    showAllErrors={false}
+                                    type="textarea"
+                        />
+            </GridColumn>
+            <GridColumn
+                        computer={6}
+                        mobile={16}
+                        tablet={6}
+            >
+                        <Field
                                     component={[Function]}
                                     label="Categories"
                                     name="category"
                                     showAllErrors={false}
                                     type="textarea"
                         />
-            </div>
-</div>,
-          <div
-            style={
-                        Object {
-                                    "marginBottom": "60px",
-                                  }
-            }
->
-            <FieldArray
-                        component={[Function]}
-                        label="Ingredients"
-                        name="ingredients"
-                        required={true}
-                        showAllErrors={false}
-                        sublabel="Ingredients"
-            />
-</div>,
-          <div
-            style={
-                        Object {
-                                    "marginBottom": "60px",
-                                  }
-            }
->
-            <FieldArray
-                        component={[Function]}
-                        label="Preparation"
-                        name="preparation"
-                        showAllErrors={false}
-                        sublabel="Instructions"
-            />
-</div>,
-          <div>
-            <FieldArray
-                        component={[Function]}
-                        label="Cooking"
-                        name="cooking"
-                        required={true}
-                        showAllErrors={false}
-                        sublabel="Instructions"
-            />
-</div>,
-          <Link
-            className="red btn-flat white-text"
-            replace={false}
-            to="/dashboard"
->
-            Cancel
-</Link>,
-          <button
-            className="teal btn-flat right white-text"
-            disabled={false}
-            type="submit"
->
-            Next
-            <i
-                        className="material-icons right"
+            </GridColumn>
+</GridRow>,
+          <GridRow>
+            <GridColumn
+                        floated="left"
             >
-                        done
-            </i>
-</button>,
+                        <Button
+                                    as={[Function]}
+                                    negative={true}
+                                    role="button"
+                                    to="/dashboard"
+                        >
+                                    Cancel
+                        </Button>
+            </GridColumn>
+            <GridColumn
+                        floated="right"
+            >
+                        <Button
+                                    as="button"
+                                    disabled={false}
+                                    floated="right"
+                                    positive={true}
+                                    primary={true}
+                                    role="button"
+                                    type="submit"
+                        >
+                                    Next
+                        </Button>
+            </GridColumn>
+</GridRow>,
         ],
-        "onSubmit": [Function],
+        "columns": "equal",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "label": "Name",
-            "name": "name",
-            "showAllErrors": false,
-            "type": "text",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "label": "Summary",
-            "name": "summary",
-            "showAllErrors": false,
-            "type": "text",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "label": "Notes Section",
-            "name": "notes",
-            "showAllErrors": false,
-            "type": "textarea",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
             "children": Array [
-              <div
-                className="col s4"
->
-                <FieldArray
-                                classname="col s4"
-                                component={[Function]}
-                                label="Cooking Time"
-                                name="cookingTime"
-                                showAllErrors={false}
-                                type="time"
-                />
-</div>,
-              <div
-                className="col s4"
->
-                <FieldArray
-                                classname="col s4"
-                                component={[Function]}
-                                label="Preparation Time"
-                                name="preparationTime"
-                                showAllErrors={false}
-                                type="time"
-                />
-</div>,
-              <div
-                className="col s4"
+              <GridColumn
+                computer={6}
+                mobile={16}
+                tablet={6}
 >
                 <Field
-                                classname="col s4"
                                 component={[Function]}
-                                label="Categories"
-                                name="category"
+                                label="Name"
+                                name="name"
+                                required={true}
                                 showAllErrors={false}
-                                type="textarea"
+                                type="text"
                 />
-</div>,
+</GridColumn>,
+              <GridColumn
+                computer={10}
+                mobile={16}
+                tablet={10}
+>
+                <Field
+                                component={[Function]}
+                                label="Summary"
+                                name="summary"
+                                showAllErrors={false}
+                                type="text"
+                />
+</GridColumn>,
             ],
-            "className": "row",
           },
           "ref": null,
           "rendered": Array [
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <FieldArray
-                  classname="col s4"
-                  component={[Function]}
-                  label="Cooking Time"
-                  name="cookingTime"
-                  showAllErrors={false}
-                  type="time"
-/>,
-                "className": "col s4",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "classname": "col s4",
-                  "component": [Function],
-                  "label": "Cooking Time",
-                  "name": "cookingTime",
-                  "showAllErrors": false,
-                  "type": "time",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <FieldArray
-                  classname="col s4"
-                  component={[Function]}
-                  label="Preparation Time"
-                  name="preparationTime"
-                  showAllErrors={false}
-                  type="time"
-/>,
-                "className": "col s4",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "classname": "col s4",
-                  "component": [Function],
-                  "label": "Preparation Time",
-                  "name": "preparationTime",
-                  "showAllErrors": false,
-                  "type": "time",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
                 "children": <Field
-                  classname="col s4"
                   component={[Function]}
-                  label="Categories"
-                  name="category"
+                  label="Name"
+                  name="name"
+                  required={true}
                   showAllErrors={false}
-                  type="textarea"
+                  type="text"
 />,
-                "className": "col s4",
+                "computer": 6,
+                "mobile": 16,
+                "tablet": 6,
               },
               "ref": null,
               "rendered": Object {
@@ -462,387 +398,62 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "classname": "col s4",
                   "component": [Function],
-                  "label": "Categories",
-                  "name": "category",
+                  "label": "Name",
+                  "name": "name",
+                  "required": true,
                   "showAllErrors": false,
-                  "type": "textarea",
+                  "type": "text",
                 },
                 "ref": null,
                 "rendered": null,
                 "type": [Function],
               },
-              "type": "div",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Field
+                  component={[Function]}
+                  label="Summary"
+                  name="summary"
+                  showAllErrors={false}
+                  type="text"
+/>,
+                "computer": 10,
+                "mobile": 16,
+                "tablet": 10,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Summary",
+                  "name": "summary",
+                  "showAllErrors": false,
+                  "type": "text",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
             },
           ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <FieldArray
-              component={[Function]}
-              label="Ingredients"
-              name="ingredients"
-              required={true}
-              showAllErrors={false}
-              sublabel="Ingredients"
-/>,
-            "style": Object {
-              "marginBottom": "60px",
-            },
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Ingredients",
-              "name": "ingredients",
-              "required": true,
-              "showAllErrors": false,
-              "sublabel": "Ingredients",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <FieldArray
-              component={[Function]}
-              label="Preparation"
-              name="preparation"
-              showAllErrors={false}
-              sublabel="Instructions"
-/>,
-            "style": Object {
-              "marginBottom": "60px",
-            },
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Preparation",
-              "name": "preparation",
-              "showAllErrors": false,
-              "sublabel": "Instructions",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <FieldArray
-              component={[Function]}
-              label="Cooking"
-              name="cooking"
-              required={true}
-              showAllErrors={false}
-              sublabel="Instructions"
-/>,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Cooking",
-              "name": "cooking",
-              "required": true,
-              "showAllErrors": false,
-              "sublabel": "Instructions",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Cancel",
-            "className": "red btn-flat white-text",
-            "replace": false,
-            "to": "/dashboard",
-          },
-          "ref": null,
-          "rendered": "Cancel",
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              "Next",
-              <i
-                className="material-icons right"
->
-                done
-</i>,
-            ],
-            "className": "teal btn-flat right white-text",
-            "disabled": false,
-            "type": "submit",
-          },
-          "ref": null,
-          "rendered": Array [
-            "Next",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "done",
-                "className": "material-icons right",
-              },
-              "ref": null,
-              "rendered": "done",
-              "type": "i",
-            },
-          ],
-          "type": "button",
-        },
-      ],
-      "type": "form",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <form
-          onSubmit={[Function]}
->
-          <Field
-                    component={[Function]}
-                    label="Name"
-                    name="name"
-                    showAllErrors={false}
-                    type="text"
-          />
-          <Field
-                    component={[Function]}
-                    label="Summary"
-                    name="summary"
-                    showAllErrors={false}
-                    type="text"
-          />
-          <Field
-                    component={[Function]}
-                    label="Notes Section"
-                    name="notes"
-                    showAllErrors={false}
-                    type="textarea"
-          />
-          <div
-                    className="row"
-          >
-                    <div
-                              className="col s4"
-                    >
-                              <FieldArray
-                                        classname="col s4"
-                                        component={[Function]}
-                                        label="Cooking Time"
-                                        name="cookingTime"
-                                        showAllErrors={false}
-                                        type="time"
-                              />
-                    </div>
-                    <div
-                              className="col s4"
-                    >
-                              <FieldArray
-                                        classname="col s4"
-                                        component={[Function]}
-                                        label="Preparation Time"
-                                        name="preparationTime"
-                                        showAllErrors={false}
-                                        type="time"
-                              />
-                    </div>
-                    <div
-                              className="col s4"
-                    >
-                              <Field
-                                        classname="col s4"
-                                        component={[Function]}
-                                        label="Categories"
-                                        name="category"
-                                        showAllErrors={false}
-                                        type="textarea"
-                              />
-                    </div>
-          </div>
-          <div
-                    style={
-                              Object {
-                                        "marginBottom": "60px",
-                                      }
-                    }
-          >
-                    <FieldArray
-                              component={[Function]}
-                              label="Ingredients"
-                              name="ingredients"
-                              required={true}
-                              showAllErrors={false}
-                              sublabel="Ingredients"
-                    />
-          </div>
-          <div
-                    style={
-                              Object {
-                                        "marginBottom": "60px",
-                                      }
-                    }
-          >
-                    <FieldArray
-                              component={[Function]}
-                              label="Preparation"
-                              name="preparation"
-                              showAllErrors={false}
-                              sublabel="Instructions"
-                    />
-          </div>
-          <div>
-                    <FieldArray
-                              component={[Function]}
-                              label="Cooking"
-                              name="cooking"
-                              required={true}
-                              showAllErrors={false}
-                              sublabel="Instructions"
-                    />
-          </div>
-          <Link
-                    className="red btn-flat white-text"
-                    replace={false}
-                    to="/dashboard"
-          >
-                    Cancel
-          </Link>
-          <button
-                    className="teal btn-flat right white-text"
-                    disabled={false}
-                    type="submit"
-          >
-                    Next
-                    <i
-                              className="material-icons right"
-                    >
-                              done
-                    </i>
-          </button>
-</form>,
-        "className": "row",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <Field
-              component={[Function]}
-              label="Name"
-              name="name"
-              showAllErrors={false}
-              type="text"
-/>,
-            <Field
-              component={[Function]}
-              label="Summary"
-              name="summary"
-              showAllErrors={false}
-              type="text"
-/>,
-            <Field
-              component={[Function]}
-              label="Notes Section"
-              name="notes"
-              showAllErrors={false}
-              type="textarea"
-/>,
-            <div
-              className="row"
->
-              <div
-                            className="col s4"
-              >
-                            <FieldArray
-                                          classname="col s4"
-                                          component={[Function]}
-                                          label="Cooking Time"
-                                          name="cookingTime"
-                                          showAllErrors={false}
-                                          type="time"
-                            />
-              </div>
-              <div
-                            className="col s4"
-              >
-                            <FieldArray
-                                          classname="col s4"
-                                          component={[Function]}
-                                          label="Preparation Time"
-                                          name="preparationTime"
-                                          showAllErrors={false}
-                                          type="time"
-                            />
-              </div>
-              <div
-                            className="col s4"
-              >
-                            <Field
-                                          classname="col s4"
-                                          component={[Function]}
-                                          label="Categories"
-                                          name="category"
-                                          showAllErrors={false}
-                                          type="textarea"
-                            />
-              </div>
-</div>,
-            <div
-              style={
-                            Object {
-                                          "marginBottom": "60px",
-                                        }
-              }
->
+            "children": <GridColumn>
               <FieldArray
                             component={[Function]}
                             label="Ingredients"
@@ -851,257 +462,13 @@ ShallowWrapper {
                             showAllErrors={false}
                             sublabel="Ingredients"
               />
-</div>,
-            <div
-              style={
-                            Object {
-                                          "marginBottom": "60px",
-                                        }
-              }
->
-              <FieldArray
-                            component={[Function]}
-                            label="Preparation"
-                            name="preparation"
-                            showAllErrors={false}
-                            sublabel="Instructions"
-              />
-</div>,
-            <div>
-              <FieldArray
-                            component={[Function]}
-                            label="Cooking"
-                            name="cooking"
-                            required={true}
-                            showAllErrors={false}
-                            sublabel="Instructions"
-              />
-</div>,
-            <Link
-              className="red btn-flat white-text"
-              replace={false}
-              to="/dashboard"
->
-              Cancel
-</Link>,
-            <button
-              className="teal btn-flat right white-text"
-              disabled={false}
-              type="submit"
->
-              Next
-              <i
-                            className="material-icons right"
-              >
-                            done
-              </i>
-</button>,
-          ],
-          "onSubmit": [Function],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Name",
-              "name": "name",
-              "showAllErrors": false,
-              "type": "text",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
+</GridColumn>,
           },
-          Object {
+          "ref": null,
+          "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Summary",
-              "name": "summary",
-              "showAllErrors": false,
-              "type": "text",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "component": [Function],
-              "label": "Notes Section",
-              "name": "notes",
-              "showAllErrors": false,
-              "type": "textarea",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <div
-                  className="col s4"
->
-                  <FieldArray
-                                    classname="col s4"
-                                    component={[Function]}
-                                    label="Cooking Time"
-                                    name="cookingTime"
-                                    showAllErrors={false}
-                                    type="time"
-                  />
-</div>,
-                <div
-                  className="col s4"
->
-                  <FieldArray
-                                    classname="col s4"
-                                    component={[Function]}
-                                    label="Preparation Time"
-                                    name="preparationTime"
-                                    showAllErrors={false}
-                                    type="time"
-                  />
-</div>,
-                <div
-                  className="col s4"
->
-                  <Field
-                                    classname="col s4"
-                                    component={[Function]}
-                                    label="Categories"
-                                    name="category"
-                                    showAllErrors={false}
-                                    type="textarea"
-                  />
-</div>,
-              ],
-              "className": "row",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <FieldArray
-                    classname="col s4"
-                    component={[Function]}
-                    label="Cooking Time"
-                    name="cookingTime"
-                    showAllErrors={false}
-                    type="time"
-/>,
-                  "className": "col s4",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "classname": "col s4",
-                    "component": [Function],
-                    "label": "Cooking Time",
-                    "name": "cookingTime",
-                    "showAllErrors": false,
-                    "type": "time",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": "div",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <FieldArray
-                    classname="col s4"
-                    component={[Function]}
-                    label="Preparation Time"
-                    name="preparationTime"
-                    showAllErrors={false}
-                    type="time"
-/>,
-                  "className": "col s4",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "classname": "col s4",
-                    "component": [Function],
-                    "label": "Preparation Time",
-                    "name": "preparationTime",
-                    "showAllErrors": false,
-                    "type": "time",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": "div",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <Field
-                    classname="col s4"
-                    component={[Function]}
-                    label="Categories"
-                    name="category"
-                    showAllErrors={false}
-                    type="textarea"
-/>,
-                  "className": "col s4",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "classname": "col s4",
-                    "component": [Function],
-                    "label": "Categories",
-                    "name": "category",
-                    "showAllErrors": false,
-                    "type": "textarea",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": "div",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
               "children": <FieldArray
                 component={[Function]}
@@ -1111,9 +478,6 @@ ShallowWrapper {
                 showAllErrors={false}
                 sublabel="Ingredients"
 />,
-              "style": Object {
-                "marginBottom": "60px",
-              },
             },
             "ref": null,
             "rendered": Object {
@@ -1132,12 +496,30 @@ ShallowWrapper {
               "rendered": null,
               "type": [Function],
             },
-            "type": "div",
+            "type": [Function],
           },
-          Object {
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <GridColumn>
+              <FieldArray
+                            component={[Function]}
+                            label="Preparation"
+                            name="preparation"
+                            showAllErrors={false}
+                            sublabel="Instructions"
+              />
+</GridColumn>,
+          },
+          "ref": null,
+          "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
               "children": <FieldArray
                 component={[Function]}
@@ -1146,9 +528,6 @@ ShallowWrapper {
                 showAllErrors={false}
                 sublabel="Instructions"
 />,
-              "style": Object {
-                "marginBottom": "60px",
-              },
             },
             "ref": null,
             "rendered": Object {
@@ -1166,12 +545,31 @@ ShallowWrapper {
               "rendered": null,
               "type": [Function],
             },
-            "type": "div",
+            "type": [Function],
           },
-          Object {
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <GridColumn>
+              <FieldArray
+                            component={[Function]}
+                            label="Cooking"
+                            name="cooking"
+                            required={true}
+                            showAllErrors={false}
+                            sublabel="Instructions"
+              />
+</GridColumn>,
+          },
+          "ref": null,
+          "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
               "children": <FieldArray
                 component={[Function]}
@@ -1199,61 +597,1261 @@ ShallowWrapper {
               "rendered": null,
               "type": [Function],
             },
-            "type": "div",
+            "type": [Function],
           },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <GridColumn
+                computer={8}
+                mobile={16}
+                tablet={8}
+>
+                <FieldArray
+                                component={[Function]}
+                                label="Cooking Time"
+                                name="cookingTime"
+                                showAllErrors={false}
+                                type="time"
+                />
+</GridColumn>,
+              <GridColumn
+                computer={8}
+                mobile={16}
+                tablet={8}
+>
+                <FieldArray
+                                component={[Function]}
+                                label="Preparation Time"
+                                name="preparationTime"
+                                showAllErrors={false}
+                                type="time"
+                />
+</GridColumn>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Cooking Time"
+                  name="cookingTime"
+                  showAllErrors={false}
+                  type="time"
+/>,
+                "computer": 8,
+                "mobile": 16,
+                "tablet": 8,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Cooking Time",
+                  "name": "cookingTime",
+                  "showAllErrors": false,
+                  "type": "time",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Preparation Time"
+                  name="preparationTime"
+                  showAllErrors={false}
+                  type="time"
+/>,
+                "computer": 8,
+                "mobile": 16,
+                "tablet": 8,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Preparation Time",
+                  "name": "preparationTime",
+                  "showAllErrors": false,
+                  "type": "time",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <GridColumn
+                computer={10}
+                mobile={16}
+                tablet={10}
+>
+                <Field
+                                component={[Function]}
+                                label="Notes"
+                                name="notes"
+                                showAllErrors={false}
+                                type="textarea"
+                />
+</GridColumn>,
+              <GridColumn
+                computer={6}
+                mobile={16}
+                tablet={6}
+>
+                <Field
+                                component={[Function]}
+                                label="Categories"
+                                name="category"
+                                showAllErrors={false}
+                                type="textarea"
+                />
+</GridColumn>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Field
+                  component={[Function]}
+                  label="Notes"
+                  name="notes"
+                  showAllErrors={false}
+                  type="textarea"
+/>,
+                "computer": 10,
+                "mobile": 16,
+                "tablet": 10,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Notes",
+                  "name": "notes",
+                  "showAllErrors": false,
+                  "type": "textarea",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Field
+                  component={[Function]}
+                  label="Categories"
+                  name="category"
+                  showAllErrors={false}
+                  type="textarea"
+/>,
+                "computer": 6,
+                "mobile": 16,
+                "tablet": 6,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Categories",
+                  "name": "category",
+                  "showAllErrors": false,
+                  "type": "textarea",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <GridColumn
+                floated="left"
+>
+                <Button
+                                as={[Function]}
+                                negative={true}
+                                role="button"
+                                to="/dashboard"
+                >
+                                Cancel
+                </Button>
+</GridColumn>,
+              false,
+              <GridColumn
+                floated="right"
+>
+                <Button
+                                as="button"
+                                disabled={false}
+                                floated="right"
+                                positive={true}
+                                primary={true}
+                                role="button"
+                                type="submit"
+                >
+                                Next
+                </Button>
+</GridColumn>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Button
+                  as={[Function]}
+                  negative={true}
+                  role="button"
+                  to="/dashboard"
+>
+                  Cancel
+</Button>,
+                "floated": "left",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": [Function],
+                  "children": "Cancel",
+                  "negative": true,
+                  "role": "button",
+                  "to": "/dashboard",
+                },
+                "ref": null,
+                "rendered": "Cancel",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Button
+                  as="button"
+                  disabled={false}
+                  floated="right"
+                  positive={true}
+                  primary={true}
+                  role="button"
+                  type="submit"
+>
+                  Next
+</Button>,
+                "floated": "right",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": "button",
+                  "children": "Next",
+                  "disabled": false,
+                  "floated": "right",
+                  "positive": true,
+                  "primary": true,
+                  "role": "button",
+                  "type": "submit",
+                },
+                "ref": null,
+                "rendered": "Next",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "as": "form",
+        "children": <Grid
+          columns="equal"
+>
+          <GridRow>
+                    <GridColumn
+                              computer={6}
+                              mobile={16}
+                              tablet={6}
+                    >
+                              <Field
+                                        component={[Function]}
+                                        label="Name"
+                                        name="name"
+                                        required={true}
+                                        showAllErrors={false}
+                                        type="text"
+                              />
+                    </GridColumn>
+                    <GridColumn
+                              computer={10}
+                              mobile={16}
+                              tablet={10}
+                    >
+                              <Field
+                                        component={[Function]}
+                                        label="Summary"
+                                        name="summary"
+                                        showAllErrors={false}
+                                        type="text"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn>
+                              <FieldArray
+                                        component={[Function]}
+                                        label="Ingredients"
+                                        name="ingredients"
+                                        required={true}
+                                        showAllErrors={false}
+                                        sublabel="Ingredients"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn>
+                              <FieldArray
+                                        component={[Function]}
+                                        label="Preparation"
+                                        name="preparation"
+                                        showAllErrors={false}
+                                        sublabel="Instructions"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn>
+                              <FieldArray
+                                        component={[Function]}
+                                        label="Cooking"
+                                        name="cooking"
+                                        required={true}
+                                        showAllErrors={false}
+                                        sublabel="Instructions"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn
+                              computer={8}
+                              mobile={16}
+                              tablet={8}
+                    >
+                              <FieldArray
+                                        component={[Function]}
+                                        label="Cooking Time"
+                                        name="cookingTime"
+                                        showAllErrors={false}
+                                        type="time"
+                              />
+                    </GridColumn>
+                    <GridColumn
+                              computer={8}
+                              mobile={16}
+                              tablet={8}
+                    >
+                              <FieldArray
+                                        component={[Function]}
+                                        label="Preparation Time"
+                                        name="preparationTime"
+                                        showAllErrors={false}
+                                        type="time"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn
+                              computer={10}
+                              mobile={16}
+                              tablet={10}
+                    >
+                              <Field
+                                        component={[Function]}
+                                        label="Notes"
+                                        name="notes"
+                                        showAllErrors={false}
+                                        type="textarea"
+                              />
+                    </GridColumn>
+                    <GridColumn
+                              computer={6}
+                              mobile={16}
+                              tablet={6}
+                    >
+                              <Field
+                                        component={[Function]}
+                                        label="Categories"
+                                        name="category"
+                                        showAllErrors={false}
+                                        type="textarea"
+                              />
+                    </GridColumn>
+          </GridRow>
+          <GridRow>
+                    <GridColumn
+                              floated="left"
+                    >
+                              <Button
+                                        as={[Function]}
+                                        negative={true}
+                                        role="button"
+                                        to="/dashboard"
+                              >
+                                        Cancel
+                              </Button>
+                    </GridColumn>
+                    <GridColumn
+                              floated="right"
+                    >
+                              <Button
+                                        as="button"
+                                        disabled={false}
+                                        floated="right"
+                                        positive={true}
+                                        primary={true}
+                                        role="button"
+                                        type="submit"
+                              >
+                                        Next
+                              </Button>
+                    </GridColumn>
+          </GridRow>
+</Grid>,
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <GridRow>
+              <GridColumn
+                            computer={6}
+                            mobile={16}
+                            tablet={6}
+              >
+                            <Field
+                                          component={[Function]}
+                                          label="Name"
+                                          name="name"
+                                          required={true}
+                                          showAllErrors={false}
+                                          type="text"
+                            />
+              </GridColumn>
+              <GridColumn
+                            computer={10}
+                            mobile={16}
+                            tablet={10}
+              >
+                            <Field
+                                          component={[Function]}
+                                          label="Summary"
+                                          name="summary"
+                                          showAllErrors={false}
+                                          type="text"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn>
+                            <FieldArray
+                                          component={[Function]}
+                                          label="Ingredients"
+                                          name="ingredients"
+                                          required={true}
+                                          showAllErrors={false}
+                                          sublabel="Ingredients"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn>
+                            <FieldArray
+                                          component={[Function]}
+                                          label="Preparation"
+                                          name="preparation"
+                                          showAllErrors={false}
+                                          sublabel="Instructions"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn>
+                            <FieldArray
+                                          component={[Function]}
+                                          label="Cooking"
+                                          name="cooking"
+                                          required={true}
+                                          showAllErrors={false}
+                                          sublabel="Instructions"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn
+                            computer={8}
+                            mobile={16}
+                            tablet={8}
+              >
+                            <FieldArray
+                                          component={[Function]}
+                                          label="Cooking Time"
+                                          name="cookingTime"
+                                          showAllErrors={false}
+                                          type="time"
+                            />
+              </GridColumn>
+              <GridColumn
+                            computer={8}
+                            mobile={16}
+                            tablet={8}
+              >
+                            <FieldArray
+                                          component={[Function]}
+                                          label="Preparation Time"
+                                          name="preparationTime"
+                                          showAllErrors={false}
+                                          type="time"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn
+                            computer={10}
+                            mobile={16}
+                            tablet={10}
+              >
+                            <Field
+                                          component={[Function]}
+                                          label="Notes"
+                                          name="notes"
+                                          showAllErrors={false}
+                                          type="textarea"
+                            />
+              </GridColumn>
+              <GridColumn
+                            computer={6}
+                            mobile={16}
+                            tablet={6}
+              >
+                            <Field
+                                          component={[Function]}
+                                          label="Categories"
+                                          name="category"
+                                          showAllErrors={false}
+                                          type="textarea"
+                            />
+              </GridColumn>
+</GridRow>,
+            <GridRow>
+              <GridColumn
+                            floated="left"
+              >
+                            <Button
+                                          as={[Function]}
+                                          negative={true}
+                                          role="button"
+                                          to="/dashboard"
+                            >
+                                          Cancel
+                            </Button>
+              </GridColumn>
+              <GridColumn
+                            floated="right"
+              >
+                            <Button
+                                          as="button"
+                                          disabled={false}
+                                          floated="right"
+                                          positive={true}
+                                          primary={true}
+                                          role="button"
+                                          type="submit"
+                            >
+                                          Next
+                            </Button>
+              </GridColumn>
+</GridRow>,
+          ],
+          "columns": "equal",
+        },
+        "ref": null,
+        "rendered": Array [
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
-              "children": "Cancel",
-              "className": "red btn-flat white-text",
-              "replace": false,
-              "to": "/dashboard",
+              "children": Array [
+                <GridColumn
+                  computer={6}
+                  mobile={16}
+                  tablet={6}
+>
+                  <Field
+                                    component={[Function]}
+                                    label="Name"
+                                    name="name"
+                                    required={true}
+                                    showAllErrors={false}
+                                    type="text"
+                  />
+</GridColumn>,
+                <GridColumn
+                  computer={10}
+                  mobile={16}
+                  tablet={10}
+>
+                  <Field
+                                    component={[Function]}
+                                    label="Summary"
+                                    name="summary"
+                                    showAllErrors={false}
+                                    type="text"
+                  />
+</GridColumn>,
+              ],
             },
             "ref": null,
-            "rendered": "Cancel",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Field
+                    component={[Function]}
+                    label="Name"
+                    name="name"
+                    required={true}
+                    showAllErrors={false}
+                    type="text"
+/>,
+                  "computer": 6,
+                  "mobile": 16,
+                  "tablet": 6,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Name",
+                    "name": "name",
+                    "required": true,
+                    "showAllErrors": false,
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Field
+                    component={[Function]}
+                    label="Summary"
+                    name="summary"
+                    showAllErrors={false}
+                    type="text"
+/>,
+                  "computer": 10,
+                  "mobile": 16,
+                  "tablet": 10,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Summary",
+                    "name": "summary",
+                    "showAllErrors": false,
+                    "type": "text",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
             "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
+            "props": Object {
+              "children": <GridColumn>
+                <FieldArray
+                                component={[Function]}
+                                label="Ingredients"
+                                name="ingredients"
+                                required={true}
+                                showAllErrors={false}
+                                sublabel="Ingredients"
+                />
+</GridColumn>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Ingredients"
+                  name="ingredients"
+                  required={true}
+                  showAllErrors={false}
+                  sublabel="Ingredients"
+/>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Ingredients",
+                  "name": "ingredients",
+                  "required": true,
+                  "showAllErrors": false,
+                  "sublabel": "Ingredients",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <GridColumn>
+                <FieldArray
+                                component={[Function]}
+                                label="Preparation"
+                                name="preparation"
+                                showAllErrors={false}
+                                sublabel="Instructions"
+                />
+</GridColumn>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Preparation"
+                  name="preparation"
+                  showAllErrors={false}
+                  sublabel="Instructions"
+/>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Preparation",
+                  "name": "preparation",
+                  "showAllErrors": false,
+                  "sublabel": "Instructions",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <GridColumn>
+                <FieldArray
+                                component={[Function]}
+                                label="Cooking"
+                                name="cooking"
+                                required={true}
+                                showAllErrors={false}
+                                sublabel="Instructions"
+                />
+</GridColumn>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Cooking"
+                  name="cooking"
+                  required={true}
+                  showAllErrors={false}
+                  sublabel="Instructions"
+/>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Cooking",
+                  "name": "cooking",
+                  "required": true,
+                  "showAllErrors": false,
+                  "sublabel": "Instructions",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
             "props": Object {
               "children": Array [
-                "Next",
-                <i
-                  className="material-icons right"
+                <GridColumn
+                  computer={8}
+                  mobile={16}
+                  tablet={8}
 >
-                  done
-</i>,
+                  <FieldArray
+                                    component={[Function]}
+                                    label="Cooking Time"
+                                    name="cookingTime"
+                                    showAllErrors={false}
+                                    type="time"
+                  />
+</GridColumn>,
+                <GridColumn
+                  computer={8}
+                  mobile={16}
+                  tablet={8}
+>
+                  <FieldArray
+                                    component={[Function]}
+                                    label="Preparation Time"
+                                    name="preparationTime"
+                                    showAllErrors={false}
+                                    type="time"
+                  />
+</GridColumn>,
               ],
-              "className": "teal btn-flat right white-text",
-              "disabled": false,
-              "type": "submit",
             },
             "ref": null,
             "rendered": Array [
-              "Next",
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "function",
                 "props": Object {
-                  "children": "done",
-                  "className": "material-icons right",
+                  "children": <FieldArray
+                    component={[Function]}
+                    label="Cooking Time"
+                    name="cookingTime"
+                    showAllErrors={false}
+                    type="time"
+/>,
+                  "computer": 8,
+                  "mobile": 16,
+                  "tablet": 8,
                 },
                 "ref": null,
-                "rendered": "done",
-                "type": "i",
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Cooking Time",
+                    "name": "cookingTime",
+                    "showAllErrors": false,
+                    "type": "time",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <FieldArray
+                    component={[Function]}
+                    label="Preparation Time"
+                    name="preparationTime"
+                    showAllErrors={false}
+                    type="time"
+/>,
+                  "computer": 8,
+                  "mobile": 16,
+                  "tablet": 8,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Preparation Time",
+                    "name": "preparationTime",
+                    "showAllErrors": false,
+                    "type": "time",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
               },
             ],
-            "type": "button",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <GridColumn
+                  computer={10}
+                  mobile={16}
+                  tablet={10}
+>
+                  <Field
+                                    component={[Function]}
+                                    label="Notes"
+                                    name="notes"
+                                    showAllErrors={false}
+                                    type="textarea"
+                  />
+</GridColumn>,
+                <GridColumn
+                  computer={6}
+                  mobile={16}
+                  tablet={6}
+>
+                  <Field
+                                    component={[Function]}
+                                    label="Categories"
+                                    name="category"
+                                    showAllErrors={false}
+                                    type="textarea"
+                  />
+</GridColumn>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Field
+                    component={[Function]}
+                    label="Notes"
+                    name="notes"
+                    showAllErrors={false}
+                    type="textarea"
+/>,
+                  "computer": 10,
+                  "mobile": 16,
+                  "tablet": 10,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Notes",
+                    "name": "notes",
+                    "showAllErrors": false,
+                    "type": "textarea",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Field
+                    component={[Function]}
+                    label="Categories"
+                    name="category"
+                    showAllErrors={false}
+                    type="textarea"
+/>,
+                  "computer": 6,
+                  "mobile": 16,
+                  "tablet": 6,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Categories",
+                    "name": "category",
+                    "showAllErrors": false,
+                    "type": "textarea",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <GridColumn
+                  floated="left"
+>
+                  <Button
+                                    as={[Function]}
+                                    negative={true}
+                                    role="button"
+                                    to="/dashboard"
+                  >
+                                    Cancel
+                  </Button>
+</GridColumn>,
+                false,
+                <GridColumn
+                  floated="right"
+>
+                  <Button
+                                    as="button"
+                                    disabled={false}
+                                    floated="right"
+                                    positive={true}
+                                    primary={true}
+                                    role="button"
+                                    type="submit"
+                  >
+                                    Next
+                  </Button>
+</GridColumn>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Button
+                    as={[Function]}
+                    negative={true}
+                    role="button"
+                    to="/dashboard"
+>
+                    Cancel
+</Button>,
+                  "floated": "left",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "as": [Function],
+                    "children": "Cancel",
+                    "negative": true,
+                    "role": "button",
+                    "to": "/dashboard",
+                  },
+                  "ref": null,
+                  "rendered": "Cancel",
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              false,
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <Button
+                    as="button"
+                    disabled={false}
+                    floated="right"
+                    positive={true}
+                    primary={true}
+                    role="button"
+                    type="submit"
+>
+                    Next
+</Button>,
+                  "floated": "right",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "as": "button",
+                    "children": "Next",
+                    "disabled": false,
+                    "floated": "right",
+                    "positive": true,
+                    "primary": true,
+                    "role": "button",
+                    "type": "submit",
+                  },
+                  "ref": null,
+                  "rendered": "Next",
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
           },
         ],
-        "type": "form",
+        "type": [Function],
       },
-      "type": "div",
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

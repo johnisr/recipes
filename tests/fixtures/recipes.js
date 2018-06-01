@@ -4,7 +4,7 @@ module.exports = [
     name: "40 Cloves Chicken",
     summary: "Baked Whole Chicken with a smooth, sweet, earthly flavor",
     notes: [],
-    cookingTime: 6000000,
+    cookingTime: 6000,
     preparationTime: 0,
     category: ["chicken", "dinner"],
     ingredients: [
@@ -42,8 +42,8 @@ module.exports = [
     notes: [
       "This recipe needs to freeze beef for 3 hours and then marinate for 30 min",
     ],
-    cookingTime: 1200000,
-    preparationTime: 14400000,
+    cookingTime: 1200,
+    preparationTime: 14400,
     category: ["beef", "dinner", "saute"],
     ingredients: [
       {
@@ -95,7 +95,7 @@ module.exports = [
     name: "Bibimbap",
     summary: "Mixed rice with meat and assorted vegetables",
     notes: [],
-    cookingTime: 5400000,
+    cookingTime: 5400,
     preparationTime: 0,
     category: ["beef", "dinner", "saute"],
     ingredients: [
@@ -194,8 +194,8 @@ module.exports = [
     name: "Tikka Masala",
     summary: "Roasted marinated chicken in a spiced curry sauce",
     notes: ["Video: https://www.youtube.com/watch?v=lnRmIKkGCIA"],
-    cookingTime: 1200000,
-    preparationTime: 3600000,
+    cookingTime: 1200,
+    preparationTime: 3600,
     category: ["chicken", "dinner", "bake", "saute"],
     ingredients: [
       {

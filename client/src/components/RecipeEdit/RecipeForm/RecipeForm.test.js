@@ -31,10 +31,11 @@ test('should disable button when submitting is true', () => {
       submitting={submitting}
     />
   );
+
   expect(
     wrapper
-      .find('button')
-      .at(0)
+      .find('Button')
+      .at(1)
       .prop('disabled')
   ).toBe(true);
 });
@@ -49,9 +50,9 @@ test('should call onRecipeSubmit if form valid (true)', () => {
       submitting={submitting}
     />
   );
-
+  // Semantic UI takes Form => Object with prop "as": "form"
   wrapper
-    .find('form')
+    .find({ as: 'form' })
     .at(0)
     .simulate('submit', {
       preventDefault: () => {},
@@ -71,8 +72,9 @@ test('should set showAllErrors if form not valid', () => {
     />
   );
 
+  // Semantic UI takes Form => Object with prop "as": "form"
   wrapper
-    .find('form')
+    .find({ as: 'form' })
     .at(0)
     .simulate('submit', {
       preventDefault: () => {},

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button, Icon } from 'semantic-ui-react';
 import { postRecipe } from '../../../actions/actions';
+import { RecipeDetail } from '../../RecipeDetail/RecipeDetail';
 
 const multiStringToArray = str =>
   str
@@ -34,6 +36,9 @@ const formatRecipe = recipeValues => {
       }
     });
   }
+  if (!obj.ingredients) {
+    return null;
+  }
   obj.ingredients.forEach((section, index) => {
     if (section) {
       obj.ingredients[index].body = multiStringToArray(
@@ -41,6 +46,9 @@ const formatRecipe = recipeValues => {
       );
     }
   });
+  if (!obj.cooking) {
+    return null;
+  }
   obj.cooking.forEach((section, index) => {
     if (section) {
       obj.cooking[index].body = multiStringToArray(obj.cooking[index].body);
@@ -55,30 +63,26 @@ export class RecipeReview extends Component {
   onSubmit = async () => {
     const { formValues, history, onCancel } = this.props;
     try {
-      const recipe = formatRecipe(formValues);
+      const recipe = this.format(formValues);
+      if (!recipe) throw new Error('Invalid form values');
       await this.props.postRecipe(recipe);
       history.push('/dashboard');
     } catch (err) {
       onCancel();
     }
   };
+  format = formValues => formatRecipe(formValues);
   render() {
-    const { onCancel } = this.props;
+    const { onCancel, formValues } = this.props;
     return (
       <div>
-        <button
-          className="yellow white-text darken-3 btn-flat"
-          onClick={() => onCancel()}
-        >
-          Back
-        </button>
-        <button
-          className="green white-text btn-flat right"
-          onClick={this.onSubmit}
-        >
+        <h2>Review</h2>
+        {formValues && <RecipeDetail review recipe={this.format(formValues)} />}
+        <Button onClick={() => onCancel()}>Back</Button>
+        <Button positive icon floated="right" onClick={this.onSubmit}>
           Submit Recipe
-          <i className="material-icons right">email</i>
-        </button>
+          <Icon name="mail" />
+        </Button>
       </div>
     );
   }

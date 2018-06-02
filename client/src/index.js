@@ -9,11 +9,10 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
 import reducers from './reducers/reducers';
 
-// const axios = require('axios');
+const axios = require('axios');
 
-// window.axios = axios;
+window.axios = axios;
 
-// eslint-disable-next-line no-underscore-dangle
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducers,

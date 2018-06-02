@@ -9,22 +9,28 @@ const Recipe = mongoose.model('Recipe');
 
 // instantiate database with recipes from fixture
 let recipesArray;
+const usersArray = [];
 beforeAll(async () => {
-  await Recipe.remove({});
+  await Recipe.remove({}).exec();
+
   recipesArray = recipes.map(
-    ({
-      name,
-      summary,
-      notes,
-      cookingTime,
-      preparationTime,
-      category,
-      ingredients,
-      preparation,
-      cooking,
-    }) =>
-      new Recipe({
-        _user: mongoose.Types.ObjectId(),
+    (
+      {
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+      },
+      index
+    ) => {
+      usersArray[index] = mongoose.Types.ObjectId();
+      return new Recipe({
+        _user: usersArray[index],
         name,
         summary,
         notes,
@@ -37,7 +43,8 @@ beforeAll(async () => {
         dateCreated: Date.now(),
         dateModified: Date.now(),
         isFinal: true,
-      })
+      });
+    }
   );
   await Recipe.insertMany(recipesArray);
 });
@@ -65,6 +72,18 @@ describe('When Logged out', () => {
       })
       .end(done);
   });
+
+  test('DELETE /api/recipes/:id returns a 401', async done => {
+    const { id } = recipesArray[1];
+    request(app)
+      .delete(`/api/recipes/${id}`)
+      .send()
+      .expect(401)
+      .expect(res => {
+        expect(res.body).toEqual({ error: 'You must log in' });
+      })
+      .end(done);
+  });
 });
 
 describe('When Logged in', () => {
@@ -79,6 +98,18 @@ describe('When Logged in', () => {
   afterAll(async () => {
     // eslint-disable-next-line no-underscore-dangle
     await userFactory.deleteUser(user._id);
+  });
+
+  test('GET /api/recipes returns a list of recipes', async done => {
+    // const recipeObj = recipesArray.map(r => JSON.parse(JSON.stringify(r)));
+    request(app)
+      .get('/api/recipes')
+      .expect(200)
+      .expect(res => {
+        expect(res.body.length).toBe(4);
+        // expect(res.body).toEqual(recipeObj);
+      })
+      .end(done);
   });
 
   describe('POST /api/recipes', () => {
@@ -204,8 +235,11 @@ describe('When Logged in', () => {
             return done(err);
           }
           expect(res.body).toMatchObject(recipes[1]);
+
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(5);
+
           const recipe = await Recipe.findOne({
-            // eslint-disable-next-line no-underscore-dangle
             _user: { _id: user._id },
             name: recipes[1].name,
           }).exec();
@@ -228,6 +262,117 @@ describe('When Logged in', () => {
           expect(recipeObj.dateModified).toBeInstanceOf(Date);
           expect(recipeObj.isFinal).toEqual(true);
 
+          const cleanup = await Recipe.findOneAndRemove({
+            _user: { _id: user._id },
+            name: recipes[1].name,
+          });
+          expect(cleanup).toBeTruthy();
+
+          return done();
+        });
+    });
+  });
+
+  describe('DELETE /api/recipes/:id', () => {
+    test('With invalid recipe id returns a 404', async done => {
+      request(app)
+        .delete('/api/recipes/123')
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Invalid recipe id' });
+        })
+        .end(async err => {
+          if (err) return done(err);
+
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(recipesArray.length);
+          return done();
+        });
+    });
+    test('With a valid recipe id that does not exist returns a 404', async done => {
+      const recipeId = mongoose.Types.ObjectId();
+      request(app)
+        .delete(`/api/recipes/${recipeId}`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Recipe not found' });
+        })
+        .end(async err => {
+          if (err) return done(err);
+
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(recipesArray.length);
+          return done();
+        });
+    });
+    test('With a recipe id not belonging to user returns a 404', async done => {
+      const { _id } = recipesArray[0];
+      request(app)
+        .delete(`/api/recipes/${_id}`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Recipe not found' });
+        })
+        .end(async err => {
+          if (err) return done(err);
+
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(recipesArray.length);
+          return done();
+        });
+    });
+
+    // test('After changing session cookie to owner of recipe returns a 401', asnyc done => {
+    test('After changing session cookie to owner of recipe (not session sig) returns a 401', async done => {
+      const newUser = await userFactory.createUserWithId(usersArray[2]);
+      // Copying user session cookie, but user sig stays the same
+      const { session: newSession } = sessionFactory(newUser);
+
+      request(app)
+        .delete(`/api/recipes/${recipesArray[2].id}`)
+        .set('Cookie', `session=${newSession}; session.sig=${sig}`)
+        .expect(401)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'You must log in' });
+        })
+        .end(async err => {
+          if (err) return done(err);
+
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(recipesArray.length);
+
+          await userFactory.deleteUserOnly(newUser._id);
+          return done();
+        });
+    });
+    test('With valid user and valid recipe id deletes and returns recipe', async done => {
+      const newUser = await userFactory.createUserWithId(usersArray[0]);
+      const { sig: newSig, session: newSession } = sessionFactory(newUser);
+
+      request(app)
+        .delete(`/api/recipes/${recipesArray[0].id}`)
+        .set('Cookie', `session=${newSession}; session.sig=${newSig}`)
+        .expect(200)
+        .expect(res => {
+          const { name, _id, _user } = res.body.recipe;
+          expect(name).toEqual(recipesArray[0].name);
+          expect(_id).toEqual(recipesArray[0]._id.toString());
+          expect(_user).toEqual(recipesArray[0]._user.toString());
+        })
+        .end(async err => {
+          if (err) {
+            return done(err);
+          }
+          const allRecipes = await Recipe.find({}).exec();
+          expect(allRecipes.length).toBe(recipesArray.length - 1);
+
+          const recipe = await Recipe.find({ _id: recipesArray[0].id }).exec();
+          expect(recipe).toEqual([]);
+
+          await userFactory.deleteUserOnly(newUser._id);
           return done();
         });
     });

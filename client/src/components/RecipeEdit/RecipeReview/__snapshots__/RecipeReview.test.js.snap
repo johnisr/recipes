@@ -5,6 +5,45 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <RecipeReview
+    formValues={
+        Object {
+            "category": "test
+        another test",
+            "cooking": Array [
+              Object {
+                "body": "saute all ingredients",
+                "title": "main",
+              },
+            ],
+            "cookingTime": Array [
+              Object {
+                "days": "1",
+                "hours": "0",
+                "minutes": "0",
+                "seconds": "0",
+              },
+            ],
+            "ingredients": Array [
+              Object {
+                "body": "2 eggs
+        2 ham
+        1 tomato",
+                "title": "main",
+              },
+            ],
+            "name": "Test Recipe",
+            "notes": "Some notes
+        About the test recipe",
+            "preparationTime": Array [
+              Object {
+                "hours": "1",
+                "minutes": "1",
+                "seconds": "1",
+              },
+            ],
+            "summary": "A test recipe",
+          }
+    }
     onCancel={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -20,23 +59,67 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <button
-          className="yellow white-text darken-3 btn-flat"
+        <h2>
+          Review
+</h2>,
+        <RecipeDetail
+          recipe={
+                    Object {
+                              "category": Array [
+                                "test",
+                                "another test",
+                              ],
+                              "cooking": Array [
+                                Object {
+                                  "body": Array [
+                                    "saute all ingredients",
+                                  ],
+                                  "title": "main",
+                                },
+                              ],
+                              "cookingTime": 86400,
+                              "ingredients": Array [
+                                Object {
+                                  "body": Array [
+                                    "2 eggs",
+                                    "2 ham",
+                                    "1 tomato",
+                                  ],
+                                  "title": "main",
+                                },
+                              ],
+                              "name": "Test Recipe",
+                              "notes": Array [
+                                "Some notes",
+                                "About the test recipe",
+                              ],
+                              "preparationTime": 3661,
+                              "summary": "A test recipe",
+                            }
+          }
+          review={true}
+/>,
+        <Button
+          as="button"
           onClick={[Function]}
+          role="button"
 >
           Back
-</button>,
-        <button
-          className="green white-text btn-flat right"
+</Button>,
+        <Button
+          as="button"
+          floated="right"
+          icon={true}
           onClick={[Function]}
+          positive={true}
+          role="button"
 >
           Submit Recipe
-          <i
-                    className="material-icons right"
-          >
-                    email
-          </i>
-</button>,
+          <Icon
+                    as="i"
+                    name="mail"
+          />
+</Button>,
       ],
     },
     "ref": null,
@@ -46,29 +129,87 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Back",
-          "className": "yellow white-text darken-3 btn-flat",
-          "onClick": [Function],
+          "children": "Review",
         },
         "ref": null,
-        "rendered": "Back",
-        "type": "button",
+        "rendered": "Review",
+        "type": "h2",
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
+          "recipe": Object {
+            "category": Array [
+              "test",
+              "another test",
+            ],
+            "cooking": Array [
+              Object {
+                "body": Array [
+                  "saute all ingredients",
+                ],
+                "title": "main",
+              },
+            ],
+            "cookingTime": 86400,
+            "ingredients": Array [
+              Object {
+                "body": Array [
+                  "2 eggs",
+                  "2 ham",
+                  "1 tomato",
+                ],
+                "title": "main",
+              },
+            ],
+            "name": "Test Recipe",
+            "notes": Array [
+              "Some notes",
+              "About the test recipe",
+            ],
+            "preparationTime": 3661,
+            "summary": "A test recipe",
+          },
+          "review": true,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "as": "button",
+          "children": "Back",
+          "onClick": [Function],
+          "role": "button",
+        },
+        "ref": null,
+        "rendered": "Back",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "as": "button",
           "children": Array [
             "Submit Recipe",
-            <i
-              className="material-icons right"
->
-              email
-</i>,
+            <Icon
+              as="i"
+              name="mail"
+/>,
           ],
-          "className": "green white-text btn-flat right",
+          "floated": "right",
+          "icon": true,
           "onClick": [Function],
+          "positive": true,
+          "role": "button",
         },
         "ref": null,
         "rendered": Array [
@@ -76,17 +217,17 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": "email",
-              "className": "material-icons right",
+              "as": "i",
+              "name": "mail",
             },
             "ref": null,
-            "rendered": "email",
-            "type": "i",
+            "rendered": null,
+            "type": [Function],
           },
         ],
-        "type": "button",
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -98,23 +239,67 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <button
-            className="yellow white-text darken-3 btn-flat"
+          <h2>
+            Review
+</h2>,
+          <RecipeDetail
+            recipe={
+                        Object {
+                                    "category": Array [
+                                      "test",
+                                      "another test",
+                                    ],
+                                    "cooking": Array [
+                                      Object {
+                                        "body": Array [
+                                          "saute all ingredients",
+                                        ],
+                                        "title": "main",
+                                      },
+                                    ],
+                                    "cookingTime": 86400,
+                                    "ingredients": Array [
+                                      Object {
+                                        "body": Array [
+                                          "2 eggs",
+                                          "2 ham",
+                                          "1 tomato",
+                                        ],
+                                        "title": "main",
+                                      },
+                                    ],
+                                    "name": "Test Recipe",
+                                    "notes": Array [
+                                      "Some notes",
+                                      "About the test recipe",
+                                    ],
+                                    "preparationTime": 3661,
+                                    "summary": "A test recipe",
+                                  }
+            }
+            review={true}
+/>,
+          <Button
+            as="button"
             onClick={[Function]}
+            role="button"
 >
             Back
-</button>,
-          <button
-            className="green white-text btn-flat right"
+</Button>,
+          <Button
+            as="button"
+            floated="right"
+            icon={true}
             onClick={[Function]}
+            positive={true}
+            role="button"
 >
             Submit Recipe
-            <i
-                        className="material-icons right"
-            >
-                        email
-            </i>
-</button>,
+            <Icon
+                        as="i"
+                        name="mail"
+            />
+</Button>,
         ],
       },
       "ref": null,
@@ -124,29 +309,87 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Back",
-            "className": "yellow white-text darken-3 btn-flat",
-            "onClick": [Function],
+            "children": "Review",
           },
           "ref": null,
-          "rendered": "Back",
-          "type": "button",
+          "rendered": "Review",
+          "type": "h2",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
+            "recipe": Object {
+              "category": Array [
+                "test",
+                "another test",
+              ],
+              "cooking": Array [
+                Object {
+                  "body": Array [
+                    "saute all ingredients",
+                  ],
+                  "title": "main",
+                },
+              ],
+              "cookingTime": 86400,
+              "ingredients": Array [
+                Object {
+                  "body": Array [
+                    "2 eggs",
+                    "2 ham",
+                    "1 tomato",
+                  ],
+                  "title": "main",
+                },
+              ],
+              "name": "Test Recipe",
+              "notes": Array [
+                "Some notes",
+                "About the test recipe",
+              ],
+              "preparationTime": 3661,
+              "summary": "A test recipe",
+            },
+            "review": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "as": "button",
+            "children": "Back",
+            "onClick": [Function],
+            "role": "button",
+          },
+          "ref": null,
+          "rendered": "Back",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "as": "button",
             "children": Array [
               "Submit Recipe",
-              <i
-                className="material-icons right"
->
-                email
-</i>,
+              <Icon
+                as="i"
+                name="mail"
+/>,
             ],
-            "className": "green white-text btn-flat right",
+            "floated": "right",
+            "icon": true,
             "onClick": [Function],
+            "positive": true,
+            "role": "button",
           },
           "ref": null,
           "rendered": Array [
@@ -154,17 +397,17 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "children": "email",
-                "className": "material-icons right",
+                "as": "i",
+                "name": "mail",
               },
               "ref": null,
-              "rendered": "email",
-              "type": "i",
+              "rendered": null,
+              "type": [Function],
             },
           ],
-          "type": "button",
+          "type": [Function],
         },
       ],
       "type": "div",

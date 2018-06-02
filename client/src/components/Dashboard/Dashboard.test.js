@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Dashboard from './Dashboard';
+import { Dashboard } from './Dashboard';
 
 test('should render correctly', () => {
-  const wrapper = shallow(<Dashboard />);
+  const wrapper = shallow(<Dashboard user recipes={[]} />);
   expect(wrapper).toMatchSnapshot();
 });

@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { fetchUser, postRecipe, getRecipes } from './actions';
-import { FETCH_USER, POST_RECIPE, SET_RECIPES } from './types';
+import { fetchUser, postRecipe, getRecipes, deleteRecipe } from './actions';
+import { FETCH_USER, POST_RECIPE, SET_RECIPES, DELETE_RECIPE } from './types';
 import recipes from '../tests/fixtures/recipes';
 
 const mockStore = configureMockStore([thunk]);
@@ -78,6 +78,23 @@ describe('/api/recipes', () => {
       {
         type: SET_RECIPES,
         payload: recipes,
+      },
+    ]);
+  });
+  test('dispatches a DELETE_RECIPE action after dispatching deleteRecipe', async () => {
+    const id = '123456789';
+    moxios.stubRequest(`/api/recipes/${id}`, {
+      status: 200,
+      response: recipes[1],
+    });
+
+    const store = mockStore({ auth: null });
+
+    await store.dispatch(deleteRecipe(id));
+    expect(store.getActions()).toEqual([
+      {
+        type: DELETE_RECIPE,
+        payload: id,
       },
     ]);
   });

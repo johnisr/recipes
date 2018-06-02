@@ -5,7 +5,12 @@ import { RecipeReview } from './RecipeReview';
 import formValuesArray from '../../../tests/fixtures/formValues';
 
 test('should render correctly', () => {
-  const wrapper = shallow(<RecipeReview onCancel={jest.fn()} />);
+  const wrapper = shallow(
+    <RecipeReview
+      onCancel={jest.fn()}
+      formValues={formValuesArray[0].request}
+    />
+  );
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -13,14 +18,13 @@ test('should call onCancel on button click', () => {
   const onCancelSpy = jest.fn();
   const wrapper = shallow(<RecipeReview onCancel={onCancelSpy} />);
   wrapper
-    .find('button')
+    .find('Button')
     .at(0)
     .simulate('click');
   expect(onCancelSpy).toHaveBeenCalled();
 });
 
 describe('When calling onSubmit', () => {
-  let formValues;
   let history;
   let postRecipe;
   let onCancelSpy;
@@ -28,20 +32,19 @@ describe('When calling onSubmit', () => {
     history = { push: jest.fn() };
     postRecipe = jest.fn();
     onCancelSpy = jest.fn();
-    [{ request: formValues }] = formValuesArray;
   });
 
   test('should format formValues', () => {
     const wrapper = shallow(
       <RecipeReview
-        formValues={formValues}
+        formValues={formValuesArray[0].request}
         history={history}
         postRecipe={postRecipe}
         onCancel={onCancelSpy}
       />
     );
     wrapper
-      .find('button')
+      .find('Button')
       .at(1)
       .simulate('click');
     expect(postRecipe).toHaveBeenLastCalledWith(formValuesArray[0].response);
@@ -73,7 +76,7 @@ describe('When calling onSubmit', () => {
       />
     );
     wrapper
-      .find('button')
+      .find('Button')
       .at(1)
       .simulate('click');
     expect(onCancelSpy).toHaveBeenCalled();

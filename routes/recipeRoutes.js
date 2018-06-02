@@ -50,4 +50,24 @@ module.exports = app => {
       res.status(400).send(err);
     }
   });
+
+  app.delete('/api/recipes/:id', requireLogin, async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).send({ error: 'Invalid recipe id' });
+    }
+    try {
+      const recipe = await Recipe.findOneAndRemove({
+        _id: id,
+        _user: req.user.id,
+      });
+      if (!recipe) {
+        return res.status(404).send({ error: 'Recipe not found' });
+      }
+      return res.send({ recipe });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send();
+    }
+  });
 };

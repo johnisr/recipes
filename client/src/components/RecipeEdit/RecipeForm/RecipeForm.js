@@ -247,21 +247,19 @@ const recipeToForm = recipe => {
   return formValues;
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    user: state.auth && state.auth._id,
-    initialValues:
-      state.recipes &&
-      state.auth &&
-      recipeToForm(
-        state.recipes.find(
-          recipe =>
-            recipe._id === props.match.params.id &&
-            recipe._user === state.auth._id
-        )
-      ),
-  };
-};
+const mapStateToProps = (state, props) => ({
+  user: state.auth && state.auth._id,
+  initialValues:
+    state.recipes &&
+    state.auth &&
+    recipeToForm(
+      state.recipes.find(
+        recipe =>
+          recipe._id === props.match.params.id &&
+          recipe._user === state.auth._id
+      )
+    ),
+});
 
 export default withRouter(
   connect(mapStateToProps)(

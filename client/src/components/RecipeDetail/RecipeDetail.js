@@ -36,7 +36,7 @@ export class RecipeDetail extends Component {
       await this.props.deleteRecipe(_id);
       history.push('/dashboard');
     } catch (err) {
-      console.log(err);
+      // handle error
     }
   };
   render() {

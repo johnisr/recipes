@@ -46,7 +46,6 @@ module.exports = app => {
 
       res.send(recipes);
     } catch (err) {
-      console.log(err);
       res.status(400).send(err);
     }
   });
@@ -66,7 +65,6 @@ module.exports = app => {
       }
       return res.send(recipe);
     } catch (error) {
-      console.log(error);
       return res.status(400).send();
     }
   });
@@ -93,7 +91,6 @@ module.exports = app => {
       }
       return res.status(200).send(recipe);
     } catch (error) {
-      console.log(error);
       return res.status(400).send();
     }
   });

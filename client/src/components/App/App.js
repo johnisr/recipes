@@ -9,7 +9,7 @@ import Landing from '../Landing/Landing';
 import Dashboard from '../Dashboard/Dashboard';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RecipeEdit from '../RecipeEdit/RecipeEdit';
-import RecipeList from '../RecipeList/RecipeList';
+import Recipes from '../Recipes/Recipes';
 import RecipeDetail from '../RecipeDetail/RecipeDetail';
 
 export class App extends Component {
@@ -24,7 +24,7 @@ export class App extends Component {
         <Header />
         <Route path="/" exact component={Landing} />
         <Route path="/recipes/:id" exact component={RecipeDetail} />
-        <Route path="/recipes" exact component={RecipeList} />
+        <Route path="/recipes" exact component={Recipes} />
         <PrivateRoute
           location={location}
           path="/recipesNew"

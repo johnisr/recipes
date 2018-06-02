@@ -8,9 +8,11 @@ const mongoose = require('mongoose');
 const Recipe = mongoose.model('Recipe');
 
 // instantiate database with recipes from fixture
+let savedRecipes;
 let recipesArray;
 const usersArray = [];
 beforeAll(async () => {
+  savedRecipes = await Recipe.find({}).exec();
   await Recipe.remove({}).exec();
 
   recipesArray = recipes.map(
@@ -51,7 +53,7 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await Recipe.remove({}).exec();
-  await Recipe.insertMany(recipesArray);
+  await Recipe.insertMany(savedRecipes);
 });
 
 describe('When Logged out', () => {

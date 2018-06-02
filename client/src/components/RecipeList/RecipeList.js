@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Loader, Card, Label, Grid, Button, Icon } from 'semantic-ui-react';
+import selectRecipes from '../../selectors/recipes';
 
 export class RecipeList extends Component {
   componentDidMount() {}
@@ -52,7 +53,7 @@ export class RecipeList extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipes,
+  recipes: state.recipes && selectRecipes(state.recipes, state.recipesFilter),
   auth: state.auth,
 });
 

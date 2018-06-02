@@ -4,7 +4,7 @@ const Landing = () => {
   return (
     <div>
       Landing!
-      <div>Some entrance slogan</div>
+      <div>Click Recipes to see a list of recipes</div>
     </div>
   );
 };

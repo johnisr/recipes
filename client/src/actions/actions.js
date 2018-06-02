@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { FETCH_USER, POST_RECIPE, SET_RECIPES, DELETE_RECIPE } from './types';
+import {
+  FETCH_USER,
+  POST_RECIPE,
+  SET_RECIPES,
+  DELETE_RECIPE,
+  PATCH_RECIPE,
+} from './types';
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/auth/current_user');
@@ -17,6 +23,12 @@ export const deleteRecipe = id => async dispatch => {
   await axios.delete(`/api/recipes/${id}`);
 
   dispatch({ type: DELETE_RECIPE, payload: id });
+};
+
+export const patchRecipe = (id, updates) => async dispatch => {
+  const res = await axios.patch(`/api/recipes/${id}`, updates);
+
+  dispatch({ type: PATCH_RECIPE, id, payload: res.data });
 };
 
 export const getRecipes = () => async dispatch => {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { reduxForm, Field, FieldArray } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Grid, Form, Button, Message } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 import RecipeField from './RecipeField/RecipeField';
 import RecipeFieldTime from './RecipeFieldTime/RecipeFieldTime';
@@ -200,8 +201,74 @@ const validate = values => {
   return errors;
 };
 
-export default reduxForm({
-  validate,
-  form: 'recipeForm',
-  destroyOnUnmount: false,
-})(RecipeForm);
+const timeToArrayObj = time => {
+  let timeLeft = time;
+  const days = Math.floor(timeLeft / (60 * 60 * 24));
+  timeLeft %= 60 * 60 * 24;
+  const hours = Math.floor(timeLeft / (60 * 60));
+  timeLeft %= 60 * 60;
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  return [{ days, hours, minutes, seconds }];
+};
+
+const joinBodyArrays = sections =>
+  sections.map(section => ({
+    title: section.title,
+    body: section.body.join('\n'),
+  }));
+
+const recipeToForm = recipe => {
+  if (!recipe) return recipe;
+  const {
+    notes,
+    category,
+    name,
+    summary,
+    cookingTime,
+    preparationTime,
+    cooking,
+    ingredients,
+    preparation,
+  } = recipe;
+  const formValues = {};
+
+  if (notes) formValues.notes = notes.join('\n');
+  if (category) formValues.category = category.join('\n');
+  if (name) formValues.name = name;
+  if (summary) formValues.summary = summary;
+  if (cookingTime) formValues.cookingTime = timeToArrayObj(cookingTime);
+  if (preparationTime)
+    formValues.preparationTime = timeToArrayObj(preparationTime);
+  if (cooking) formValues.cooking = joinBodyArrays(cooking);
+  if (ingredients) formValues.ingredients = joinBodyArrays(ingredients);
+  if (preparation) formValues.preparation = joinBodyArrays(preparation);
+
+  return formValues;
+};
+
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.auth && state.auth._id,
+    initialValues:
+      state.recipes &&
+      state.auth &&
+      recipeToForm(
+        state.recipes.find(
+          recipe =>
+            recipe._id === props.match.params.id &&
+            recipe._user === state.auth._id
+        )
+      ),
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps)(
+    reduxForm({
+      validate,
+      form: 'recipeForm',
+      destroyOnUnmount: false,
+    })(RecipeForm)
+  )
+);

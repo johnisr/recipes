@@ -1,8 +1,20 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { fetchUser, postRecipe, getRecipes, deleteRecipe } from './actions';
-import { FETCH_USER, POST_RECIPE, SET_RECIPES, DELETE_RECIPE } from './types';
+import {
+  fetchUser,
+  postRecipe,
+  getRecipes,
+  deleteRecipe,
+  patchRecipe,
+} from './actions';
+import {
+  FETCH_USER,
+  POST_RECIPE,
+  SET_RECIPES,
+  DELETE_RECIPE,
+  PATCH_RECIPE,
+} from './types';
 import recipes from '../tests/fixtures/recipes';
 
 const mockStore = configureMockStore([thunk]);
@@ -95,6 +107,25 @@ describe('/api/recipes', () => {
       {
         type: DELETE_RECIPE,
         payload: id,
+      },
+    ]);
+  });
+  test('dispatches a PATCH_RECIPE action after dispatching patchRecipe', async () => {
+    const id = '123456789';
+    const updates = { name: 'new name', summary: 'new summary' };
+    moxios.stubRequest(`/api/recipes/${id}`, {
+      status: 200,
+      response: { ...recipes[1], ...updates },
+    });
+
+    const store = mockStore({ auth: null });
+
+    await store.dispatch(patchRecipe(id, updates));
+    expect(store.getActions()).toEqual([
+      {
+        type: PATCH_RECIPE,
+        id,
+        payload: { ...recipes[1], ...updates },
       },
     ]);
   });

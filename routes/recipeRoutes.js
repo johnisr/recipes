@@ -64,7 +64,34 @@ module.exports = app => {
       if (!recipe) {
         return res.status(404).send({ error: 'Recipe not found' });
       }
-      return res.send({ recipe });
+      return res.send(recipe);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send();
+    }
+  });
+
+  app.patch('/api/recipes/:id', requireLogin, async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(404).send({ error: 'Invalid recipe id' });
+    }
+    const update = {
+      ...req.body,
+      _id: id,
+      _user: req.user.id,
+      dateModified: Date.now(),
+    };
+    try {
+      const recipe = await Recipe.findOneAndUpdate(
+        { _id: id, _user: req.user.id },
+        { $set: update },
+        { new: true }
+      );
+      if (!recipe) {
+        return res.status(404).send({ error: 'Recipe not found' });
+      }
+      return res.status(200).send(recipe);
     } catch (error) {
       console.log(error);
       return res.status(400).send();

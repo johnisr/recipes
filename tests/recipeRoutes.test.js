@@ -49,6 +49,11 @@ beforeAll(async () => {
   await Recipe.insertMany(recipesArray);
 });
 
+afterAll(async () => {
+  await Recipe.remove({}).exec();
+  await Recipe.insertMany(recipesArray);
+});
+
 describe('When Logged out', () => {
   test('POST /api/recipes returns a 401', done => {
     request(app)
@@ -84,6 +89,23 @@ describe('When Logged out', () => {
       })
       .end(done);
   });
+
+  test('PATCH /api/recipes/:id returns a 401', async done => {
+    const { id } = recipesArray[1];
+    const update = {
+      ...recipesArray[1],
+      name: 'new name',
+      summary: 'new summary',
+    };
+    request(app)
+      .delete(`/api/recipes/${id}`)
+      .send(update)
+      .expect(401)
+      .expect(res => {
+        expect(res.body).toEqual({ error: 'You must log in' });
+      })
+      .end(done);
+  });
 });
 
 describe('When Logged in', () => {
@@ -96,7 +118,6 @@ describe('When Logged in', () => {
   });
 
   afterAll(async () => {
-    // eslint-disable-next-line no-underscore-dangle
     await userFactory.deleteUser(user._id);
   });
 
@@ -273,6 +294,146 @@ describe('When Logged in', () => {
     });
   });
 
+  describe('PATCH /api/recipes/:id', () => {
+    test('should not edit an invalid id recipe', async done => {
+      const id = '123';
+      const update = {
+        ...recipesArray[1],
+        name: 'new name',
+        summary: 'new summary',
+      };
+      request(app)
+        .patch(`/api/recipes/${id}`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .send(update)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Invalid recipe id' });
+        })
+        .end(async err => {
+          if (err) done(err);
+          const recipe = await Recipe.findOne({
+            _id: recipesArray[1]._id,
+          }).exec();
+          expect(recipe).toBeTruthy();
+          expect(recipe.name).toEqual(recipesArray[1].name);
+          expect(recipe.summary).toEqual(recipesArray[1].summary);
+          done();
+        });
+    });
+
+    test('should not edit a valid id recipe that does not exist', async done => {
+      const id = mongoose.Types.ObjectId();
+      const update = {
+        name: 'new name',
+        summary: 'new summary',
+      };
+      request(app)
+        .patch(`/api/recipes/${id}`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .send(update)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Recipe not found' });
+        })
+        .end(done);
+    });
+
+    test('should not edit a recipe that belongs to another user', async done => {
+      const id = recipesArray[1]._id;
+      const update = {
+        name: 'new name',
+        summary: 'new summary',
+      };
+      request(app)
+        .patch(`/api/recipes/${id}`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .send(update)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Recipe not found' });
+        })
+        .end(async err => {
+          if (err) done(err);
+          const recipe = await Recipe.findOne({
+            _id: recipesArray[1]._id,
+          }).exec();
+          expect(recipe).toBeTruthy();
+          expect(recipe.name).toEqual(recipesArray[1].name);
+          expect(recipe.summary).toEqual(recipesArray[1].summary);
+          done();
+        });
+    });
+
+    test('After changing session cookie to owner of recipe (not session sig) returns a 401', async done => {
+      const id = recipesArray[1]._id;
+      const update = {
+        name: 'new name',
+        summary: 'new summary',
+      };
+      const newUser = await userFactory.createUserWithId(usersArray[1]);
+      // Copying user session cookie, but user sig stays the same
+      const { session: newSession } = sessionFactory(newUser);
+
+      request(app)
+        .patch(`/api/recipes/${id}`)
+        .set('Cookie', `session=${newSession}; session.sig=${sig}`)
+        .send(update)
+        .expect(401)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'You must log in' });
+        })
+        .end(async err => {
+          if (err) done(err);
+          const recipe = await Recipe.findOne({
+            _id: recipesArray[1]._id,
+          }).exec();
+          expect(recipe).toBeTruthy();
+          expect(recipe.name).toEqual(recipesArray[1].name);
+          expect(recipe.summary).toEqual(recipesArray[1].summary);
+
+          await userFactory.deleteUserOnly(newUser._id);
+          done();
+        });
+    });
+
+    test('With valid user and valid recipe id edits and returns recipe', async done => {
+      const id = recipesArray[3]._id;
+      const update = {
+        name: 'new name',
+        summary: 'new summary',
+      };
+      const newUser = await userFactory.createUserWithId(usersArray[3]);
+      const { sig: newSig, session: newSession } = sessionFactory(newUser);
+
+      request(app)
+        .patch(`/api/recipes/${id}`)
+        .set('Cookie', `session=${newSession}; session.sig=${newSig}`)
+        .send(update)
+        .expect(200)
+        .expect(res => {
+          const { name, summary, _id, _user, dateModified } = res.body;
+          expect(name).toEqual(update.name);
+          expect(summary).toEqual(update.summary);
+          expect(_id).toEqual(recipesArray[3]._id.toString());
+          expect(_user).toEqual(recipesArray[3]._user.toString());
+          expect(dateModified).not.toEqual(recipesArray[3].dateModified);
+        })
+        .end(async err => {
+          if (err) done(err);
+          const recipe = await Recipe.findOne({
+            _id: recipesArray[3]._id,
+          }).exec();
+          expect(recipe).toBeTruthy();
+          expect(recipe.name).toEqual(update.name);
+          expect(recipe.summary).toEqual(update.summary);
+
+          await userFactory.deleteUserOnly(newUser._id);
+          done();
+        });
+    });
+  });
+
   describe('DELETE /api/recipes/:id', () => {
     test('With invalid recipe id returns a 404', async done => {
       request(app)
@@ -325,7 +486,6 @@ describe('When Logged in', () => {
         });
     });
 
-    // test('After changing session cookie to owner of recipe returns a 401', asnyc done => {
     test('After changing session cookie to owner of recipe (not session sig) returns a 401', async done => {
       const newUser = await userFactory.createUserWithId(usersArray[2]);
       // Copying user session cookie, but user sig stays the same
@@ -357,7 +517,7 @@ describe('When Logged in', () => {
         .set('Cookie', `session=${newSession}; session.sig=${newSig}`)
         .expect(200)
         .expect(res => {
-          const { name, _id, _user } = res.body.recipe;
+          const { name, _id, _user } = res.body;
           expect(name).toEqual(recipesArray[0].name);
           expect(_id).toEqual(recipesArray[0]._id.toString());
           expect(_user).toEqual(recipesArray[0]._user.toString());

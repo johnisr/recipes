@@ -41,6 +41,7 @@ describe('When calling onSubmit', () => {
         history={history}
         postRecipe={postRecipe}
         onCancel={onCancelSpy}
+        match={{ params: {} }}
       />
     );
     wrapper

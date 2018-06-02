@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
-import { postRecipe } from '../../../actions/actions';
+import { postRecipe, patchRecipe } from '../../../actions/actions';
 import { RecipeDetail } from '../../RecipeDetail/RecipeDetail';
 
 const multiStringToArray = str =>
@@ -61,11 +61,15 @@ const formatRecipe = recipeValues => {
 
 export class RecipeReview extends Component {
   onSubmit = async () => {
-    const { formValues, history, onCancel } = this.props;
+    const { formValues, history, onCancel, match } = this.props;
     try {
       const recipe = this.format(formValues);
       if (!recipe) throw new Error('Invalid form values');
-      await this.props.postRecipe(recipe);
+      if (match.params.id) {
+        await this.props.patchRecipe(match.params.id, recipe);
+      } else {
+        await this.props.postRecipe(recipe);
+      }
       history.push('/dashboard');
     } catch (err) {
       onCancel();
@@ -94,6 +98,7 @@ const mapStatetoProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   postRecipe: recipe => dispatch(postRecipe(recipe)),
+  patchRecipe: (id, updates) => dispatch(patchRecipe(id, updates)),
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(

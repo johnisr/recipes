@@ -23,7 +23,7 @@ export class RecipeList extends Component {
               </Card.Content>
               <Card.Content extra>
                 <Card.Meta>
-                  <Grid>
+                  <Grid container>
                     {recipe.category.map(cat => (
                       <Label key={cat} tag>
                         {cat}

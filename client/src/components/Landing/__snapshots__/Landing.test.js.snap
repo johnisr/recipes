@@ -22,6 +22,9 @@ ShallowWrapper {
         <div>
           Click Recipes to see a list of recipes
 </div>,
+        <div>
+          Login to add recipes
+</div>,
       ],
     },
     "ref": null,
@@ -38,6 +41,17 @@ ShallowWrapper {
         "rendered": "Click Recipes to see a list of recipes",
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Login to add recipes",
+        },
+        "ref": null,
+        "rendered": "Login to add recipes",
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -51,6 +65,9 @@ ShallowWrapper {
           "Landing!",
           <div>
             Click Recipes to see a list of recipes
+</div>,
+          <div>
+            Login to add recipes
 </div>,
         ],
       },
@@ -66,6 +83,17 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": "Click Recipes to see a list of recipes",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Login to add recipes",
+          },
+          "ref": null,
+          "rendered": "Login to add recipes",
           "type": "div",
         },
       ],

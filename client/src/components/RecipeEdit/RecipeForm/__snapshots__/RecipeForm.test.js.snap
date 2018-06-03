@@ -97,8 +97,8 @@ ShallowWrapper {
                 >
                         <FieldArray
                                 component={[Function]}
-                                label="Cooking Time"
-                                name="cookingTime"
+                                label="Preparation Time"
+                                name="preparationTime"
                                 showAllErrors={false}
                                 type="time"
                         />
@@ -110,8 +110,8 @@ ShallowWrapper {
                 >
                         <FieldArray
                                 component={[Function]}
-                                label="Preparation Time"
-                                name="preparationTime"
+                                label="Cooking Time"
+                                name="cookingTime"
                                 showAllErrors={false}
                                 type="time"
                         />
@@ -256,8 +256,8 @@ ShallowWrapper {
             >
                         <FieldArray
                                     component={[Function]}
-                                    label="Cooking Time"
-                                    name="cookingTime"
+                                    label="Preparation Time"
+                                    name="preparationTime"
                                     showAllErrors={false}
                                     type="time"
                         />
@@ -269,8 +269,8 @@ ShallowWrapper {
             >
                         <FieldArray
                                     component={[Function]}
-                                    label="Preparation Time"
-                                    name="preparationTime"
+                                    label="Cooking Time"
+                                    name="cookingTime"
                                     showAllErrors={false}
                                     type="time"
                         />
@@ -614,8 +614,8 @@ ShallowWrapper {
 >
                 <FieldArray
                                 component={[Function]}
-                                label="Cooking Time"
-                                name="cookingTime"
+                                label="Preparation Time"
+                                name="preparationTime"
                                 showAllErrors={false}
                                 type="time"
                 />
@@ -627,8 +627,8 @@ ShallowWrapper {
 >
                 <FieldArray
                                 component={[Function]}
-                                label="Preparation Time"
-                                name="preparationTime"
+                                label="Cooking Time"
+                                name="cookingTime"
                                 showAllErrors={false}
                                 type="time"
                 />
@@ -637,40 +637,6 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "children": <FieldArray
-                  component={[Function]}
-                  label="Cooking Time"
-                  name="cookingTime"
-                  showAllErrors={false}
-                  type="time"
-/>,
-                "computer": 8,
-                "mobile": 16,
-                "tablet": 8,
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "component": [Function],
-                  "label": "Cooking Time",
-                  "name": "cookingTime",
-                  "showAllErrors": false,
-                  "type": "time",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": [Function],
-            },
             Object {
               "instance": null,
               "key": undefined,
@@ -696,6 +662,40 @@ ShallowWrapper {
                   "component": [Function],
                   "label": "Preparation Time",
                   "name": "preparationTime",
+                  "showAllErrors": false,
+                  "type": "time",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <FieldArray
+                  component={[Function]}
+                  label="Cooking Time"
+                  name="cookingTime"
+                  showAllErrors={false}
+                  type="time"
+/>,
+                "computer": 8,
+                "mobile": 16,
+                "tablet": 8,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "component": [Function],
+                  "label": "Cooking Time",
+                  "name": "cookingTime",
                   "showAllErrors": false,
                   "type": "time",
                 },
@@ -1016,8 +1016,8 @@ ShallowWrapper {
                     >
                               <FieldArray
                                         component={[Function]}
-                                        label="Cooking Time"
-                                        name="cookingTime"
+                                        label="Preparation Time"
+                                        name="preparationTime"
                                         showAllErrors={false}
                                         type="time"
                               />
@@ -1029,8 +1029,8 @@ ShallowWrapper {
                     >
                               <FieldArray
                                         component={[Function]}
-                                        label="Preparation Time"
-                                        name="preparationTime"
+                                        label="Cooking Time"
+                                        name="cookingTime"
                                         showAllErrors={false}
                                         type="time"
                               />
@@ -1175,8 +1175,8 @@ ShallowWrapper {
               >
                             <FieldArray
                                           component={[Function]}
-                                          label="Cooking Time"
-                                          name="cookingTime"
+                                          label="Preparation Time"
+                                          name="preparationTime"
                                           showAllErrors={false}
                                           type="time"
                             />
@@ -1188,8 +1188,8 @@ ShallowWrapper {
               >
                             <FieldArray
                                           component={[Function]}
-                                          label="Preparation Time"
-                                          name="preparationTime"
+                                          label="Cooking Time"
+                                          name="cookingTime"
                                           showAllErrors={false}
                                           type="time"
                             />
@@ -1533,8 +1533,8 @@ ShallowWrapper {
 >
                   <FieldArray
                                     component={[Function]}
-                                    label="Cooking Time"
-                                    name="cookingTime"
+                                    label="Preparation Time"
+                                    name="preparationTime"
                                     showAllErrors={false}
                                     type="time"
                   />
@@ -1546,8 +1546,8 @@ ShallowWrapper {
 >
                   <FieldArray
                                     component={[Function]}
-                                    label="Preparation Time"
-                                    name="preparationTime"
+                                    label="Cooking Time"
+                                    name="cookingTime"
                                     showAllErrors={false}
                                     type="time"
                   />
@@ -1556,40 +1556,6 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "children": <FieldArray
-                    component={[Function]}
-                    label="Cooking Time"
-                    name="cookingTime"
-                    showAllErrors={false}
-                    type="time"
-/>,
-                  "computer": 8,
-                  "mobile": 16,
-                  "tablet": 8,
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "component": [Function],
-                    "label": "Cooking Time",
-                    "name": "cookingTime",
-                    "showAllErrors": false,
-                    "type": "time",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                "type": [Function],
-              },
               Object {
                 "instance": null,
                 "key": undefined,
@@ -1615,6 +1581,40 @@ ShallowWrapper {
                     "component": [Function],
                     "label": "Preparation Time",
                     "name": "preparationTime",
+                    "showAllErrors": false,
+                    "type": "time",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": <FieldArray
+                    component={[Function]}
+                    label="Cooking Time"
+                    name="cookingTime"
+                    showAllErrors={false}
+                    type="time"
+/>,
+                  "computer": 8,
+                  "mobile": 16,
+                  "tablet": 8,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "component": [Function],
+                    "label": "Cooking Time",
+                    "name": "cookingTime",
                     "showAllErrors": false,
                     "type": "time",
                   },

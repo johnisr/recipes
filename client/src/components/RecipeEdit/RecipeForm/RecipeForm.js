@@ -84,19 +84,19 @@ export class RecipeForm extends Component {
           <Grid.Row>
             <Grid.Column mobile={16} tablet={8} computer={8}>
               <FieldArray
-                name="cookingTime"
+                name="preparationTime"
                 component={RecipeFieldTime}
                 type="time"
-                label="Cooking Time"
+                label="Preparation Time"
                 showAllErrors={this.state.showAllErrors}
               />
             </Grid.Column>
             <Grid.Column mobile={16} tablet={8} computer={8}>
               <FieldArray
-                name="preparationTime"
+                name="cookingTime"
                 component={RecipeFieldTime}
                 type="time"
-                label="Preparation Time"
+                label="Cooking Time"
                 showAllErrors={this.state.showAllErrors}
               />
             </Grid.Column>

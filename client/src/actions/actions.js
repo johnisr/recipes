@@ -5,4 +5,7 @@ export {
   patchRecipe,
   getRecipes,
 } from './recipeActions';
-export { setRecipeNameFilter } from './recipesFilterActions';
+export {
+  setRecipeNameFilter,
+  setRecipeTagsFilter,
+} from './recipesFilterActions';

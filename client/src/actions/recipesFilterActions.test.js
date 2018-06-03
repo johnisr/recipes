@@ -6,3 +6,8 @@ test('should create a SET_RECIPE_NAME_FILTER action object', () => {
   const action = setRecipeNameFilter(name);
   expect(action).toEqual({ type: SET_RECIPE_NAME_FILTER, payload: name });
 });
+test('should create a SET_RECIPE_TAGS_FILTER action object', () => {
+  const tags = ['abc', '123'];
+  const action = setRecipeNameFilter(tags);
+  expect(action).toEqual({ type: SET_RECIPE_NAME_FILTER, payload: tags });
+});

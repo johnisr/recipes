@@ -5,6 +5,7 @@ const Landing = () => {
     <div>
       Landing!
       <div>Click Recipes to see a list of recipes</div>
+      <div>Login to add recipes</div>
     </div>
   );
 };

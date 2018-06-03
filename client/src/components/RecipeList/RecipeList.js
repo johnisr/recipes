@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Loader, Card, Label, Grid, Button, Icon } from 'semantic-ui-react';
+import {
+  Loader,
+  Card,
+  Label,
+  Grid,
+  Button,
+  Icon,
+  Image,
+} from 'semantic-ui-react';
 import selectRecipes from '../../selectors/recipes';
 
 export class RecipeList extends Component {
@@ -17,6 +25,15 @@ export class RecipeList extends Component {
           {recipes.map(recipe => (
             // eslint-disable-next-line no-underscore-dangle
             <Card key={recipe._id} as={Link} to={`/recipes/${recipe._id}`}>
+              {recipe.imageUrl &&
+                recipe.imageUrl[0] && (
+                  <Image
+                    alt={recipe.name}
+                    src={`https://s3.amazonaws.com/ramosrecipes/${
+                      recipe.imageUrl[0]
+                    }`}
+                  />
+                )}
               <Card.Content>
                 <Card.Header>{recipe.name}</Card.Header>
                 <Card.Description>{recipe.summary}</Card.Description>

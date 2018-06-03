@@ -11,6 +11,8 @@ const multiStringToArray = str =>
     .map(val => val.trim())
     .filter(val => val);
 
+const uniqueArray = arr => [...new Set(arr)];
+
 const arrayToNumber = arr => {
   if (!arr[0]) return 0;
   return arr.reduce((prev, curr) => {
@@ -26,7 +28,8 @@ const arrayToNumber = arr => {
 const formatRecipe = recipeValues => {
   const obj = JSON.parse(JSON.stringify(recipeValues));
   if (obj.notes) obj.notes = multiStringToArray(obj.notes);
-  if (obj.category) obj.category = multiStringToArray(obj.category);
+  if (obj.category)
+    obj.category = uniqueArray(multiStringToArray(obj.category));
   if (obj.preparation) {
     obj.preparation.forEach((section, index) => {
       if (section) {
@@ -60,6 +63,7 @@ const formatRecipe = recipeValues => {
 };
 
 export class RecipeReview extends Component {
+  state = { file: null };
   onSubmit = async () => {
     const { formValues, history, onCancel, match } = this.props;
     try {
@@ -68,12 +72,16 @@ export class RecipeReview extends Component {
       if (match.params.id) {
         await this.props.patchRecipe(match.params.id, recipe);
       } else {
-        await this.props.postRecipe(recipe);
+        await this.props.postRecipe(recipe, this.state.file);
       }
       history.push('/dashboard');
     } catch (err) {
       onCancel();
     }
+  };
+  onFileChange = e => {
+    const file = e.target.files[0];
+    this.setState(() => ({ file }));
   };
   format = formValues => formatRecipe(formValues);
   render() {
@@ -82,6 +90,10 @@ export class RecipeReview extends Component {
       <div>
         <h2>Review</h2>
         {formValues && <RecipeDetail review recipe={this.format(formValues)} />}
+        <div>
+          <h5>Add an Image</h5>
+          <input onChange={this.onFileChange} type="file" accept="image/*" />
+        </div>
         <Button onClick={() => onCancel()}>Back</Button>
         <Button positive icon floated="right" onClick={this.onSubmit}>
           Submit Recipe
@@ -97,7 +109,7 @@ const mapStatetoProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  postRecipe: recipe => dispatch(postRecipe(recipe)),
+  postRecipe: (recipe, file) => dispatch(postRecipe(recipe, file)),
   patchRecipe: (id, updates) => dispatch(patchRecipe(id, updates)),
 });
 

@@ -6,7 +6,7 @@ import {
   setRecipeTagsFilter,
 } from '../../actions/actions';
 import selectRecipes from '../../selectors/recipes';
-import allTags from '../../selectors/allTags';
+import currentTags from '../../selectors/currentTags';
 import tagsToOptions from '../../selectors/tagsToOptions';
 
 class RecipesFilter extends Component {
@@ -30,6 +30,7 @@ class RecipesFilter extends Component {
               placeholder="Enter tags"
               options={tagOptions}
               value={tags}
+              noResultsMessage={null}
               onChange={(e, data) => this.onTagsChange(e, data)}
             />
           </Menu.Item>
@@ -52,7 +53,7 @@ const mapStateToProps = state => {
     state.recipes && selectRecipes(state.recipes, state.recipesFilter);
   return {
     recipesFilter: state.recipesFilter,
-    tagOptions: state.recipes && tagsToOptions(allTags(visibleRecipes)),
+    tagOptions: state.recipes && tagsToOptions(currentTags(visibleRecipes)),
   };
 };
 

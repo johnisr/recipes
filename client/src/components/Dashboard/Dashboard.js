@@ -8,7 +8,7 @@ export const Dashboard = props => {
   const { user, recipes } = props;
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>My Recipes</h2>
       <Segment clearing>
         {user && recipes && recipes.length === 0 ? (
           <h2>No Recipes Found</h2>

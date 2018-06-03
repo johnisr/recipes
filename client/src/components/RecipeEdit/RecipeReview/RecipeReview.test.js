@@ -48,7 +48,10 @@ describe('When calling onSubmit', () => {
       .find('Button')
       .at(1)
       .simulate('click');
-    expect(postRecipe).toHaveBeenLastCalledWith(formValuesArray[0].response);
+    expect(postRecipe).toHaveBeenLastCalledWith(
+      formValuesArray[0].response,
+      null
+    );
   });
 
   // test('should call history.push to /dashboard', () => {

@@ -1,8 +1,20 @@
 import axios from 'axios';
 import { POST_RECIPE, SET_RECIPES, DELETE_RECIPE, PATCH_RECIPE } from './types';
 
-export const postRecipe = values => async dispatch => {
-  const res = await axios.post('/api/recipes', values);
+export const postRecipe = (values, file) => async dispatch => {
+  let uploadConfig;
+  if (file) {
+    uploadConfig = await axios.get('/api/upload');
+    await axios.put(uploadConfig.data.url, file, {
+      headers: {
+        'Content-Type': file.type,
+      },
+    });
+  }
+  const res = await axios.post('/api/recipes', {
+    ...values,
+    imageUrl: [uploadConfig ? uploadConfig.data.key : null],
+  });
 
   dispatch({ type: POST_RECIPE, payload: res.data });
 };

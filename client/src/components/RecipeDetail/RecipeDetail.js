@@ -10,6 +10,7 @@ import {
   Header,
   List,
   Label,
+  Image,
 } from 'semantic-ui-react';
 import { deleteRecipe } from '../../actions/actions';
 
@@ -39,6 +40,16 @@ export class RecipeDetail extends Component {
       // handle error
     }
   };
+  renderImage() {
+    const { imageUrl, name } = this.props.recipe;
+    const startUrl = 'https://s3.amazonaws.com/ramosrecipes/';
+    if (imageUrl[0]) {
+      return (
+        <Image alt={name} src={`${startUrl}${imageUrl[0]}`} size="medium" />
+      );
+    }
+    return null;
+  }
   render() {
     const { recipe, user, review } = this.props;
     if (recipe === null) {
@@ -64,6 +75,7 @@ export class RecipeDetail extends Component {
     if (recipe.preparationTime) {
       preparationTime = getTimeToString(recipe.preparationTime);
     }
+    const { imageUrl } = this.props.recipe;
     return (
       <div>
         {!review && (
@@ -105,6 +117,7 @@ export class RecipeDetail extends Component {
                 ))}
             </Header>
           </Segment>
+          {imageUrl && imageUrl[0] && <Segment>{this.renderImage()}</Segment>}
 
           <Segment>
             <h2>Ingredients</h2>
@@ -173,9 +186,7 @@ export class RecipeDetail extends Component {
 const mapStateToProps = (state, props) => ({
   recipe:
     state.recipes &&
-    // eslint-disable-next-line no-underscore-dangle
     state.recipes.find(recipe => recipe._id === props.match.params.id),
-  // eslint-disable-next-line no-underscore-dangle
   user: state.auth && state.auth._id,
 });
 

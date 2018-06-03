@@ -22,7 +22,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h2>
-          Dashboard
+          My Recipes
 </h2>,
         <Segment
           clearing={true}
@@ -55,10 +55,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Dashboard",
+          "children": "My Recipes",
         },
         "ref": null,
-        "rendered": "Dashboard",
+        "rendered": "My Recipes",
         "type": "h2",
       },
       Object {
@@ -149,7 +149,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h2>
-            Dashboard
+            My Recipes
 </h2>,
           <Segment
             clearing={true}
@@ -182,10 +182,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Dashboard",
+            "children": "My Recipes",
           },
           "ref": null,
-          "rendered": "Dashboard",
+          "rendered": "My Recipes",
           "type": "h2",
         },
         Object {

@@ -99,6 +99,16 @@ ShallowWrapper {
           }
           review={true}
 />,
+        <div>
+          <h5>
+                    Add an Image
+          </h5>
+          <input
+                    accept="image/*"
+                    onChange={[Function]}
+                    type="file"
+          />
+</div>,
         <Button
           as="button"
           onClick={[Function]}
@@ -177,6 +187,51 @@ ShallowWrapper {
         "ref": null,
         "rendered": null,
         "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h5>
+              Add an Image
+</h5>,
+            <input
+              accept="image/*"
+              onChange={[Function]}
+              type="file"
+/>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Add an Image",
+            },
+            "ref": null,
+            "rendered": "Add an Image",
+            "type": "h5",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "accept": "image/*",
+              "onChange": [Function],
+              "type": "file",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+        ],
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -279,6 +334,16 @@ ShallowWrapper {
             }
             review={true}
 />,
+          <div>
+            <h5>
+                        Add an Image
+            </h5>
+            <input
+                        accept="image/*"
+                        onChange={[Function]}
+                        type="file"
+            />
+</div>,
           <Button
             as="button"
             onClick={[Function]}
@@ -357,6 +422,51 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5>
+                Add an Image
+</h5>,
+              <input
+                accept="image/*"
+                onChange={[Function]}
+                type="file"
+/>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Add an Image",
+              },
+              "ref": null,
+              "rendered": "Add an Image",
+              "type": "h5",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "accept": "image/*",
+                "onChange": [Function],
+                "type": "file",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,

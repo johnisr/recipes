@@ -15,6 +15,7 @@ module.exports = app => {
       ingredients,
       preparation,
       cooking,
+      imageUrl,
     } = req.body;
     const recipe = new Recipe({
       _user: req.user.id,
@@ -27,6 +28,7 @@ module.exports = app => {
       ingredients,
       preparation,
       cooking,
+      imageUrl,
       dateCreated: Date.now(),
       dateModified: Date.now(),
       isFinal: true,

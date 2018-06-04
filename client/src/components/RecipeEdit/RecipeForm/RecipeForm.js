@@ -230,6 +230,7 @@ const recipeToForm = recipe => {
     cooking,
     ingredients,
     preparation,
+    imageUrl,
   } = recipe;
   const formValues = {};
 
@@ -243,7 +244,7 @@ const recipeToForm = recipe => {
   if (cooking) formValues.cooking = joinBodyArrays(cooking);
   if (ingredients) formValues.ingredients = joinBodyArrays(ingredients);
   if (preparation) formValues.preparation = joinBodyArrays(preparation);
-
+  if (imageUrl) formValues.imageUrl = imageUrl;
   return formValues;
 };
 

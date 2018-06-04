@@ -26,4 +26,20 @@ module.exports = app => {
       }
     );
   });
+
+  app.patch('/api/upload', requireLogin, (req, res) => {
+    const key = req.body.url;
+
+    s3.getSignedUrl(
+      'putObject',
+      {
+        Bucket: 'ramosrecipes',
+        ContentType: 'image/jpeg',
+        Key: key,
+      },
+      (err, url) => {
+        res.send({ key, url });
+      }
+    );
+  });
 };

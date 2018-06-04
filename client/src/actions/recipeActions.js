@@ -25,8 +25,26 @@ export const deleteRecipe = id => async dispatch => {
   dispatch({ type: DELETE_RECIPE, payload: id });
 };
 
-export const patchRecipe = (id, updates) => async dispatch => {
-  const res = await axios.patch(`/api/recipes/${id}`, updates);
+export const patchRecipe = (id, updates, file) => async dispatch => {
+  let uploadConfig;
+  // need to delete previous file
+  if (file) {
+    // if (updates.imageUrl && updates.imageUrl[0]) {
+    //   uploadConfig = await axios.patch('/api/upload', {
+    //     url: updates.imageUrl[0],
+    //   });
+    // }
+    uploadConfig = await axios.get('/api/upload');
+    await axios.put(uploadConfig.data.url, file, {
+      headers: {
+        'Content-Type': file.type,
+      },
+    });
+  }
+  const res = await axios.patch(`/api/recipes/${id}`, {
+    ...updates,
+    imageUrl: uploadConfig ? [uploadConfig.data.key] : updates.imageUrl,
+  });
 
   dispatch({ type: PATCH_RECIPE, id, payload: res.data });
 };

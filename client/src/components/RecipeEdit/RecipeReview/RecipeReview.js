@@ -70,7 +70,7 @@ export class RecipeReview extends Component {
       const recipe = this.format(formValues);
       if (!recipe) throw new Error('Invalid form values');
       if (match.params.id) {
-        await this.props.patchRecipe(match.params.id, recipe);
+        await this.props.patchRecipe(match.params.id, recipe, this.state.file);
       } else {
         await this.props.postRecipe(recipe, this.state.file);
       }
@@ -110,7 +110,7 @@ const mapStatetoProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   postRecipe: (recipe, file) => dispatch(postRecipe(recipe, file)),
-  patchRecipe: (id, updates) => dispatch(patchRecipe(id, updates)),
+  patchRecipe: (id, updates, file) => dispatch(patchRecipe(id, updates, file)),
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(

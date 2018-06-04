@@ -27,13 +27,14 @@ export const deleteRecipe = id => async dispatch => {
 
 export const patchRecipe = (id, updates, file) => async dispatch => {
   let uploadConfig;
-  // need to delete previous file
   if (file) {
-    // if (updates.imageUrl && updates.imageUrl[0]) {
-    //   uploadConfig = await axios.patch('/api/upload', {
-    //     url: updates.imageUrl[0],
-    //   });
-    // }
+    // delete previous object
+    if (updates.imageUrl && updates.imageUrl[0]) {
+      await axios.patch('/api/upload', {
+        url: updates.imageUrl[0],
+      });
+    }
+
     uploadConfig = await axios.get('/api/upload');
     await axios.put(uploadConfig.data.url, file, {
       headers: {

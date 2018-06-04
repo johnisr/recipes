@@ -30,15 +30,13 @@ module.exports = app => {
   app.patch('/api/upload', requireLogin, (req, res) => {
     const key = req.body.url;
 
-    s3.getSignedUrl(
-      'putObject',
+    s3.deleteObject(
       {
         Bucket: 'ramosrecipes',
-        ContentType: 'image/jpeg',
         Key: key,
       },
-      (err, url) => {
-        res.send({ key, url });
+      (err, data) => {
+        res.status(200).send(data);
       }
     );
   });

@@ -111,6 +111,7 @@ ShallowWrapper {
 </div>,
         <Button
           as="button"
+          color="yellow"
           onClick={[Function]}
           role="button"
 >
@@ -118,6 +119,7 @@ ShallowWrapper {
 </Button>,
         <Button
           as="button"
+          disabled={false}
           floated="right"
           icon={true}
           onClick={[Function]}
@@ -240,6 +242,7 @@ ShallowWrapper {
         "props": Object {
           "as": "button",
           "children": "Back",
+          "color": "yellow",
           "onClick": [Function],
           "role": "button",
         },
@@ -260,6 +263,7 @@ ShallowWrapper {
               name="mail"
 />,
           ],
+          "disabled": false,
           "floated": "right",
           "icon": true,
           "onClick": [Function],
@@ -346,6 +350,7 @@ ShallowWrapper {
 </div>,
           <Button
             as="button"
+            color="yellow"
             onClick={[Function]}
             role="button"
 >
@@ -353,6 +358,7 @@ ShallowWrapper {
 </Button>,
           <Button
             as="button"
+            disabled={false}
             floated="right"
             icon={true}
             onClick={[Function]}
@@ -475,6 +481,7 @@ ShallowWrapper {
           "props": Object {
             "as": "button",
             "children": "Back",
+            "color": "yellow",
             "onClick": [Function],
             "role": "button",
           },
@@ -495,6 +502,7 @@ ShallowWrapper {
                 name="mail"
 />,
             ],
+            "disabled": false,
             "floated": "right",
             "icon": true,
             "onClick": [Function],

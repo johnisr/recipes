@@ -29,7 +29,6 @@ module.exports = app => {
 
   app.patch('/api/upload', requireLogin, (req, res) => {
     const key = req.body.url;
-
     s3.deleteObject(
       {
         Bucket: 'ramosrecipes',

@@ -5,9 +5,8 @@ import RecipeList from '../RecipeList/RecipeList';
 
 const Recipes = () => (
   <div>
-    <div>
-      <RecipesFilter />
-    </div>
+    <RecipesFilter />
+
     <Segment clearing>
       <RecipeList />
     </Segment>

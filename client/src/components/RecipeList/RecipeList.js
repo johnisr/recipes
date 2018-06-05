@@ -10,10 +10,13 @@ import {
   Icon,
   Image,
 } from 'semantic-ui-react';
+import { toggleRecipeTagFilter } from '../../actions/actions';
 import selectRecipes from '../../selectors/recipes';
 
 export class RecipeList extends Component {
-  componentDidMount() {}
+  onLabelClick = e => {
+    this.props.toggleRecipeTagFilter(e.target.innerText);
+  };
   render() {
     const { recipes, auth } = this.props;
     if (!recipes) {
@@ -24,17 +27,20 @@ export class RecipeList extends Component {
         <Card.Group stackable doubling itemsPerRow={4}>
           {recipes.map(recipe => (
             // eslint-disable-next-line no-underscore-dangle
-            <Card key={recipe._id} as={Link} to={`/recipes/${recipe._id}`}>
+            <Card key={recipe._id} to={`/recipes/${recipe._id}`}>
               {recipe.imageUrl &&
                 recipe.imageUrl[0] && (
                   <Image
+                    as={Link}
+                    to={`/recipes/${recipe._id}`}
                     alt={recipe.name}
+                    size="medium"
                     src={`https://s3.amazonaws.com/ramosrecipes/${
                       recipe.imageUrl[0]
                     }`}
                   />
                 )}
-              <Card.Content>
+              <Card.Content as={Link} to={`/recipes/${recipe._id}`}>
                 <Card.Header>{recipe.name}</Card.Header>
                 <Card.Description>{recipe.summary}</Card.Description>
               </Card.Content>
@@ -42,7 +48,11 @@ export class RecipeList extends Component {
                 <Card.Meta>
                   <Grid container>
                     {recipe.category.map(cat => (
-                      <Label key={cat} tag>
+                      <Label
+                        key={cat}
+                        style={{ cursor: 'pointer' }}
+                        onClick={this.onLabelClick}
+                      >
                         {cat}
                       </Label>
                     ))}
@@ -74,4 +84,8 @@ const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(RecipeList);
+const mapDispatchToProps = dispatch => ({
+  toggleRecipeTagFilter: tag => dispatch(toggleRecipeTagFilter(tag)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList);

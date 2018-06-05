@@ -7,3 +7,4 @@ export const SET_RECIPES = 'set_recipes';
 
 export const SET_RECIPE_NAME_FILTER = 'set_recipe_name_filter';
 export const SET_RECIPE_TAGS_FILTER = 'set_recipe_tags_filter';
+export const TOGGLE_RECIPE_TAG_FILTER = 'toggle_recipe_tag_filter';

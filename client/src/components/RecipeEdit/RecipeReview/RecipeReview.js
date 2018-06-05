@@ -63,8 +63,9 @@ const formatRecipe = recipeValues => {
 };
 
 export class RecipeReview extends Component {
-  state = { file: null };
+  state = { file: null, submitting: false };
   onSubmit = async () => {
+    this.setState(() => ({ submitting: true }));
     const { formValues, history, onCancel, match } = this.props;
     try {
       const recipe = this.format(formValues);
@@ -94,8 +95,16 @@ export class RecipeReview extends Component {
           <h5>Add an Image</h5>
           <input onChange={this.onFileChange} type="file" accept="image/*" />
         </div>
-        <Button onClick={() => onCancel()}>Back</Button>
-        <Button positive icon floated="right" onClick={this.onSubmit}>
+        <Button color="yellow" onClick={() => onCancel()}>
+          Back
+        </Button>
+        <Button
+          positive
+          icon
+          floated="right"
+          disabled={this.state.submitting}
+          onClick={this.onSubmit}
+        >
           Submit Recipe
           <Icon name="mail" />
         </Button>

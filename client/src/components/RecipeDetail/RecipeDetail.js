@@ -11,8 +11,11 @@ import {
   List,
   Label,
   Image,
+  Rating,
 } from 'semantic-ui-react';
-import { deleteRecipe } from '../../actions/actions';
+import { deleteRecipe, patchRating } from '../../actions/actions';
+import selectRecipes from '../../selectors/recipes';
+import recipeLinks from '../../selectors/recipeLinks';
 
 const getTimeToString = duration => {
   let timeLeft = duration;
@@ -31,15 +34,43 @@ const getTimeToString = duration => {
 };
 
 export class RecipeDetail extends Component {
+  state = { deleteDisabled: false };
   onDelete = async _id => {
-    const { history } = this.props;
+    const {
+      history,
+      recipe: { imageUrl },
+    } = this.props;
     try {
-      await this.props.deleteRecipe(_id);
+      this.setState(() => ({ deleteDisabled: true }));
+      await this.props.deleteRecipe(_id, imageUrl);
       history.push('/dashboard');
     } catch (err) {
       // handle error
     }
   };
+  onRatingClick = async (e, { rating }) => {
+    const { recipe } = this.props;
+    try {
+      await this.props.patchRating(recipe._id, rating);
+    } catch (err) {
+      //
+    }
+  };
+  getTotalRating = () => {
+    const { rating } = this.props.recipe;
+    const total =
+      rating.reduce((prev, curr) => prev + curr.rating, 0) / rating.length;
+    return `${total.toFixed(2)} / 5`;
+  };
+  getUserRating = () => {
+    const { user, recipe } = this.props;
+    let rating;
+    if (user && recipe && recipe.rating) {
+      rating = recipe.rating.find(rate => rate._user === user);
+    }
+    return rating ? rating.rating : 0;
+  };
+
   renderImage() {
     const { imageUrl, name } = this.props.recipe;
     const startUrl = 'https://s3.amazonaws.com/ramosrecipes/';
@@ -75,9 +106,17 @@ export class RecipeDetail extends Component {
     if (recipe.preparationTime) {
       preparationTime = getTimeToString(recipe.preparationTime);
     }
-    const { imageUrl } = this.props.recipe;
+    const { imageUrl, rating } = this.props.recipe;
     return (
       <div>
+        {!review && (
+          <Button
+            as={Link}
+            to={this.props.recipeLinks.prevUrl}
+            disabled={this.props.recipeLinks.prevDisabled}
+            content="Prev"
+          />
+        )}
         {!review && (
           <Button as={Link} to="/recipes" positive>
             Back
@@ -89,20 +128,46 @@ export class RecipeDetail extends Component {
               Edit
             </Button>
           )}
+        {!review && (
+          <Button
+            as={Link}
+            to={this.props.recipeLinks.nextUrl}
+            disabled={this.props.recipeLinks.nextDisabled}
+            floated="right"
+            content="Next"
+          />
+        )}
         {user &&
           user === recipe._user && (
             <Button
               floated="right"
               onClick={() => this.onDelete(recipe._id)}
               negative
+              disabled={this.state.deleteDisabled}
             >
               Delete
             </Button>
           )}
         <Segment.Group>
           <Segment clearing>
-            <Header as="h1" floated="left">
-              {recipe.name}
+            <Header floated="left">
+              <h1>{recipe.name}</h1>
+              {!review &&
+                user && (
+                  <div>
+                    <span>Your rating: </span>
+                    <Rating
+                      maxRating={5}
+                      defaultRating={this.getUserRating()}
+                      icon="star"
+                      size="mini"
+                      onRate={this.onRatingClick}
+                    />
+                  </div>
+                )}
+              {!review &&
+                rating.length > 0 &&
+                `Total Rating: ${this.getTotalRating()}`}
             </Header>
             <Header floated="right">
               <h3>
@@ -188,10 +253,17 @@ const mapStateToProps = (state, props) => ({
     state.recipes &&
     state.recipes.find(recipe => recipe._id === props.match.params.id),
   user: state.auth && state.auth._id,
+  recipeLinks:
+    state.recipes &&
+    recipeLinks(
+      selectRecipes(state.recipes, state.recipesFilter),
+      props.match.params.id
+    ),
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteRecipe: _id => dispatch(deleteRecipe(_id)),
+  deleteRecipe: (_id, imageUrl) => dispatch(deleteRecipe(_id, imageUrl)),
+  patchRating: (_id, rating) => dispatch(patchRating(_id, rating)),
 });
 
 export default withRouter(

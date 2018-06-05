@@ -15,7 +15,6 @@ const recipeSchema = new Schema({
   summary: String,
   notes: [String],
   rating: [Rating],
-  totalRating: { type: Number, default: 0 },
   cookingTime: Number,
   preparationTime: Number,
   ingredients: {

@@ -19,7 +19,13 @@ export const postRecipe = (values, file) => async dispatch => {
   dispatch({ type: POST_RECIPE, payload: res.data });
 };
 
-export const deleteRecipe = id => async dispatch => {
+export const deleteRecipe = (id, imageUrl) => async dispatch => {
+  // delete every single image associated with it
+  if (imageUrl) {
+    imageUrl.forEach(async url => {
+      await axios.patch('/api/upload', { url });
+    });
+  }
   await axios.delete(`/api/recipes/${id}`);
 
   dispatch({ type: DELETE_RECIPE, payload: id });
@@ -54,4 +60,10 @@ export const getRecipes = () => async dispatch => {
   const res = await axios.get('/api/recipes');
 
   dispatch({ type: SET_RECIPES, payload: res.data });
+};
+
+export const patchRating = (id, rating) => async dispatch => {
+  const res = await axios.patch(`/api/recipes/${id}/rate`, { rating });
+
+  dispatch({ type: PATCH_RECIPE, id, payload: res.data });
 };

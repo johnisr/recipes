@@ -4,6 +4,7 @@ import recipesFilterReducer, {
 import {
   SET_RECIPE_NAME_FILTER,
   SET_RECIPE_TAGS_FILTER,
+  TOGGLE_RECIPE_TAG_FILTER,
 } from '../actions/types';
 
 test('should setup default filter values', () => {
@@ -23,4 +24,20 @@ test('should set recipes tags filter', () => {
   const action = { type: SET_RECIPE_TAGS_FILTER, payload: tags };
   const state = recipesFilterReducer(undefined, action);
   expect(state.tags).toBe(tags);
+});
+
+test('should add a recipe tag if not in tags filter', () => {
+  const tags = ['hello', 'tags'];
+  const tag = 'world';
+  const action = { type: TOGGLE_RECIPE_TAG_FILTER, payload: tag };
+  const state = recipesFilterReducer({ name: '', tags }, action);
+  expect(state.tags).toEqual([...tags, tag]);
+});
+
+test('should remove a recipe tag if in tags filter', () => {
+  const tags = ['hello', 'tags'];
+  const tag = 'hello';
+  const action = { type: TOGGLE_RECIPE_TAG_FILTER, payload: tag };
+  const state = recipesFilterReducer({ name: '', tags }, action);
+  expect(state.tags).toEqual(['tags']);
 });

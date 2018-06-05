@@ -10,4 +10,6 @@ export {
   setRecipeNameFilter,
   setRecipeTagsFilter,
   toggleRecipeTagFilter,
+  setMaxRecipesShown,
+  setRecipesPageOffset,
 } from './recipesFilterActions';

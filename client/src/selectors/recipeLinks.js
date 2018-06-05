@@ -4,7 +4,10 @@ export default (recipes, id) => {
   let nextUrl;
   let prevDisabled;
   let nextDisabled;
-
+  // Not found or deleted
+  if (index === -1) {
+    return {};
+  }
   if (index !== 0) {
     prevUrl = `/recipes/${recipes[index - 1]._id}`;
     prevDisabled = false;

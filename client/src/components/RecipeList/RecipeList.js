@@ -11,7 +11,7 @@ import {
   Image,
 } from 'semantic-ui-react';
 import { toggleRecipeTagFilter } from '../../actions/actions';
-import selectRecipes from '../../selectors/recipes';
+import selectRecipesWithPages from '../../selectors/recipesWithPages';
 
 export class RecipeList extends Component {
   onLabelClick = e => {
@@ -80,7 +80,8 @@ export class RecipeList extends Component {
 }
 
 const mapStateToProps = state => ({
-  recipes: state.recipes && selectRecipes(state.recipes, state.recipesFilter),
+  recipes:
+    state.recipes && selectRecipesWithPages(state.recipes, state.recipesFilter),
   auth: state.auth,
 });
 

@@ -1,5 +1,5 @@
-export default (recipes, { name, tags }) => {
-  return recipes.filter(recipe => {
+export default (recipes, { name, tags }) =>
+  recipes.filter(recipe => {
     // console.log(recipe);
     const nameMatch = recipe.name.toLowerCase().includes(name.toLowerCase());
     const tagsMatch =
@@ -7,4 +7,3 @@ export default (recipes, { name, tags }) => {
     // console.log(nameMatch, tagsMatch);
     return nameMatch && tagsMatch;
   });
-};

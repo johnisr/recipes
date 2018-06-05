@@ -158,7 +158,7 @@ export class RecipeDetail extends Component {
                     <span>Your rating: </span>
                     <Rating
                       maxRating={5}
-                      defaultRating={this.getUserRating()}
+                      rating={this.getUserRating()}
                       icon="star"
                       size="mini"
                       onRate={this.onRatingClick}

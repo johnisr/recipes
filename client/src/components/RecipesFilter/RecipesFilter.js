@@ -6,10 +6,52 @@ import {
   setRecipeTagsFilter,
   setMaxRecipesShown,
   setRecipesPageOffset,
+  setSortBy,
 } from '../../actions/actions';
+import {
+  SORT_BY_USER_RATING,
+  SORT_BY_TOTAL_RATING,
+  SORT_BY_NEWEST,
+  SORT_BY_OLDEST,
+  SORT_BY_COOKING_TIME,
+  SORT_BY_TOTAL_TIME,
+} from '../../actions/types';
 import selectRecipes from '../../selectors/recipes';
 import currentTags from '../../selectors/currentTags';
 import tagsToOptions from '../../selectors/tagsToOptions';
+
+const sortByOptions = [
+  {
+    key: SORT_BY_TOTAL_RATING,
+    text: SORT_BY_TOTAL_RATING.replace('_', ' '),
+    value: SORT_BY_TOTAL_RATING,
+  },
+  {
+    key: SORT_BY_USER_RATING,
+    text: SORT_BY_USER_RATING.replace('_', ' '),
+    value: SORT_BY_USER_RATING,
+  },
+  {
+    key: SORT_BY_NEWEST,
+    text: SORT_BY_NEWEST.replace('_', ' '),
+    value: SORT_BY_NEWEST,
+  },
+  {
+    key: SORT_BY_OLDEST,
+    text: SORT_BY_OLDEST.replace('_', ' '),
+    value: SORT_BY_OLDEST,
+  },
+  {
+    key: SORT_BY_COOKING_TIME,
+    text: SORT_BY_COOKING_TIME.replace('_', ' '),
+    value: SORT_BY_COOKING_TIME,
+  },
+  {
+    key: SORT_BY_TOTAL_TIME,
+    text: SORT_BY_TOTAL_TIME.replace('_', ' '),
+    value: SORT_BY_TOTAL_TIME,
+  },
+];
 
 class RecipesFilter extends Component {
   onNameChange = e => {
@@ -19,6 +61,9 @@ class RecipesFilter extends Component {
   onTagsChange = (e, data) => {
     this.props.setRecipeTagsFilter(data.value);
     this.props.setRecipesPageOffset(0);
+  };
+  onSortByChange = (e, { value }) => {
+    this.props.setSortBy(value);
   };
   onPageChange = (e, { activePage }) => {
     this.props.setRecipesPageOffset(activePage - 1);
@@ -39,7 +84,7 @@ class RecipesFilter extends Component {
   };
   render() {
     const { tagOptions } = this.props;
-    const { name, tags, offset } = this.props.recipesFilter;
+    const { name, tags, offset, sortBy } = this.props.recipesFilter;
     const { totalPages } = this.calculatePaginationInfo();
     return (
       <Menu secondary>
@@ -54,6 +99,16 @@ class RecipesFilter extends Component {
               value={tags}
               noResultsMessage={null}
               onChange={(e, data) => this.onTagsChange(e, data)}
+            />
+          </Menu.Item>
+          <Menu.Item>
+            <Dropdown
+              labelled
+              button
+              text="sort by"
+              value={sortBy}
+              options={sortByOptions}
+              onChange={(e, data) => this.onSortByChange(e, data)}
             />
           </Menu.Item>
           <Menu.Item>
@@ -84,7 +139,8 @@ class RecipesFilter extends Component {
 
 const mapStateToProps = state => {
   const visibleRecipes =
-    state.recipes && selectRecipes(state.recipes, state.recipesFilter);
+    state.recipes &&
+    selectRecipes(state.recipes, state.recipesFilter, state.auth);
   return {
     recipesLength: visibleRecipes && visibleRecipes.length,
     recipesFilter: state.recipesFilter,
@@ -97,6 +153,7 @@ const mapDispatchToProps = dispatch => ({
   setRecipeTagsFilter: tags => dispatch(setRecipeTagsFilter(tags)),
   setMaxRecipesShown: max => dispatch(setMaxRecipesShown(max)),
   setRecipesPageOffset: offset => dispatch(setRecipesPageOffset(offset)),
+  setSortBy: sortByFilter => dispatch(setSortBy(sortByFilter)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesFilter);

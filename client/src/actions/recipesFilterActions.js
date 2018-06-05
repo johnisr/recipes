@@ -4,6 +4,8 @@ import {
   TOGGLE_RECIPE_TAG_FILTER,
   SET_MAX_RECIPES_SHOWN,
   SET_RECIPES_PAGE_OFFSET,
+  SET_SORT_BY,
+  SORT_BY_TOTAL_RATING,
 } from './types';
 
 export const setRecipeNameFilter = (name = '') => ({
@@ -29,4 +31,9 @@ export const setMaxRecipesShown = (max = 10) => ({
 export const setRecipesPageOffset = (offset = 0) => ({
   type: SET_RECIPES_PAGE_OFFSET,
   payload: offset,
+});
+
+export const setSortBy = (payload = SORT_BY_TOTAL_RATING) => ({
+  type: SET_SORT_BY,
+  payload,
 });

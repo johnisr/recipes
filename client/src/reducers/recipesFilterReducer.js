@@ -4,11 +4,14 @@ import {
   TOGGLE_RECIPE_TAG_FILTER,
   SET_MAX_RECIPES_SHOWN,
   SET_RECIPES_PAGE_OFFSET,
+  SET_SORT_BY,
+  SORT_BY_TOTAL_RATING,
 } from '../actions/types';
 
 export const recipesFilterDefaultState = {
   name: '',
   tags: [],
+  sortBy: SORT_BY_TOTAL_RATING,
   maxRecipesShown: 12,
   offset: 0,
 };
@@ -32,6 +35,8 @@ export default (state = recipesFilterDefaultState, action) => {
       return { ...state, maxRecipesShown: action.payload };
     case SET_RECIPES_PAGE_OFFSET:
       return { ...state, offset: action.payload };
+    case SET_SORT_BY:
+      return { ...state, sortBy: action.payload };
     default:
       return state;
   }

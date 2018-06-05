@@ -81,7 +81,8 @@ export class RecipeList extends Component {
 
 const mapStateToProps = state => ({
   recipes:
-    state.recipes && selectRecipesWithPages(state.recipes, state.recipesFilter),
+    state.recipes &&
+    selectRecipesWithPages(state.recipes, state.recipesFilter, state.auth),
   auth: state.auth,
 });
 

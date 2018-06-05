@@ -12,4 +12,5 @@ export {
   toggleRecipeTagFilter,
   setMaxRecipesShown,
   setRecipesPageOffset,
+  setSortBy,
 } from './recipesFilterActions';

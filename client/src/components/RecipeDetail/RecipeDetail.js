@@ -256,7 +256,7 @@ const mapStateToProps = (state, props) => ({
   recipeLinks:
     state.recipes &&
     recipeLinks(
-      selectRecipes(state.recipes, state.recipesFilter),
+      selectRecipes(state.recipes, state.recipesFilter, state.auth),
       props.match.params.id
     ),
 });

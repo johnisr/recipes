@@ -7,8 +7,10 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <RecipeReview
     formValues={
         Object {
-            "category": "test
-        another test",
+            "category": Array [
+              "test",
+              "another test",
+            ],
             "cooking": Array [
               Object {
                 "body": "saute all ingredients",

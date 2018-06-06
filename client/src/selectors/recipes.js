@@ -20,9 +20,9 @@ export default (recipes, { name, tags, sortBy }, user) =>
     .sort((a, b) => {
       switch (sortBy) {
         case SORT_BY_NEWEST:
-          return a.lastModified < b.lastModified ? -1 : 1;
+          return a.dateModified < b.dateModified ? 1 : -1;
         case SORT_BY_OLDEST:
-          return a.lastModified < b.lastModified ? 1 : -1;
+          return a.dateModified < b.dateModified ? -1 : 1;
         case SORT_BY_COOKING_TIME: {
           if (b.cookingTime === 0) {
             return -1;

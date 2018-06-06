@@ -1,5 +1,7 @@
 import React from 'react';
-import { Form, Label, TextArea } from 'semantic-ui-react';
+import { Form, Label, TextArea, Dropdown } from 'semantic-ui-react';
+import allTags from '../../../../selectors/allTags';
+import tagsToOptions from '../../../../selectors/tagsToOptions';
 
 const isANumber = str => str.match(/^(\s*|\d+)$/);
 
@@ -11,6 +13,7 @@ const RecipeField = props => {
     required,
     meta: { error, touched },
     showAllErrors,
+    fields,
   } = props;
   let inputField;
   if (type === 'textarea') {
@@ -33,6 +36,24 @@ const RecipeField = props => {
           if (isANumber(value)) {
             input.onChange(e);
           }
+        }}
+      />
+    );
+  } else if (type === 'category') {
+    inputField = (
+      <Dropdown
+        style={{ width: '100%' }}
+        placeholder={label}
+        multiple
+        search
+        selection
+        upward
+        options={tagsToOptions(allTags)}
+        {...input}
+        value={fields.getAll() ? fields.getAll() : []}
+        onChange={(e, data) => {
+          fields.removeAll();
+          data.value.forEach((d, index) => fields.insert(index, d));
         }}
       />
     );

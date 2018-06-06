@@ -136,12 +136,12 @@ ShallowWrapper {
                         mobile={16}
                         tablet={6}
                 >
-                        <Field
+                        <FieldArray
                                 component={[Function]}
                                 label="Categories"
                                 name="category"
                                 showAllErrors={false}
-                                type="textarea"
+                                type="category"
                         />
                 </GridColumn>
         </GridRow>
@@ -295,12 +295,12 @@ ShallowWrapper {
                         mobile={16}
                         tablet={6}
             >
-                        <Field
+                        <FieldArray
                                     component={[Function]}
                                     label="Categories"
                                     name="category"
                                     showAllErrors={false}
-                                    type="textarea"
+                                    type="category"
                         />
             </GridColumn>
 </GridRow>,
@@ -732,12 +732,12 @@ ShallowWrapper {
                 mobile={16}
                 tablet={6}
 >
-                <Field
+                <FieldArray
                                 component={[Function]}
                                 label="Categories"
                                 name="category"
                                 showAllErrors={false}
-                                type="textarea"
+                                type="category"
                 />
 </GridColumn>,
             ],
@@ -783,12 +783,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "children": <Field
+                "children": <FieldArray
                   component={[Function]}
                   label="Categories"
                   name="category"
                   showAllErrors={false}
-                  type="textarea"
+                  type="category"
 />,
                 "computer": 6,
                 "mobile": 16,
@@ -804,7 +804,7 @@ ShallowWrapper {
                   "label": "Categories",
                   "name": "category",
                   "showAllErrors": false,
-                  "type": "textarea",
+                  "type": "category",
                 },
                 "ref": null,
                 "rendered": null,
@@ -1055,12 +1055,12 @@ ShallowWrapper {
                               mobile={16}
                               tablet={6}
                     >
-                              <Field
+                              <FieldArray
                                         component={[Function]}
                                         label="Categories"
                                         name="category"
                                         showAllErrors={false}
-                                        type="textarea"
+                                        type="category"
                               />
                     </GridColumn>
           </GridRow>
@@ -1214,12 +1214,12 @@ ShallowWrapper {
                             mobile={16}
                             tablet={6}
               >
-                            <Field
+                            <FieldArray
                                           component={[Function]}
                                           label="Categories"
                                           name="category"
                                           showAllErrors={false}
-                                          type="textarea"
+                                          type="category"
                             />
               </GridColumn>
 </GridRow>,
@@ -1651,12 +1651,12 @@ ShallowWrapper {
                   mobile={16}
                   tablet={6}
 >
-                  <Field
+                  <FieldArray
                                     component={[Function]}
                                     label="Categories"
                                     name="category"
                                     showAllErrors={false}
-                                    type="textarea"
+                                    type="category"
                   />
 </GridColumn>,
               ],
@@ -1702,12 +1702,12 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
-                  "children": <Field
+                  "children": <FieldArray
                     component={[Function]}
                     label="Categories"
                     name="category"
                     showAllErrors={false}
-                    type="textarea"
+                    type="category"
 />,
                   "computer": 6,
                   "mobile": 16,
@@ -1723,7 +1723,7 @@ ShallowWrapper {
                     "label": "Categories",
                     "name": "category",
                     "showAllErrors": false,
-                    "type": "textarea",
+                    "type": "category",
                   },
                   "ref": null,
                   "rendered": null,

@@ -64,6 +64,7 @@ class RecipesFilter extends Component {
   };
   onSortByChange = (e, { value }) => {
     this.props.setSortBy(value);
+    this.props.setRecipesPageOffset(0);
   };
   onPageChange = (e, { activePage }) => {
     this.props.setRecipesPageOffset(activePage - 1);
@@ -87,7 +88,7 @@ class RecipesFilter extends Component {
     const { name, tags, offset, sortBy } = this.props.recipesFilter;
     const { totalPages } = this.calculatePaginationInfo();
     return (
-      <Menu secondary>
+      <Menu secondary stackable size="mini">
         <Menu.Menu position="right">
           <Menu.Item>
             <Dropdown
@@ -103,7 +104,6 @@ class RecipesFilter extends Component {
           </Menu.Item>
           <Menu.Item>
             <Dropdown
-              labelled
               button
               text="sort by"
               value={sortBy}
@@ -119,28 +119,42 @@ class RecipesFilter extends Component {
               value={name}
             />
           </Menu.Item>
-          <Pagination
-            secondary
-            activePage={offset + 1}
-            totalPages={totalPages}
-            size="mini"
-            ellipsisItem={false}
-            boundaryRange={0}
-            firstItem={false}
-            lastItem={false}
-            siblingRange={1}
-            onPageChange={this.onPageChange}
-          />
+          <Menu.Item>
+            <Pagination
+              secondary
+              activePage={offset + 1}
+              totalPages={totalPages}
+              size="mini"
+              ellipsisItem={false}
+              boundaryRange={0}
+              firstItem={false}
+              lastItem={false}
+              siblingRange={1}
+              onPageChange={this.onPageChange}
+            />
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
     );
   }
 }
 
-const mapStateToProps = state => {
-  const visibleRecipes =
-    state.recipes &&
-    selectRecipes(state.recipes, state.recipesFilter, state.auth);
+const mapStateToProps = (state, ownProps) => {
+  let visibleRecipes;
+  if (ownProps.dashboard) {
+    visibleRecipes =
+      state.recipes &&
+      state.auth &&
+      selectRecipes(
+        state.recipes.filter(recipe => recipe._user === state.auth._id),
+        state.recipesFilter,
+        state.auth
+      );
+  } else {
+    visibleRecipes =
+      state.recipes &&
+      selectRecipes(state.recipes, state.recipesFilter, state.auth);
+  }
   return {
     recipesLength: visibleRecipes && visibleRecipes.length,
     recipesFilter: state.recipesFilter,

@@ -32,7 +32,7 @@ export default [
       "name": "Test Recipe",
       "summary": "A test recipe",
       "notes": "Some notes\nAbout the test recipe",
-      "category": "test\nanother test"
+      "category": ["test", "another test"]
     },
     response: {
       category: ['test', 'another test'],

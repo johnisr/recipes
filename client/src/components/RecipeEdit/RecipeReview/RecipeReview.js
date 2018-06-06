@@ -28,8 +28,7 @@ const arrayToNumber = arr => {
 const formatRecipe = recipeValues => {
   const obj = JSON.parse(JSON.stringify(recipeValues));
   if (obj.notes) obj.notes = multiStringToArray(obj.notes);
-  if (obj.category)
-    obj.category = uniqueArray(multiStringToArray(obj.category));
+  if (obj.category) obj.category = uniqueArray(obj.category);
   if (obj.preparation) {
     obj.preparation.forEach((section, index) => {
       if (section) {

@@ -112,10 +112,10 @@ export class RecipeForm extends Component {
               />
             </Grid.Column>
             <Grid.Column mobile={16} tablet={6} computer={6}>
-              <Field
+              <FieldArray
                 name="category"
                 component={RecipeField}
-                type="textarea"
+                type="category"
                 label="Categories"
                 showAllErrors={this.state.showAllErrors}
               />
@@ -235,7 +235,7 @@ const recipeToForm = recipe => {
   const formValues = {};
 
   if (notes) formValues.notes = notes.join('\n');
-  if (category) formValues.category = category.join('\n');
+  if (category) formValues.category = category;
   if (name) formValues.name = name;
   if (summary) formValues.summary = summary;
   if (cookingTime) formValues.cookingTime = timeToArrayObj(cookingTime);

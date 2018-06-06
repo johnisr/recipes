@@ -66,6 +66,7 @@ ShallowWrapper {
             onClick={[Function]}
             to="/"
 />,
+          false,
           <MenuItem
             active={false}
             as={[Function]}
@@ -106,6 +107,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        false,
         Object {
           "instance": null,
           "key": undefined,
@@ -205,6 +207,7 @@ ShallowWrapper {
               onClick={[Function]}
               to="/"
 />,
+            false,
             <MenuItem
               active={false}
               as={[Function]}
@@ -245,6 +248,7 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -334,6 +338,13 @@ ShallowWrapper {
                 as={[Function]}
                 content="Home"
                 onClick={[Function]}
+                to="/"
+        />
+        <MenuItem
+                active={false}
+                as={[Function]}
+                content="Dashboard"
+                onClick={[Function]}
                 to="/dashboard"
         />
         <MenuItem
@@ -365,6 +376,13 @@ ShallowWrapper {
             active={false}
             as={[Function]}
             content="Home"
+            onClick={[Function]}
+            to="/"
+/>,
+          <MenuItem
+            active={false}
+            as={[Function]}
+            content="Dashboard"
             onClick={[Function]}
             to="/dashboard"
 />,
@@ -401,6 +419,21 @@ ShallowWrapper {
             "active": false,
             "as": [Function],
             "content": "Home",
+            "onClick": [Function],
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "active": false,
+            "as": [Function],
+            "content": "Dashboard",
             "onClick": [Function],
             "to": "/dashboard",
           },
@@ -473,6 +506,13 @@ ShallowWrapper {
                     as={[Function]}
                     content="Home"
                     onClick={[Function]}
+                    to="/"
+          />
+          <MenuItem
+                    active={false}
+                    as={[Function]}
+                    content="Dashboard"
+                    onClick={[Function]}
                     to="/dashboard"
           />
           <MenuItem
@@ -504,6 +544,13 @@ ShallowWrapper {
               active={false}
               as={[Function]}
               content="Home"
+              onClick={[Function]}
+              to="/"
+/>,
+            <MenuItem
+              active={false}
+              as={[Function]}
+              content="Dashboard"
               onClick={[Function]}
               to="/dashboard"
 />,
@@ -540,6 +587,21 @@ ShallowWrapper {
               "active": false,
               "as": [Function],
               "content": "Home",
+              "onClick": [Function],
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "active": false,
+              "as": [Function],
+              "content": "Dashboard",
               "onClick": [Function],
               "to": "/dashboard",
             },
@@ -662,6 +724,7 @@ ShallowWrapper {
             onClick={[Function]}
             to="/"
 />,
+          null,
           <MenuItem
             active={false}
             as={[Function]}
@@ -695,6 +758,7 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        null,
         Object {
           "instance": null,
           "key": undefined,
@@ -761,6 +825,7 @@ ShallowWrapper {
               onClick={[Function]}
               to="/"
 />,
+            null,
             <MenuItem
               active={false}
               as={[Function]}
@@ -794,6 +859,7 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+          null,
           Object {
             "instance": null,
             "key": undefined,

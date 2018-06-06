@@ -35,8 +35,18 @@ export class Header extends Component {
             active={activeItem === 'Home'}
             onClick={this.handleItemClick}
             as={Link}
-            to={this.props.auth ? '/dashboard' : '/'}
+            to="/"
           />
+          {this.props.auth && (
+            <Menu.Item
+              content="Dashboard"
+              active={activeItem === 'Dashboard'}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/dashboard"
+            />
+          )}
+
           <Menu.Item
             content="Recipes"
             active={activeItem === 'Recipes'}

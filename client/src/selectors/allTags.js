@@ -32,6 +32,8 @@ export const prepMethod = [
   'blender',
   'microwave',
   'slow cooker',
+  'steamer',
+  'deep fry',
 ];
 
 export const cuisine = [

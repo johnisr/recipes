@@ -82,7 +82,7 @@ export class RecipeDetail extends Component {
     return null;
   }
   render() {
-    const { recipe, user, review } = this.props;
+    const { recipe, user, review, history } = this.props;
     if (recipe === null) {
       return <Loader active content="Loading" size="large" />;
     }
@@ -118,7 +118,7 @@ export class RecipeDetail extends Component {
           />
         )}
         {!review && (
-          <Button as={Link} to="/recipes" positive>
+          <Button onClick={() => history.goBack()} positive>
             Back
           </Button>
         )}

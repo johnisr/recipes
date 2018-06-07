@@ -25,6 +25,8 @@ export const allTags = {
     'slow cooker',
     'steamer',
     'deep fry',
+    'saute',
+    'stew',
   ],
   cuisine: [
     'mexican',

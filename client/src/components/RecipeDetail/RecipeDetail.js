@@ -14,6 +14,7 @@ import {
   Rating,
 } from 'semantic-ui-react';
 import { deleteRecipe, patchRating } from '../../actions/actions';
+import { tagToDisplayOption } from '../../selectors/allTags';
 import selectRecipes from '../../selectors/recipes';
 import recipeLinks from '../../selectors/recipeLinks';
 
@@ -171,15 +172,23 @@ export class RecipeDetail extends Component {
             </Header>
             <Header floated="right">
               <h3>
-                {preparationTime && `Prep Time: ${preparationTime}| `}
+                {preparationTime && `Prep Time: ${preparationTime}`}
+                {preparationTime && cookingTime && ' | '}
                 {cookingTime && `Cooking Time: ${cookingTime}`}
               </h3>
-              {recipe.category &&
-                recipe.category.map(cat => (
-                  <Label key={cat} tag>
-                    {cat}
-                  </Label>
-                ))}
+              <span>
+                {recipe.category &&
+                  recipe.category.map(cat => {
+                    const option = tagToDisplayOption(cat);
+                    return (
+                      <Label
+                        key={cat}
+                        content={option.text}
+                        color={option.color}
+                      />
+                    );
+                  })}
+              </span>
             </Header>
           </Segment>
           {imageUrl && imageUrl[0] && <Segment>{this.renderImage()}</Segment>}

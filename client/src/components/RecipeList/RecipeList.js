@@ -9,6 +9,7 @@ import {
   Button,
   Icon,
   Image,
+  Transition,
 } from 'semantic-ui-react';
 import { tagToDisplayOption } from '../../selectors/allTags';
 import { toggleRecipeTagFilter } from '../../actions/actions';
@@ -25,9 +26,8 @@ export class RecipeList extends Component {
     }
     return (
       <div>
-        <Card.Group stackable doubling itemsPerRow={4}>
+        <Transition.Group as={Card.Group} stackable doubling itemsPerRow={4}>
           {recipes.map(recipe => (
-            // eslint-disable-next-line no-underscore-dangle
             <Card key={recipe._id} to={`/recipes/${recipe._id}`}>
               {recipe.imageUrl &&
                 recipe.imageUrl[0] && (
@@ -57,9 +57,7 @@ export class RecipeList extends Component {
                           color={option.color}
                           style={{ cursor: 'pointer' }}
                           onClick={this.onLabelClick}
-                        >
-                          {cat}
-                        </Label>
+                        />
                       );
                     })}
                   </Grid>
@@ -67,7 +65,7 @@ export class RecipeList extends Component {
               </Card.Content>
             </Card>
           ))}
-        </Card.Group>
+        </Transition.Group>
         {auth && (
           <Button
             icon

@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import { fetchUser, getRecipes } from '../../actions/actions';
 
 import Header from '../Header/Header';
-import Landing from '../Landing/Landing';
+import LandingContainer from '../Landing/LandingContainer';
 import Dashboard from '../Dashboard/Dashboard';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RecipeEdit from '../RecipeEdit/RecipeEdit';
@@ -22,7 +22,7 @@ export class App extends Component {
     return (
       <Container>
         <Header />
-        <Route path="/" exact component={Landing} />
+        <Route path="/" exact component={LandingContainer} />
         <Route path="/recipes/:id" exact component={RecipeDetail} />
         <Route path="/recipes" exact component={Recipes} />
         <PrivateRoute

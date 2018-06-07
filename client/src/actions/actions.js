@@ -1,5 +1,9 @@
 export { default as fetchUser } from './userActions';
 export {
+  setCarouselNumLoadedSlides,
+  setCurrentSlideIndex,
+} from './carouselActions';
+export {
   postRecipe,
   deleteRecipe,
   patchRecipe,

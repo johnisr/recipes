@@ -18,3 +18,6 @@ export const SORT_BY_NEWEST = 'newest';
 export const SORT_BY_OLDEST = 'oldest';
 export const SORT_BY_COOKING_TIME = 'cooking_time';
 export const SORT_BY_TOTAL_TIME = 'total_time';
+
+export const SET_CAROUSEL_NUM_LOADED_SLIDES = 'set_carousel_loaded_slides';
+export const SET_CURRENT_SLIDE_INDEX = 'set_current_slide_index';

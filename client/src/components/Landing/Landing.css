@@ -35,5 +35,9 @@
   transform: translateY(-50%);
 }
 
-.slider__caption {
+.slider__link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
 }

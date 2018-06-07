@@ -239,7 +239,7 @@ export class RecipeDetail extends Component {
             )}
         </Segment.Group>
         {!review && (
-          <Button as={Link} to="/recipes" positive>
+          <Button onClick={() => history.goBack()} positive>
             Back
           </Button>
         )}

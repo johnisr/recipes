@@ -51,7 +51,11 @@ ShallowWrapper {
                     name="angle right"
           />
 </Button>,
-        Array [],
+        <div
+          className="slider__dots"
+>
+          
+</div>,
       ],
       "className": "slider__container",
     },
@@ -131,6 +135,18 @@ ShallowWrapper {
         },
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [],
+          "className": "slider__dots",
+        },
+        "ref": null,
+        "rendered": Array [],
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -172,7 +188,11 @@ ShallowWrapper {
                         name="angle right"
             />
 </Button>,
-          Array [],
+          <div
+            className="slider__dots"
+>
+            
+</div>,
         ],
         "className": "slider__container",
       },
@@ -251,6 +271,18 @@ ShallowWrapper {
             "type": [Function],
           },
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [],
+            "className": "slider__dots",
+          },
+          "ref": null,
+          "rendered": Array [],
+          "type": "div",
         },
       ],
       "type": "div",

@@ -18,7 +18,10 @@ import {
 } from '../../actions/types';
 import selectRecipes from '../../selectors/recipes';
 import currentTags from '../../selectors/currentTags';
-import tagsToOptions from '../../selectors/tagsToOptions';
+import {
+  tagsToDisplayOptions,
+  tagToRenderLabel,
+} from '../../selectors/allTags';
 
 const sortByOptions = [
   {
@@ -99,6 +102,7 @@ class RecipesFilter extends Component {
               options={tagOptions}
               value={tags}
               noResultsMessage={null}
+              renderLabel={tagToRenderLabel}
               onChange={(e, data) => this.onTagsChange(e, data)}
             />
           </Menu.Item>
@@ -158,7 +162,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     recipesLength: visibleRecipes && visibleRecipes.length,
     recipesFilter: state.recipesFilter,
-    tagOptions: state.recipes && tagsToOptions(currentTags(visibleRecipes)),
+    tagOptions:
+      state.recipes && tagsToDisplayOptions(currentTags(visibleRecipes)),
   };
 };
 

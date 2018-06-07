@@ -41,3 +41,26 @@
   right: 0;
   transform: translate(-50%, -50%);
 }
+
+/*  need 3 levels of specificity to beat semantic styling
+    react-carousel active = disabled, semantic ui has disabled
+    with opacity 0.45 !important
+*/
+.slider__container .slider__dot--active[role='button'],
+.slider__container .slider__dot--active[role='button']:focus {
+  background-color: white;
+  opacity: 1 !important;
+}
+
+.slider__container .slider__dot[role='button'],
+.slider__container .slider__dot[role='button']:focus {
+  background-color: #e8e8e8;
+  opacity: 0.5 !important;
+}
+
+.slider__dots {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}

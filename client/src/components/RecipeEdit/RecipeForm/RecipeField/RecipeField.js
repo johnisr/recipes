@@ -1,7 +1,6 @@
 import React from 'react';
-import { Form, Label, TextArea, Dropdown } from 'semantic-ui-react';
-import allTags from '../../../../selectors/allTags';
-import tagsToOptions from '../../../../selectors/tagsToOptions';
+import { Form, Label, TextArea, Dropdown, Popup } from 'semantic-ui-react';
+import { allTagsOptions, categories } from '../../../../selectors/allTags';
 
 const isANumber = str => str.match(/^(\s*|\d+)$/);
 
@@ -41,20 +40,33 @@ const RecipeField = props => {
     );
   } else if (type === 'category') {
     inputField = (
-      <Dropdown
-        style={{ width: '100%' }}
-        placeholder={label}
-        multiple
-        search
-        selection
-        upward
-        options={tagsToOptions(allTags)}
-        {...input}
-        value={fields.getAll() ? fields.getAll() : []}
-        onChange={(e, data) => {
-          fields.removeAll();
-          data.value.forEach((d, index) => fields.insert(index, d));
-        }}
+      <Popup
+        position="left center"
+        header="Tag Categories"
+        content={Object.keys(categories).map(key => (
+          <div key={categories[key].name}>
+            <Label empty circular color={categories[key].color} />
+            <span>{categories[key].name}</span>
+          </div>
+        ))}
+        on="focus"
+        trigger={
+          <Dropdown
+            style={{ width: '100%' }}
+            placeholder={label}
+            multiple
+            search
+            selection
+            upward
+            options={allTagsOptions}
+            {...input}
+            value={fields.getAll() ? fields.getAll() : []}
+            onChange={(e, data) => {
+              fields.removeAll();
+              data.value.forEach((d, index) => fields.insert(index, d));
+            }}
+          />
+        }
       />
     );
   } else {

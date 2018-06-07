@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
@@ -43,7 +43,7 @@ export class Landing extends Component {
   }
   startUrl = 'https://s3.amazonaws.com/ramosrecipes/';
   render() {
-    const { recipes, numLoadedSlides } = this.props;
+    const { recipes, numLoadedSlides, currentSlide } = this.props;
 
     return (
       <div className="slider__container">
@@ -58,6 +58,9 @@ export class Landing extends Component {
                 alt={recipe.name}
                 width="100%"
                 height="auto"
+                renderLoading={() => (
+                  <Loader active content="Loading" size="large" />
+                )}
               />
               <Button
                 as={Link}
@@ -91,19 +94,23 @@ export class Landing extends Component {
         >
           <Icon name="angle right" />
         </Button>
-        {recipes
-          .slice(0, numLoadedSlides)
-          .map((r, index) => (
-            <Button
-              as={Dot}
-              circular
-              key={`${r._id}button`}
-              size="mini"
-              compact
-              slide={index}
-              color="black"
-            />
-          ))}
+        <div className="slider__dots">
+          {recipes
+            .slice(0, numLoadedSlides)
+            .map((r, index) => (
+              <Button
+                as={Dot}
+                circular
+                key={`${r._id}button`}
+                size="small"
+                compact
+                slide={index}
+                className={
+                  index === currentSlide ? 'slider__dot--active' : 'slider__dot'
+                }
+              />
+            ))}
+        </div>
       </div>
     );
   }

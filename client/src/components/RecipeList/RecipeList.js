@@ -10,6 +10,7 @@ import {
   Icon,
   Image,
 } from 'semantic-ui-react';
+import { tagToDisplayOption } from '../../selectors/allTags';
 import { toggleRecipeTagFilter } from '../../actions/actions';
 import selectRecipesWithPages from '../../selectors/recipesWithPages';
 
@@ -47,15 +48,20 @@ export class RecipeList extends Component {
               <Card.Content extra>
                 <Card.Meta>
                   <Grid container>
-                    {recipe.category.map(cat => (
-                      <Label
-                        key={cat}
-                        style={{ cursor: 'pointer' }}
-                        onClick={this.onLabelClick}
-                      >
-                        {cat}
-                      </Label>
-                    ))}
+                    {recipe.category.map(cat => {
+                      const option = tagToDisplayOption(cat);
+                      return (
+                        <Label
+                          key={cat}
+                          content={option.text}
+                          color={option.color}
+                          style={{ cursor: 'pointer' }}
+                          onClick={this.onLabelClick}
+                        >
+                          {cat}
+                        </Label>
+                      );
+                    })}
                   </Grid>
                 </Card.Meta>
               </Card.Content>

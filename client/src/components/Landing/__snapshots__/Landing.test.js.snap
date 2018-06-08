@@ -54,7 +54,28 @@ ShallowWrapper {
         <div
           className="slider__dots"
 >
-          
+          <div>
+                    <Button
+                              as={[Function]}
+                              circular={true}
+                              className="slider__dot"
+                              compact={true}
+                              content={1}
+                              role="button"
+                              size="small"
+                              slide={0}
+                    />
+                    <Button
+                              as={[Function]}
+                              circular={true}
+                              className="slider__dot"
+                              compact={true}
+                              content={NaN}
+                              role="button"
+                              size="small"
+                              slide={NaN}
+                    />
+          </div>
 </div>,
       ],
       "className": "slider__container",
@@ -140,11 +161,101 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [],
+          "children": <div>
+            <Button
+                        as={[Function]}
+                        circular={true}
+                        className="slider__dot"
+                        compact={true}
+                        content={1}
+                        role="button"
+                        size="small"
+                        slide={0}
+            />
+            <Button
+                        as={[Function]}
+                        circular={true}
+                        className="slider__dot"
+                        compact={true}
+                        content={NaN}
+                        role="button"
+                        size="small"
+                        slide={NaN}
+            />
+</div>,
           "className": "slider__dots",
         },
         "ref": null,
-        "rendered": Array [],
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Button
+                as={[Function]}
+                circular={true}
+                className="slider__dot"
+                compact={true}
+                content={1}
+                role="button"
+                size="small"
+                slide={0}
+/>,
+              Array [],
+              <Button
+                as={[Function]}
+                circular={true}
+                className="slider__dot"
+                compact={true}
+                content={NaN}
+                role="button"
+                size="small"
+                slide={NaN}
+/>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "firstButton",
+              "nodeType": "class",
+              "props": Object {
+                "as": [Function],
+                "circular": true,
+                "className": "slider__dot",
+                "compact": true,
+                "content": 1,
+                "role": "button",
+                "size": "small",
+                "slide": 0,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "lastButton",
+              "nodeType": "class",
+              "props": Object {
+                "as": [Function],
+                "circular": true,
+                "className": "slider__dot",
+                "compact": true,
+                "content": NaN,
+                "role": "button",
+                "size": "small",
+                "slide": NaN,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
         "type": "div",
       },
     ],
@@ -191,7 +302,28 @@ ShallowWrapper {
           <div
             className="slider__dots"
 >
-            
+            <div>
+                        <Button
+                                    as={[Function]}
+                                    circular={true}
+                                    className="slider__dot"
+                                    compact={true}
+                                    content={1}
+                                    role="button"
+                                    size="small"
+                                    slide={0}
+                        />
+                        <Button
+                                    as={[Function]}
+                                    circular={true}
+                                    className="slider__dot"
+                                    compact={true}
+                                    content={NaN}
+                                    role="button"
+                                    size="small"
+                                    slide={NaN}
+                        />
+            </div>
 </div>,
         ],
         "className": "slider__container",
@@ -277,11 +409,101 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [],
+            "children": <div>
+              <Button
+                            as={[Function]}
+                            circular={true}
+                            className="slider__dot"
+                            compact={true}
+                            content={1}
+                            role="button"
+                            size="small"
+                            slide={0}
+              />
+              <Button
+                            as={[Function]}
+                            circular={true}
+                            className="slider__dot"
+                            compact={true}
+                            content={NaN}
+                            role="button"
+                            size="small"
+                            slide={NaN}
+              />
+</div>,
             "className": "slider__dots",
           },
           "ref": null,
-          "rendered": Array [],
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Button
+                  as={[Function]}
+                  circular={true}
+                  className="slider__dot"
+                  compact={true}
+                  content={1}
+                  role="button"
+                  size="small"
+                  slide={0}
+/>,
+                Array [],
+                <Button
+                  as={[Function]}
+                  circular={true}
+                  className="slider__dot"
+                  compact={true}
+                  content={NaN}
+                  role="button"
+                  size="small"
+                  slide={NaN}
+/>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "firstButton",
+                "nodeType": "class",
+                "props": Object {
+                  "as": [Function],
+                  "circular": true,
+                  "className": "slider__dot",
+                  "compact": true,
+                  "content": 1,
+                  "role": "button",
+                  "size": "small",
+                  "slide": 0,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "lastButton",
+                "nodeType": "class",
+                "props": Object {
+                  "as": [Function],
+                  "circular": true,
+                  "className": "slider__dot",
+                  "compact": true,
+                  "content": NaN,
+                  "role": "button",
+                  "size": "small",
+                  "slide": NaN,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
           "type": "div",
         },
       ],

@@ -42,8 +42,89 @@ export class Landing extends Component {
     }
   }
   startUrl = 'https://s3.amazonaws.com/ramosrecipes/';
-  render() {
+  createPageButtons = () => {
     const { recipes, numLoadedSlides, currentSlide } = this.props;
+    if (numLoadedSlides < 10 || currentSlide < 8) {
+      return (
+        <div>
+          {recipes
+            .slice(0, Math.min(10, numLoadedSlides))
+            .map((r, index) => (
+              <Button
+                as={Dot}
+                circular
+                key={`${r._id}button`}
+                size="small"
+                compact
+                slide={index}
+                className={
+                  index === currentSlide ? 'slider__dot--active' : 'slider__dot'
+                }
+              />
+            ))}
+          {numLoadedSlides > 10 && (
+            <Button
+              as={Dot}
+              circular
+              key="lastButton"
+              size="small"
+              compact
+              content={Math.min(numLoadedSlides, recipes.length - 1)}
+              slide={Math.min(numLoadedSlides, recipes.length - 1)}
+              className="slider__dot"
+            />
+          )}
+        </div>
+      );
+    }
+    return (
+      <div>
+        <Button
+          as={Dot}
+          circular
+          key="firstButton"
+          size="small"
+          compact
+          content={1}
+          slide={0}
+          className="slider__dot"
+        />
+        {recipes
+          .slice(
+            currentSlide - 4,
+            Math.min(currentSlide + 4, numLoadedSlides, recipes.length - 1)
+          )
+          .map((r, index) => (
+            <Button
+              as={Dot}
+              circular
+              key={`${r._id}button`}
+              size="small"
+              content={currentSlide - 4 + index}
+              compact
+              slide={currentSlide - 4 + index}
+              className={index === 4 ? 'slider__dot--active' : 'slider__dot'}
+            />
+          ))}
+        <Button
+          as={Dot}
+          circular
+          key="lastButton"
+          size="small"
+          compact
+          content={Math.min(numLoadedSlides, recipes.length - 1)}
+          slide={Math.min(numLoadedSlides, recipes.length - 1)}
+          className={
+            currentSlide === Math.min(numLoadedSlides, recipes.length - 1)
+              ? 'slider__dot--active'
+              : 'slider__dot'
+          }
+        />
+      </div>
+    );
+  };
+  render() {
+    const { recipes, numLoadedSlides } = this.props;
 
     return (
       <div className="slider__container">
@@ -94,23 +175,7 @@ export class Landing extends Component {
         >
           <Icon name="angle right" />
         </Button>
-        <div className="slider__dots">
-          {recipes
-            .slice(0, numLoadedSlides)
-            .map((r, index) => (
-              <Button
-                as={Dot}
-                circular
-                key={`${r._id}button`}
-                size="small"
-                compact
-                slide={index}
-                className={
-                  index === currentSlide ? 'slider__dot--active' : 'slider__dot'
-                }
-              />
-            ))}
-        </div>
+        <div className="slider__dots">{this.createPageButtons()}</div>
       </div>
     );
   }

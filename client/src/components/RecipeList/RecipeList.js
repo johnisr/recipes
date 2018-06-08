@@ -42,7 +42,7 @@ export class RecipeList extends Component {
                   />
                 )}
               <Card.Content as={Link} to={`/recipes/${recipe._id}`}>
-                <Card.Header>{recipe.name}</Card.Header>
+                <Card.Header textAlign="center">{recipe.name}</Card.Header>
                 <Card.Description>{recipe.summary}</Card.Description>
               </Card.Content>
               <Card.Content extra>

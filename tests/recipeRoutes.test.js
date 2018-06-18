@@ -100,7 +100,20 @@ describe('When Logged out', () => {
       summary: 'new summary',
     };
     request(app)
-      .delete(`/api/recipes/${id}`)
+      .patch(`/api/recipes/${id}`)
+      .send(update)
+      .expect(401)
+      .expect(res => {
+        expect(res.body).toEqual({ error: 'You must log in' });
+      })
+      .end(done);
+  });
+
+  test('PATCH /api/recipes/:id/rate returns a 401', async done => {
+    const { id } = recipesArray[1];
+    const update = { rating: 4 };
+    request(app)
+      .patch(`/api/recipes/${id}/rate`)
       .send(update)
       .expect(401)
       .expect(res => {
@@ -538,5 +551,66 @@ describe('When Logged in', () => {
           return done();
         });
     });
+  });
+  describe('PATCH /api/recipes/:id/rate', () => {
+    test('should not rate an invalid id recipe', async done => {
+      const id = '123';
+      const update = {
+        rating: 5,
+      };
+      request(app)
+        .patch(`/api/recipes/${id}/rate`)
+        .set('Cookie', `session=${session}; session.sig=${sig}`)
+        .send(update)
+        .expect(404)
+        .expect(res => {
+          expect(res.body).toEqual({ error: 'Invalid recipe id' });
+        })
+        .end(done);
+    });
+  });
+
+  test('should not rate a valid id recipe that does not exist', async done => {
+    const id = mongoose.Types.ObjectId();
+    const update = {
+      rating: 5,
+    };
+    request(app)
+      .patch(`/api/recipes/${id}/rate`)
+      .set('Cookie', `session=${session}; session.sig=${sig}`)
+      .send(update)
+      .expect(400)
+      .expect(res => {
+        expect(res.body).toEqual({ error: 'Rating could not be pushed' });
+      })
+      .end(done);
+  });
+
+  test('should be able to rate a recipe that belongs to another user', async done => {
+    const id = recipesArray[1]._id;
+    const update = {
+      rating: 5,
+    };
+    request(app)
+      .patch(`/api/recipes/${id}/rate`)
+      .set('Cookie', `session=${session}; session.sig=${sig}`)
+      .send(update)
+      .expect(200)
+      .expect(res => {
+        expect(res.body.name).toEqual(recipesArray[1].name);
+        expect(res.body.rating[0]._user).toEqual(user._id.toString());
+        expect(res.body.rating[0].rating).toEqual(5);
+      })
+      .end(async err => {
+        if (err) done(err);
+        const recipe = await Recipe.findOne({
+          _id: recipesArray[1]._id,
+        }).exec();
+        expect(recipe).toBeTruthy();
+        expect(recipe.name).toEqual(recipesArray[1].name);
+        expect(recipe.rating[0]._user).toEqual(user._id);
+        expect(recipe.rating[0].rating).toEqual(5);
+        done();
+      });
   });
 });

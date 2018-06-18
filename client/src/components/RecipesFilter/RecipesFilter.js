@@ -131,7 +131,6 @@ class RecipesFilter extends Component {
               size="mini"
               ellipsisItem={false}
               boundaryRange={0}
-              firstItem={false}
               lastItem={false}
               siblingRange={1}
               onPageChange={this.onPageChange}

@@ -71,7 +71,7 @@ describe('When not logged in', async () => {
     const selector = '.card';
     await page.waitFor(selector);
     const cardsCount = await page.$$eval(selector, el => el.length);
-    expect(cardsCount).toBe(4);
+    expect(cardsCount).not.toBe(0);
   });
 
   test('Cannot see add recipes button', async () => {
@@ -85,16 +85,15 @@ describe('When not logged in', async () => {
 describe('When logged in', async () => {
   beforeEach(async () => {
     await page.login();
-    await page.goto('http://localhost:3000/recipes', {
-      waitUntil: 'networkidle0',
-    });
+    await page.goto('http://localhost:3000/recipes');
+    await page.waitFor('.card');
   });
 
   test('Can see recipes', async () => {
     const selector = '.card';
     await page.waitFor(selector);
     const cardsCount = await page.$$eval(selector, el => el.length);
-    expect(cardsCount).toBe(4);
+    expect(cardsCount).not.toBe(0);
   });
 
   test('Can see add recipes button', async () => {
@@ -242,6 +241,7 @@ describe('When logged in', async () => {
 
       describe('And submitting then viewing recipe details', () => {
         beforeEach(async () => {
+          await page.waitFor('button.positive.right.button');
           await page.click('button.positive.right.button');
           await page.waitFor('.card > .content > .header');
           page.click('.card > .content > .header');

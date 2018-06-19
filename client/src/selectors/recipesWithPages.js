@@ -3,7 +3,7 @@ import selectRecipes from './recipes';
 export default (
   recipes,
   { name, tags, maxRecipesShown, offset, sortBy },
-  { _id }
+  { _id = null }
 ) =>
   selectRecipes(
     recipes,

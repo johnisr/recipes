@@ -3,7 +3,9 @@ const Page = require('./helpers/page');
 let page;
 beforeEach(async () => {
   page = await Page.build();
-  await page.goto('http://localhost:3000');
+  await page.goto('http://localhost:3000', {
+    waitUntil: 'networkidle0',
+  });
 });
 
 afterEach(async () => {
@@ -16,6 +18,7 @@ test('When not signed in, show Login button', async () => {
 });
 
 test('Clicking login starts OAuth flow', async () => {
+  await page.waitFor('[href="/auth/google"');
   await page.click('[href="/auth/google"');
   const url = await page.url();
   expect(url).toMatch(/^https:\/\/accounts\.google\.com/);

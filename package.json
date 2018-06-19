@@ -6,23 +6,23 @@
   "jest": {
     "displayName": "server",
     "setupTestFrameworkScriptFile": "./tests/setup.js",
-    "testPathIgnorePatterns": [
-      "<rootDir>/client"
-    ]
+    "testPathIgnorePatterns": ["<rootDir>/client", "<rootDir>/node_modules"]
   },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "build":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "heroku-postbuild": "npm run build",
     "test": "jest",
     "testclient": "npm run test --prefix client",
     "testAll": "concurrently \"npm run test\" \"npm run testclient\"",
     "testWatch": "jest --watchAll",
     "testclientWatch": "npm run testWatch --prefix client",
-    "testWatchAll": "concurrently \"npm run testWatch\" \"npm run testclientWatch\""
+    "testWatchAll":
+      "concurrently \"npm run testWatch\" \"npm run testclientWatch\""
   },
   "dependencies": {
     "aws-sdk": "^2.250.1",

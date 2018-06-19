@@ -34,7 +34,9 @@ module.exports = [
         ],
       },
     ],
-    imageUrl: [],
+    imageUrl: [
+      "5b12fb16955efe001460c9ec/ad9b2880-6b2c-11e8-9a60-3f3ea279ecff.jpeg",
+    ],
   },
   {
     name: "Beef Salpicao",
@@ -89,7 +91,9 @@ module.exports = [
         ],
       },
     ],
-    imageUrl: [],
+    imageUrl: [
+      '5b12fb16955efe001460c9ec/ee61f700-6b30-11e8-9a60-3f3ea279ecff.jpeg',
+    ],
   },
   {
     name: "Bibimbap",
@@ -188,7 +192,9 @@ module.exports = [
         ],
       },
     ],
-    imageUrl: [],
+    imageUrl: [
+      "5b12fb16955efe001460c9ec/46966b80-6b32-11e8-9a60-3f3ea279ecff.jpeg",
+    ],
   },
   {
     name: "Tikka Masala",
@@ -254,6 +260,8 @@ module.exports = [
         ],
       },
     ],
-    imageUrl: [],
+    imageUrl: [
+      "5b12fb16955efe001460c9ec/3fe9bce0-6a9e-11e8-9936-dd6eddcbfd02.jpeg",
+    ],
   },
 ];

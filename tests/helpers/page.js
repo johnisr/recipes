@@ -29,8 +29,9 @@ class Page {
 
     await this.page.setCookie({ name: 'session', value: session });
     await this.page.setCookie({ name: 'session.sig', value: sig });
-    await this.page.goto('http://localhost:3000/dashboard');
-    await this.page.waitFor('a[href="/auth/logout"]');
+    await this.page.goto('http://localhost:3000/dashboard', {
+      waitUntil: 'networkidle0',
+    });
   }
   async close() {
     if (this.user) await userFactory.deleteUser(this.user._id);

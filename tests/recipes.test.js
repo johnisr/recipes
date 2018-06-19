@@ -1,3 +1,59 @@
+const recipes = require('./fixtures/recipes');
+const mongoose = require('mongoose');
+
+const Recipe = mongoose.model('Recipe');
+
+// instantiate database with recipes from fixture
+let savedRecipes;
+let recipesArray;
+const usersArray = [];
+beforeAll(async () => {
+  savedRecipes = await Recipe.find({}).exec();
+  await Recipe.remove({}).exec();
+
+  recipesArray = recipes.map(
+    (
+      {
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+        imageUrl,
+      },
+      index
+    ) => {
+      usersArray[index] = mongoose.Types.ObjectId();
+      return new Recipe({
+        _user: usersArray[index],
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+        dateCreated: Date.now(),
+        dateModified: Date.now(),
+        isFinal: true,
+        imageUrl,
+      });
+    }
+  );
+  await Recipe.insertMany(recipesArray);
+});
+
+afterAll(async () => {
+  await Recipe.remove({}).exec();
+  await Recipe.insertMany(savedRecipes);
+});
+
 const Page = require('./helpers/page');
 
 let page;
@@ -15,7 +71,7 @@ describe('When not logged in', async () => {
     const selector = '.card';
     await page.waitFor(selector);
     const cardsCount = await page.$$eval(selector, el => el.length);
-    expect(cardsCount).toBe(12);
+    expect(cardsCount).toBe(4);
   });
 
   test('Cannot see add recipes button', async () => {
@@ -29,20 +85,21 @@ describe('When not logged in', async () => {
 describe('When logged in', async () => {
   beforeEach(async () => {
     await page.login();
-    await page.goto('http://localhost:3000/recipes');
-    await page.waitFor('a[href="/auth/logout"]');
+    await page.goto('http://localhost:3000/recipes', {
+      waitUntil: 'networkidle0',
+    });
   });
 
   test('Can see recipes', async () => {
     const selector = '.card';
     await page.waitFor(selector);
     const cardsCount = await page.$$eval(selector, el => el.length);
-    expect(cardsCount).toBe(12);
+    expect(cardsCount).toBe(4);
   });
 
   test('Can see add recipes button', async () => {
     const selector = 'a[href="/recipesNew"]';
-    await page.waitFor('.card');
+    await page.waitFor(selector);
     const button = await page.$(selector);
     expect(button).toBeTruthy();
   });
@@ -65,6 +122,7 @@ describe('When logged in', async () => {
 
     describe('With invalid inputs', () => {
       test('and submitting results in error message', async () => {
+        await page.waitFor('button[type="submit"]');
         await page.click('button[type="submit"]');
 
         const selector = '.ui.red.message > .content > p';
@@ -74,6 +132,7 @@ describe('When logged in', async () => {
       });
 
       test('and submitting results in three required labels', async () => {
+        await page.waitFor('button[type="submit"]');
         await page.click('button[type="submit"]');
 
         const selector = '.ui.red.basic.label';
@@ -86,6 +145,7 @@ describe('When logged in', async () => {
       });
 
       test('and submitting name results in error message and two required labels', async () => {
+        await page.waitFor('input[name="name"]');
         await page.type('input[name="name"]', 'Recipe Name');
         await page.click('button[type="submit"]');
 
@@ -99,6 +159,7 @@ describe('When logged in', async () => {
       });
 
       test('and submitting ingredient results in error message and two required labels', async () => {
+        await page.waitFor('textarea[placeholder="Ingredients"]');
         await page.type(
           'textarea[placeholder="Ingredients"]',
           'Recipe Ingredients'
@@ -115,6 +176,7 @@ describe('When logged in', async () => {
       });
 
       test('and submitting instructions results in error message and two required labels', async () => {
+        await page.waitFor('textarea[placeholder="Instructions"]');
         await page.type(
           'textarea[placeholder="Instructions"]',
           'Recipe Instructions'
@@ -133,6 +195,8 @@ describe('When logged in', async () => {
 
     describe('With valid inputs', () => {
       beforeEach(async () => {
+        // wait for ingredients to show up before typing
+        await page.waitFor('h3');
         await page.type('input[name="name"]', 'Recipe Name');
         await page.type(
           'textarea[placeholder="Ingredients"]',
@@ -209,6 +273,7 @@ describe('When logged in', async () => {
         });
 
         test('back button leads back to dashboard', async () => {
+          await page.waitFor('button.positive');
           page.click('button.positive');
           const selector = '.card';
 
@@ -223,6 +288,7 @@ describe('When logged in', async () => {
         });
 
         test('edit button leads to edit form', async () => {
+          await page.waitFor('a.yellow.button');
           page.click('a.yellow.button');
           await page.waitFor('form.ui.form');
           const name = await page.$eval('input[name="name"]', el => el.value);
@@ -242,6 +308,7 @@ describe('When logged in', async () => {
         });
 
         test('delete button leads back to empty dashboard', async () => {
+          await page.waitFor('button.negative');
           page.click('button.negative');
           await page.waitFor('a[href="/recipesNew"]');
           expect(await page.getContentsOf('h2')).toBe('My Recipes');

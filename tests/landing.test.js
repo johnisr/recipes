@@ -1,3 +1,59 @@
+const recipes = require('./fixtures/recipes');
+const mongoose = require('mongoose');
+
+const Recipe = mongoose.model('Recipe');
+
+// instantiate database with recipes from fixture
+let savedRecipes;
+let recipesArray;
+const usersArray = [];
+beforeAll(async () => {
+  savedRecipes = await Recipe.find({}).exec();
+  await Recipe.remove({}).exec();
+
+  recipesArray = recipes.map(
+    (
+      {
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+        imageUrl,
+      },
+      index
+    ) => {
+      usersArray[index] = mongoose.Types.ObjectId();
+      return new Recipe({
+        _user: usersArray[index],
+        name,
+        summary,
+        notes,
+        cookingTime,
+        preparationTime,
+        category,
+        ingredients,
+        preparation,
+        cooking,
+        dateCreated: Date.now(),
+        dateModified: Date.now(),
+        isFinal: true,
+        imageUrl,
+      });
+    }
+  );
+  await Recipe.insertMany(recipesArray);
+});
+
+afterAll(async () => {
+  await Recipe.remove({}).exec();
+  await Recipe.insertMany(savedRecipes);
+});
+
 const Page = require('./helpers/page');
 
 let page;
@@ -8,13 +64,6 @@ beforeEach(async () => {
 
 afterEach(async () => {
   await page.close();
-});
-
-test('Should see Loading image', async () => {
-  const selector = '.carousel__image';
-  await page.waitFor(selector);
-  const image = await page.getContentsOf('.loader');
-  expect(image).toBe('Loading');
 });
 
 test('Should see image after loading', async () => {
@@ -35,12 +84,12 @@ test('Should see 3 slider dots on load and 1st one active', async () => {
   expect(activeDot).toEqual('');
 });
 
-test('Should see 5 slider dots after clicking on 3rd one', async () => {
+test('Should see 4 slider dots after clicking on 2nd one', async () => {
   const selector = '.carousel__dot';
   await page.waitFor(selector);
-  await page.click('.carousel__dot--2');
+  await page.click('.carousel__dot--1');
   const dotsCount = await page.$$eval(selector, el => el.length);
-  expect(dotsCount).toEqual(5);
+  expect(dotsCount).toEqual(4);
 });
 
 test('Should move active dot right after clicking next button', async () => {

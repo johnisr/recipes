@@ -49,7 +49,6 @@ describe('When Logged in', () => {
   });
 
   afterAll(async () => {
-    // eslint-disable-next-line no-underscore-dangle
     await userFactory.deleteUser(user._id);
   });
 
@@ -59,7 +58,6 @@ describe('When Logged in', () => {
       .set('Cookie', `session=${session}; session.sig=${sig}`)
       .expect(200)
       .expect(res => {
-        // eslint-disable-next-line no-underscore-dangle
         expect(res.body._id).toMatch(user._id.toString());
       })
       .end(done);

@@ -33,7 +33,6 @@ class Page {
     await this.page.waitFor('a[href="/auth/logout"]');
   }
   async close() {
-    // eslint-disable-next-line no-underscore-dangle
     if (this.user) await userFactory.deleteUser(this.user._id);
     await this.browser.close();
   }

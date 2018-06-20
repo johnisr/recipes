@@ -8,6 +8,7 @@ export const postRecipe = (values, file) => async dispatch => {
     await axios.put(uploadConfig.data.url, file, {
       headers: {
         'Content-Type': file.type,
+        'Cache-Control': 'public, max-age=31536000',
       },
     });
   }
@@ -45,6 +46,7 @@ export const patchRecipe = (id, updates, file) => async dispatch => {
     await axios.put(uploadConfig.data.url, file, {
       headers: {
         'Content-Type': file.type,
+        'Cache-Control': 'public, max-age=31536000',
       },
     });
   }
